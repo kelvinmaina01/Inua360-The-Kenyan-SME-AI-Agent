@@ -1,0 +1,1001 @@
+company_id,country,sector,employees,annual_revenue,tech_adoption_level,main_challenges,digital_tools_used,growth_last_yr,funding_status,female_owned,remote_work_policy
+1,Ghana,Education,130,386441,Low,Awareness,"CRM, WhatsApp, E-commerce",11,Seed,No,None
+2,Rwanda,Farming,367,383576,Low,Internet,WhatsApp,27,Series A,Yes,Partial
+3,Kenya,Farming,87,496528,Low,"Awareness, Internet","Google My Business, Mobile money, POS",1,Bootstrapped,No,Full
+4,Kenya,Manufacturing,131,360550,High,Regulation,"Google My Business, E-commerce, POS",6,None,Yes,Full
+5,Nigeria,Logistics,136,173801,High,"Regulation, Skills",E-commerce,44,Series A,Yes,Partial
+6,Nigeria,Logistics,104,323189,High,"Skills, Awareness","CRM, E-commerce, POS",25,Bootstrapped,Yes,Partial
+7,Nigeria,Manufacturing,242,271548,High,"Skills, Awareness","WhatsApp, POS, Google My Business",38,Series A,No,Partial
+8,Ghana,Finance,261,312322,High,"Awareness, Regulation",POS,-2,None,Yes,None
+9,Kenya,Logistics,181,285769,High,Cost,"Mobile money, POS",-3,Series A,No,Partial
+10,Nigeria,Retail,191,298459,Low,"Awareness, Cost","Mobile money, CRM",3,Bootstrapped,No,Full
+11,Kenya,Education,32,50147,High,Regulation,Mobile money,50,Seed,Yes,Full
+12,Rwanda,Farming,50,431591,Medium,"Awareness, Cost",Mobile money,4,Series A,No,Partial
+13,Ghana,Retail,392,153562,High,"Regulation, Cost",CRM,47,Bootstrapped,No,Full
+14,South Africa,Logistics,386,137209,High,"Skills, Regulation","POS, CRM",34,Series A,No,None
+15,Rwanda,Manufacturing,439,351170,Medium,Skills,"WhatsApp, POS",-1,Seed,No,Full
+16,Kenya,Logistics,127,29902,Medium,"Regulation, Skills","E-commerce, Mobile money",21,Seed,Yes,Full
+17,Nigeria,Manufacturing,252,405232,High,"Cost, Regulation","Mobile money, CRM",41,Bootstrapped,No,Full
+18,Nigeria,Retail,229,35853,Low,Skills,"POS, Google My Business",18,Series A,No,None
+19,Kenya,Logistics,96,304960,Low,"Cost, Regulation","E-commerce, WhatsApp, Mobile money",32,None,Yes,Full
+20,Ghana,Finance,67,263043,High,"Regulation, Internet",POS,47,Bootstrapped,No,None
+21,Rwanda,Manufacturing,257,71880,Low,Internet,"Mobile money, E-commerce, POS",32,Seed,No,None
+22,Ghana,Manufacturing,284,76683,High,Cost,"Google My Business, CRM, WhatsApp",25,None,No,Partial
+23,Ghana,Education,406,208531,High,"Skills, Regulation",CRM,18,None,No,Partial
+24,Ghana,Manufacturing,200,395602,Medium,"Awareness, Regulation",Google My Business,39,Seed,No,None
+25,Kenya,Education,282,432862,Low,"Internet, Regulation",E-commerce,11,Seed,No,Full
+26,South Africa,Finance,486,112133,Low,Skills,"Mobile money, Google My Business",24,Series A,Yes,Partial
+27,Ghana,Retail,130,60843,High,Skills,Mobile money,37,Series A,No,Partial
+28,Kenya,Education,497,133389,High,Cost,"E-commerce, POS, CRM",19,Bootstrapped,Yes,None
+29,South Africa,Farming,391,433381,Medium,"Skills, Cost","Google My Business, CRM, POS",41,None,No,None
+30,South Africa,Manufacturing,413,126936,High,Skills,"POS, WhatsApp",48,Bootstrapped,No,Full
+31,Rwanda,Retail,321,280125,Medium,"Skills, Internet","E-commerce, Google My Business",40,None,Yes,None
+32,Ghana,Farming,419,57111,Low,"Regulation, Skills","Mobile money, WhatsApp",36,Bootstrapped,No,Full
+33,Nigeria,Logistics,40,403351,Medium,"Regulation, Skills","WhatsApp, Mobile money, POS",47,None,Yes,Partial
+34,Rwanda,Finance,442,320703,High,Cost,"POS, Mobile money",17,Seed,Yes,Partial
+35,South Africa,Manufacturing,426,26869,Medium,"Skills, Cost","POS, Mobile money, WhatsApp",33,None,No,Full
+36,Kenya,Education,32,396360,High,"Regulation, Skills","Mobile money, CRM, POS",44,None,No,Full
+37,Rwanda,Education,10,381519,High,Awareness,"Google My Business, E-commerce, WhatsApp",43,Seed,Yes,None
+38,Ghana,Logistics,442,475374,Medium,Awareness,"Google My Business, Mobile money, E-commerce",11,Bootstrapped,Yes,None
+39,Ghana,Education,221,46334,High,Internet,POS,44,Seed,Yes,None
+40,Rwanda,Farming,399,282194,High,Regulation,Mobile money,14,None,No,None
+41,Nigeria,Manufacturing,390,74593,Low,"Skills, Cost","CRM, POS",31,None,No,None
+42,Rwanda,Retail,288,397970,High,Regulation,"POS, WhatsApp, E-commerce",-1,Bootstrapped,Yes,Partial
+43,Ghana,Manufacturing,342,378764,Low,"Cost, Awareness",Mobile money,32,Series A,No,Full
+44,Kenya,Education,226,294130,High,Skills,"WhatsApp, Google My Business",22,None,No,Partial
+45,Nigeria,Manufacturing,41,157274,Low,"Internet, Awareness","Google My Business, CRM",18,Bootstrapped,Yes,Partial
+46,Rwanda,Logistics,442,289516,High,"Internet, Cost","Mobile money, E-commerce",43,Series A,Yes,Full
+47,Kenya,Logistics,80,83312,Medium,Cost,CRM,-1,None,Yes,Partial
+48,Kenya,Logistics,295,11038,Low,Regulation,POS,37,None,Yes,Full
+49,South Africa,Farming,172,240111,Low,"Cost, Skills","POS, Mobile money, CRM",-4,Series A,Yes,Partial
+50,Kenya,Manufacturing,302,126229,High,"Cost, Internet","E-commerce, CRM, POS",5,None,No,Partial
+51,Ghana,Farming,217,199093,Medium,"Awareness, Internet",Google My Business,36,Seed,No,Full
+52,Ghana,Logistics,8,122132,High,"Skills, Regulation","Google My Business, POS",45,Series A,No,Full
+53,Rwanda,Farming,82,76680,Medium,Cost,"POS, Google My Business",4,Bootstrapped,Yes,Full
+54,South Africa,Farming,433,339550,High,"Cost, Skills","POS, Google My Business",11,Seed,No,Full
+55,Rwanda,Manufacturing,459,233916,Low,"Internet, Skills","Google My Business, E-commerce",38,Bootstrapped,No,None
+56,Kenya,Logistics,493,333435,High,"Internet, Regulation","POS, CRM",22,Bootstrapped,Yes,Partial
+57,South Africa,Logistics,380,78592,Medium,Skills,"Google My Business, POS, E-commerce",43,Seed,Yes,Full
+58,Rwanda,Logistics,206,121385,Medium,"Awareness, Cost","WhatsApp, POS, Google My Business",16,None,Yes,Partial
+59,Rwanda,Finance,211,188510,High,"Regulation, Skills","POS, CRM",43,None,No,None
+60,Kenya,Education,450,351367,Medium,Skills,E-commerce,6,Series A,Yes,None
+61,Ghana,Manufacturing,79,116240,High,"Awareness, Skills",WhatsApp,7,None,No,Partial
+62,South Africa,Retail,465,388344,Low,Awareness,"Mobile money, Google My Business, POS",20,Seed,No,None
+63,Kenya,Farming,17,223933,Medium,Awareness,"WhatsApp, CRM",50,Seed,Yes,Partial
+64,South Africa,Finance,243,206344,High,"Internet, Skills","CRM, WhatsApp",1,Series A,No,None
+65,Ghana,Retail,136,361026,High,Regulation,"Mobile money, WhatsApp",15,None,No,Full
+66,South Africa,Farming,237,173843,Low,Internet,"CRM, WhatsApp",-3,Bootstrapped,Yes,None
+67,Kenya,Finance,317,187050,Medium,"Skills, Cost",E-commerce,-4,Bootstrapped,No,Partial
+68,Nigeria,Finance,91,330920,High,"Regulation, Awareness","CRM, POS",31,Seed,Yes,Full
+69,Nigeria,Logistics,82,164234,High,"Awareness, Cost",CRM,24,Seed,No,None
+70,Kenya,Retail,220,343193,Medium,Awareness,"CRM, Mobile money",0,None,Yes,Partial
+71,South Africa,Farming,200,474590,Low,"Awareness, Internet","E-commerce, Mobile money",-2,Series A,No,Partial
+72,Kenya,Education,233,160286,Low,"Cost, Skills",POS,9,None,Yes,Full
+73,Nigeria,Farming,136,227829,Low,Internet,"Google My Business, CRM, Mobile money",9,None,No,None
+74,Nigeria,Retail,81,352744,High,"Awareness, Regulation","WhatsApp, Mobile money",20,Seed,No,Full
+75,Nigeria,Logistics,170,420340,Low,Regulation,E-commerce,16,Seed,No,None
+76,Kenya,Education,169,382803,Medium,"Regulation, Awareness","POS, CRM, WhatsApp",36,None,Yes,Partial
+77,South Africa,Manufacturing,452,459472,Medium,Skills,CRM,45,Series A,Yes,Partial
+78,Ghana,Logistics,271,428629,Medium,Cost,CRM,4,Bootstrapped,No,Full
+79,South Africa,Finance,181,278895,High,Regulation,"WhatsApp, E-commerce, POS",36,Bootstrapped,Yes,Full
+80,Kenya,Education,174,16927,Medium,"Internet, Awareness","Mobile money, Google My Business, WhatsApp",27,Bootstrapped,No,None
+81,Ghana,Manufacturing,303,289831,Medium,"Awareness, Internet","E-commerce, Google My Business, WhatsApp",22,None,Yes,None
+82,Ghana,Finance,73,310093,Medium,"Regulation, Cost","WhatsApp, E-commerce, CRM",2,Bootstrapped,No,Partial
+83,Rwanda,Logistics,7,165315,Medium,"Skills, Internet",E-commerce,-4,None,No,None
+84,Rwanda,Logistics,41,356688,Medium,"Awareness, Cost","E-commerce, WhatsApp",44,Seed,Yes,Full
+85,Rwanda,Retail,417,55345,High,"Awareness, Skills",Mobile money,-2,Bootstrapped,No,Full
+86,Ghana,Education,173,177915,Medium,Internet,POS,14,Seed,No,None
+87,Ghana,Logistics,49,265434,Low,Cost,"WhatsApp, Mobile money, Google My Business",9,Bootstrapped,No,Full
+88,Ghana,Finance,98,204774,Medium,Cost,Google My Business,42,Bootstrapped,No,Partial
+89,Nigeria,Finance,138,455867,High,"Skills, Internet",POS,44,None,No,Partial
+90,South Africa,Logistics,445,370301,High,Internet,POS,11,None,Yes,Full
+91,Rwanda,Farming,213,241929,Medium,"Awareness, Internet",E-commerce,1,Bootstrapped,Yes,Partial
+92,Ghana,Education,373,413784,High,Cost,"Google My Business, POS, WhatsApp",16,Bootstrapped,No,Full
+93,South Africa,Education,47,149876,Medium,Cost,"Mobile money, WhatsApp, Google My Business",47,Bootstrapped,No,Partial
+94,Ghana,Farming,188,239964,Low,Skills,"Mobile money, E-commerce",9,Series A,No,Full
+95,Kenya,Retail,410,480165,High,Regulation,"WhatsApp, E-commerce, Google My Business",30,Seed,Yes,Full
+96,South Africa,Education,17,480316,Low,Skills,CRM,28,Bootstrapped,No,None
+97,Nigeria,Education,125,230603,Medium,Awareness,Google My Business,14,None,Yes,Full
+98,Ghana,Logistics,222,470025,Low,Internet,"WhatsApp, POS",38,Series A,No,Partial
+99,Nigeria,Manufacturing,433,320599,Medium,"Awareness, Internet",E-commerce,16,Seed,Yes,Full
+100,Nigeria,Finance,489,148886,Low,Cost,"Mobile money, WhatsApp",29,None,Yes,None
+101,Ghana,Finance,167,243136,Low,Internet,"Google My Business, Mobile money, POS",37,Series A,No,Partial
+102,Kenya,Manufacturing,156,208970,Low,"Awareness, Cost","Google My Business, POS, Mobile money",3,Series A,Yes,Partial
+103,Kenya,Education,60,30810,High,Regulation,"WhatsApp, Google My Business",35,Series A,Yes,None
+104,Nigeria,Farming,421,424936,High,Cost,CRM,21,Bootstrapped,Yes,Full
+105,South Africa,Farming,347,118495,High,Internet,Google My Business,38,Seed,Yes,Partial
+106,Nigeria,Education,452,266157,High,Skills,CRM,-4,None,Yes,None
+107,Kenya,Farming,114,393082,Medium,Cost,WhatsApp,1,Series A,No,None
+108,Ghana,Manufacturing,40,195960,Low,"Regulation, Cost",CRM,6,None,Yes,None
+109,Kenya,Logistics,382,406793,Low,"Skills, Internet","Mobile money, WhatsApp",-5,Series A,Yes,Full
+110,South Africa,Farming,218,449608,Low,"Regulation, Skills",WhatsApp,40,None,No,Partial
+111,Rwanda,Finance,30,258588,High,Internet,"WhatsApp, Google My Business",50,Series A,No,None
+112,South Africa,Farming,468,275525,High,"Awareness, Regulation",Mobile money,6,Bootstrapped,No,None
+113,Kenya,Farming,214,290473,Low,"Skills, Cost","CRM, Google My Business",9,Seed,Yes,None
+114,Kenya,Finance,344,56361,Low,Internet,"E-commerce, POS",8,Series A,No,Partial
+115,Kenya,Finance,464,255570,Low,Internet,"POS, WhatsApp, CRM",4,None,Yes,Full
+116,Kenya,Logistics,11,48998,Medium,"Internet, Awareness","E-commerce, WhatsApp, CRM",4,Seed,No,Full
+117,Kenya,Education,252,131242,High,"Cost, Regulation","CRM, Google My Business, E-commerce",46,Series A,Yes,None
+118,Nigeria,Logistics,82,223159,High,Internet,E-commerce,14,Series A,Yes,Partial
+119,South Africa,Manufacturing,46,192023,High,Awareness,E-commerce,25,Bootstrapped,Yes,None
+120,South Africa,Farming,460,355924,High,"Skills, Awareness","WhatsApp, Google My Business",16,None,No,None
+121,Nigeria,Manufacturing,6,281825,Medium,"Regulation, Internet","Google My Business, E-commerce, CRM",41,Seed,No,Full
+122,Ghana,Manufacturing,392,17479,Low,"Skills, Internet","Mobile money, Google My Business, CRM",39,Series A,No,None
+123,Rwanda,Logistics,311,232970,Medium,Internet,"WhatsApp, E-commerce",18,None,Yes,Partial
+124,Kenya,Manufacturing,307,32796,Low,"Regulation, Skills","Google My Business, POS, WhatsApp",40,Series A,No,Partial
+125,Rwanda,Retail,111,69791,Medium,"Regulation, Cost",POS,31,Seed,No,Full
+126,Kenya,Logistics,197,305165,Medium,Awareness,"E-commerce, Mobile money, POS",23,Seed,No,Full
+127,Nigeria,Logistics,344,124577,High,"Internet, Skills",Google My Business,37,Bootstrapped,No,None
+128,South Africa,Logistics,283,131581,Medium,"Internet, Skills","WhatsApp, POS, CRM",24,Series A,Yes,Full
+129,Rwanda,Logistics,34,169062,High,Regulation,WhatsApp,-5,Seed,Yes,Partial
+130,Ghana,Education,356,42210,High,"Regulation, Skills","Mobile money, WhatsApp",-1,Bootstrapped,Yes,None
+131,South Africa,Retail,56,392874,High,Skills,"CRM, Google My Business",28,Series A,Yes,Full
+132,Rwanda,Farming,313,497114,High,"Regulation, Internet",CRM,32,Bootstrapped,No,Partial
+133,South Africa,Retail,314,83831,Low,"Skills, Cost",Google My Business,23,Series A,Yes,Full
+134,Rwanda,Retail,112,417224,Low,"Cost, Regulation","Mobile money, CRM, WhatsApp",47,None,Yes,Partial
+135,Rwanda,Farming,306,224830,Low,Internet,E-commerce,15,None,Yes,Full
+136,Kenya,Farming,159,161777,Medium,Regulation,WhatsApp,14,Series A,Yes,Partial
+137,Kenya,Logistics,279,431107,Low,Skills,"Google My Business, POS, E-commerce",24,None,No,None
+138,Kenya,Retail,390,63579,Medium,Regulation,"CRM, Mobile money, WhatsApp",5,None,No,Full
+139,Kenya,Retail,140,161963,Low,"Awareness, Regulation","E-commerce, WhatsApp, CRM",50,Seed,No,Partial
+140,Rwanda,Manufacturing,351,16570,Low,"Skills, Cost","CRM, Mobile money, E-commerce",7,Seed,No,None
+141,Kenya,Education,294,21641,High,"Cost, Skills",Mobile money,30,Bootstrapped,Yes,Partial
+142,Rwanda,Retail,153,349947,High,Internet,"E-commerce, Mobile money, Google My Business",44,Seed,No,Partial
+143,South Africa,Finance,360,413020,Medium,"Cost, Regulation","WhatsApp, Google My Business",15,Seed,Yes,None
+144,Nigeria,Farming,69,308236,Medium,Internet,"Google My Business, WhatsApp",-1,None,Yes,None
+145,Nigeria,Retail,459,78281,Medium,"Awareness, Cost",E-commerce,32,Seed,No,Partial
+146,Rwanda,Retail,278,230516,Medium,Internet,"Mobile money, E-commerce",49,Seed,Yes,Partial
+147,Kenya,Education,44,384190,Low,Awareness,"E-commerce, POS, Mobile money",10,Series A,Yes,Partial
+148,Rwanda,Farming,96,316395,High,Awareness,POS,7,None,Yes,Full
+149,Nigeria,Finance,365,321333,High,Cost,E-commerce,50,Bootstrapped,No,Full
+150,South Africa,Finance,84,425923,High,Skills,"Mobile money, CRM",4,Series A,Yes,Partial
+151,Rwanda,Retail,481,208601,Medium,Regulation,"POS, E-commerce, WhatsApp",7,Series A,No,Partial
+152,Nigeria,Manufacturing,483,287975,High,"Awareness, Regulation","CRM, Google My Business",22,Seed,Yes,Full
+153,Nigeria,Manufacturing,462,453120,High,Skills,CRM,13,Bootstrapped,No,None
+154,Ghana,Retail,407,57542,High,"Cost, Awareness","Google My Business, WhatsApp",-2,Seed,No,None
+155,Nigeria,Manufacturing,19,465215,Medium,Regulation,"Google My Business, POS, Mobile money",34,Bootstrapped,Yes,Partial
+156,South Africa,Education,359,195778,Medium,"Internet, Skills",POS,28,Series A,No,Partial
+157,Rwanda,Manufacturing,183,424064,Low,Awareness,POS,7,Series A,No,Partial
+158,Kenya,Farming,369,424805,Medium,"Internet, Cost","CRM, Mobile money, WhatsApp",27,Series A,No,Full
+159,Nigeria,Farming,225,102416,Low,Awareness,"E-commerce, CRM",25,Bootstrapped,Yes,Partial
+160,South Africa,Manufacturing,357,210917,High,Cost,"CRM, Google My Business",25,Series A,No,None
+161,Rwanda,Manufacturing,131,17802,Medium,Skills,Google My Business,-4,None,Yes,Partial
+162,Nigeria,Finance,246,314926,Low,Internet,"WhatsApp, E-commerce",48,Bootstrapped,No,Full
+163,South Africa,Finance,155,316765,Low,"Skills, Cost","CRM, Google My Business, Mobile money",33,Series A,No,Partial
+164,Nigeria,Logistics,325,230687,Medium,Cost,"Mobile money, CRM, E-commerce",1,Seed,Yes,Partial
+165,Kenya,Manufacturing,141,256535,High,Internet,"E-commerce, CRM",19,Series A,Yes,Full
+166,Kenya,Logistics,135,140669,Medium,"Cost, Regulation",CRM,46,Seed,No,Partial
+167,South Africa,Finance,327,379471,High,"Skills, Cost",Google My Business,48,Bootstrapped,Yes,Partial
+168,Kenya,Manufacturing,310,256315,Medium,Skills,"Mobile money, POS, E-commerce",49,Seed,No,None
+169,Ghana,Education,443,99741,Medium,"Internet, Skills",E-commerce,34,None,Yes,Full
+170,Nigeria,Retail,129,463682,Medium,Skills,"CRM, Mobile money, E-commerce",30,Bootstrapped,No,None
+171,Ghana,Education,8,424545,Low,Regulation,WhatsApp,10,Series A,Yes,Partial
+172,South Africa,Education,286,355077,High,"Regulation, Awareness","WhatsApp, CRM, POS",28,Bootstrapped,No,Full
+173,South Africa,Logistics,248,47735,Medium,"Awareness, Regulation",CRM,49,Seed,Yes,None
+174,Rwanda,Finance,379,240158,High,"Skills, Awareness","Google My Business, E-commerce",28,Series A,No,Partial
+175,Rwanda,Education,307,114024,High,Skills,"CRM, WhatsApp",16,None,No,Full
+176,Kenya,Education,71,243526,High,Skills,"E-commerce, POS, Google My Business",47,Bootstrapped,No,None
+177,Ghana,Manufacturing,363,234590,Low,Internet,WhatsApp,-1,Series A,Yes,Full
+178,Rwanda,Education,183,182561,High,"Internet, Regulation",E-commerce,1,Bootstrapped,No,Partial
+179,Rwanda,Farming,325,178572,Medium,"Skills, Regulation",Google My Business,5,Bootstrapped,No,None
+180,Kenya,Manufacturing,260,215014,Low,"Internet, Cost",CRM,-2,Seed,Yes,Partial
+181,Kenya,Farming,178,274265,Medium,Cost,"CRM, E-commerce",-1,Series A,No,None
+182,South Africa,Retail,203,351802,Medium,"Cost, Regulation","Google My Business, WhatsApp, POS",19,None,No,Full
+183,Ghana,Logistics,184,10710,High,Regulation,Mobile money,28,Bootstrapped,No,None
+184,Nigeria,Education,279,86219,Low,"Cost, Regulation","E-commerce, WhatsApp, Google My Business",29,Series A,No,Full
+185,Ghana,Manufacturing,231,26053,Medium,Cost,"CRM, POS, WhatsApp",17,Bootstrapped,No,None
+186,Ghana,Retail,8,58754,High,Internet,"Mobile money, POS, E-commerce",28,None,No,Partial
+187,Nigeria,Retail,162,257412,High,"Awareness, Cost","Mobile money, WhatsApp",12,Seed,No,None
+188,Ghana,Farming,13,480194,High,"Internet, Skills","Mobile money, WhatsApp",48,Bootstrapped,No,Full
+189,Ghana,Logistics,357,28177,Low,"Awareness, Cost",E-commerce,48,Seed,Yes,Full
+190,Nigeria,Manufacturing,314,255808,Medium,"Skills, Internet",POS,28,None,No,Partial
+191,Nigeria,Manufacturing,34,120071,Low,"Awareness, Skills","Google My Business, POS, CRM",33,None,Yes,Full
+192,Ghana,Retail,283,481350,Medium,"Cost, Regulation","Mobile money, Google My Business, E-commerce",1,Seed,No,None
+193,South Africa,Logistics,46,91757,Medium,"Cost, Awareness",Google My Business,14,Bootstrapped,No,Full
+194,Rwanda,Manufacturing,28,337495,High,"Awareness, Regulation",CRM,46,None,Yes,None
+195,Ghana,Manufacturing,423,394012,Low,Awareness,E-commerce,21,Bootstrapped,No,None
+196,Ghana,Retail,442,249641,Low,Cost,Mobile money,41,Seed,No,None
+197,Kenya,Finance,179,469208,Medium,Regulation,"Mobile money, WhatsApp, Google My Business",14,None,No,Full
+198,Rwanda,Farming,156,145304,High,"Internet, Awareness","CRM, Mobile money, Google My Business",-3,None,No,Partial
+199,Nigeria,Finance,442,252380,Low,Internet,"Mobile money, POS",43,None,No,None
+200,South Africa,Finance,107,160194,High,Internet,"POS, Mobile money, E-commerce",46,None,Yes,Full
+201,Rwanda,Finance,180,134854,Medium,"Skills, Internet","WhatsApp, E-commerce",11,Seed,No,None
+202,South Africa,Farming,70,310867,Low,"Internet, Awareness","WhatsApp, E-commerce",42,Series A,No,None
+203,Rwanda,Finance,490,404943,High,Regulation,E-commerce,10,Bootstrapped,No,Partial
+204,Kenya,Logistics,366,440332,Medium,Internet,"CRM, WhatsApp, Mobile money",16,None,No,None
+205,South Africa,Manufacturing,354,103892,Medium,Internet,"Google My Business, E-commerce, POS",10,Seed,Yes,Partial
+206,Ghana,Manufacturing,197,482953,High,"Cost, Skills","E-commerce, WhatsApp",43,None,No,Full
+207,Ghana,Retail,154,116776,High,"Awareness, Regulation","Mobile money, CRM, Google My Business",30,Seed,Yes,Full
+208,Nigeria,Education,256,259612,High,Awareness,E-commerce,5,None,Yes,None
+209,Nigeria,Farming,295,71341,Low,Internet,"E-commerce, WhatsApp",21,None,Yes,Partial
+210,Nigeria,Finance,35,119989,Low,"Awareness, Cost",CRM,9,None,No,None
+211,Kenya,Logistics,25,370537,High,"Awareness, Regulation","Mobile money, WhatsApp, Google My Business",6,Series A,Yes,None
+212,Nigeria,Education,240,205655,Low,"Cost, Awareness","POS, WhatsApp",46,None,No,Full
+213,Rwanda,Finance,191,267249,Medium,Skills,"E-commerce, POS",6,Bootstrapped,Yes,Partial
+214,Kenya,Retail,84,145080,Low,"Awareness, Internet",E-commerce,12,Series A,No,Full
+215,Nigeria,Finance,32,410022,Medium,Skills,Google My Business,48,Bootstrapped,Yes,None
+216,Rwanda,Finance,227,57581,Medium,Skills,WhatsApp,43,None,No,None
+217,Ghana,Finance,220,336935,High,Regulation,E-commerce,47,Seed,Yes,Full
+218,Kenya,Manufacturing,481,85638,Medium,Regulation,"Google My Business, CRM, POS",26,Bootstrapped,No,Full
+219,Kenya,Farming,359,208811,Medium,"Internet, Cost",Mobile money,16,Bootstrapped,No,Full
+220,Kenya,Retail,200,30189,High,"Regulation, Internet",Google My Business,28,None,No,Full
+221,Rwanda,Finance,205,77625,High,"Awareness, Regulation",Mobile money,2,Bootstrapped,Yes,Partial
+222,Kenya,Manufacturing,252,202194,High,Internet,"Google My Business, Mobile money, E-commerce",32,Bootstrapped,No,None
+223,Nigeria,Farming,387,70057,High,"Skills, Awareness","Mobile money, CRM",5,Seed,No,Full
+224,Kenya,Education,128,245689,Low,Regulation,Mobile money,2,Bootstrapped,Yes,Partial
+225,Nigeria,Education,463,211322,Low,"Regulation, Internet","E-commerce, CRM",25,Seed,Yes,Full
+226,Rwanda,Finance,270,414719,Low,"Skills, Cost",WhatsApp,8,Series A,Yes,None
+227,South Africa,Manufacturing,314,404927,Medium,Regulation,"POS, WhatsApp",-4,None,No,None
+228,Rwanda,Education,339,95485,Low,"Regulation, Awareness","Google My Business, E-commerce, POS",1,Series A,Yes,Partial
+229,Nigeria,Retail,388,483646,Medium,"Awareness, Skills","E-commerce, Google My Business, Mobile money",-4,Bootstrapped,No,Partial
+230,Nigeria,Retail,188,355058,High,"Cost, Regulation","E-commerce, Google My Business",-3,Series A,No,Full
+231,Nigeria,Finance,152,140208,Low,"Cost, Skills","Google My Business, POS",17,Bootstrapped,No,Full
+232,South Africa,Finance,55,254735,Medium,"Cost, Regulation",WhatsApp,18,None,No,None
+233,Nigeria,Manufacturing,435,187850,High,"Internet, Awareness","CRM, POS",15,Bootstrapped,Yes,Full
+234,South Africa,Manufacturing,10,386069,Low,Internet,Google My Business,-3,None,No,None
+235,Nigeria,Finance,425,157125,Low,"Cost, Internet","CRM, WhatsApp",4,None,No,Partial
+236,Rwanda,Manufacturing,463,381077,Medium,Regulation,"Google My Business, E-commerce",-1,Seed,No,Full
+237,Ghana,Manufacturing,323,114610,Medium,Regulation,"CRM, E-commerce",17,Seed,No,None
+238,Nigeria,Finance,425,452693,Low,"Internet, Cost",Mobile money,38,Bootstrapped,No,Full
+239,Nigeria,Education,224,132693,Medium,Awareness,"WhatsApp, POS, CRM",18,Bootstrapped,No,Full
+240,Ghana,Education,237,214214,Low,"Awareness, Skills",POS,14,Series A,No,Partial
+241,Kenya,Farming,138,200376,High,Awareness,E-commerce,39,None,No,Full
+242,Ghana,Retail,271,57662,High,"Skills, Awareness",E-commerce,20,Series A,Yes,Full
+243,Ghana,Education,105,343093,High,Cost,"CRM, Mobile money",-3,Seed,Yes,Partial
+244,Nigeria,Logistics,267,492777,High,"Skills, Cost","POS, WhatsApp",40,Series A,Yes,None
+245,Kenya,Farming,454,126376,High,Awareness,"WhatsApp, Mobile money",1,None,Yes,Full
+246,Ghana,Logistics,161,143310,Low,Regulation,"Mobile money, CRM",49,Series A,Yes,Partial
+247,Kenya,Logistics,192,352187,Low,"Regulation, Awareness","CRM, POS",44,Series A,No,Full
+248,Nigeria,Finance,337,118916,Low,Regulation,"Google My Business, POS, Mobile money",41,Seed,No,Partial
+249,Ghana,Finance,243,423559,Medium,"Internet, Skills","POS, Mobile money, Google My Business",6,Seed,Yes,None
+250,Ghana,Farming,489,277388,Low,Awareness,"Google My Business, POS",30,Seed,No,None
+251,South Africa,Farming,423,44915,High,Awareness,Mobile money,9,Seed,Yes,Partial
+252,Ghana,Education,315,97863,Low,Internet,POS,46,Bootstrapped,No,Full
+253,Rwanda,Education,233,473445,High,Awareness,"WhatsApp, E-commerce",25,Seed,Yes,Partial
+254,South Africa,Finance,449,192211,Low,"Internet, Cost","Google My Business, Mobile money",48,Bootstrapped,No,None
+255,Nigeria,Retail,239,335998,Medium,Internet,"E-commerce, Mobile money",41,Series A,No,None
+256,Nigeria,Manufacturing,456,315429,High,Regulation,E-commerce,29,Seed,No,Partial
+257,Nigeria,Retail,263,119307,High,Cost,"POS, Mobile money, E-commerce",26,Bootstrapped,No,None
+258,Rwanda,Manufacturing,384,159394,Low,"Awareness, Internet","E-commerce, Mobile money",24,Seed,No,Partial
+259,Kenya,Manufacturing,307,133696,Low,Internet,"E-commerce, Mobile money, Google My Business",29,Series A,No,Full
+260,Ghana,Finance,446,222690,Medium,"Cost, Regulation",WhatsApp,30,Series A,Yes,Full
+261,South Africa,Education,116,238530,Medium,"Cost, Regulation","Mobile money, CRM, E-commerce",47,Bootstrapped,No,Full
+262,Nigeria,Manufacturing,297,222329,Low,Cost,CRM,7,Seed,Yes,Full
+263,Ghana,Finance,444,62957,Medium,"Skills, Internet","Google My Business, WhatsApp, POS",-5,None,Yes,Full
+264,Kenya,Retail,101,248626,Low,"Regulation, Skills",Mobile money,33,Seed,Yes,None
+265,Ghana,Manufacturing,369,276142,High,Regulation,"CRM, WhatsApp, E-commerce",44,Bootstrapped,No,Full
+266,Rwanda,Retail,460,115486,Medium,Internet,"Google My Business, WhatsApp, E-commerce",35,None,No,None
+267,Ghana,Manufacturing,328,270022,High,"Skills, Internet","Google My Business, WhatsApp",26,Series A,Yes,Full
+268,Ghana,Finance,81,353364,Low,"Internet, Skills",WhatsApp,32,Seed,No,Full
+269,Nigeria,Farming,423,345545,Medium,"Awareness, Cost",E-commerce,9,None,No,Full
+270,Ghana,Retail,426,51549,Medium,Skills,"Mobile money, E-commerce, POS",35,Bootstrapped,Yes,Partial
+271,Kenya,Manufacturing,105,170534,Medium,Regulation,CRM,7,Series A,Yes,Full
+272,Kenya,Manufacturing,136,315223,Low,"Skills, Internet","E-commerce, Google My Business, WhatsApp",44,Bootstrapped,Yes,Full
+273,Rwanda,Finance,425,299928,High,"Awareness, Cost","Google My Business, WhatsApp, E-commerce",35,None,No,None
+274,Kenya,Farming,348,223314,Low,Internet,"Google My Business, POS",32,Bootstrapped,Yes,None
+275,Nigeria,Finance,46,181863,Low,"Skills, Internet",POS,41,Series A,Yes,None
+276,Nigeria,Finance,246,242700,Medium,Regulation,Google My Business,3,Series A,Yes,Partial
+277,Ghana,Logistics,128,166911,Medium,Awareness,"WhatsApp, Google My Business, E-commerce",22,Series A,No,Full
+278,Kenya,Logistics,257,401252,Medium,Cost,CRM,31,Seed,Yes,Partial
+279,Rwanda,Retail,394,281543,Low,"Cost, Regulation",Google My Business,5,Series A,No,Partial
+280,Rwanda,Logistics,432,351420,Medium,"Cost, Skills",Google My Business,30,Bootstrapped,No,Partial
+281,Ghana,Retail,91,135880,Medium,Awareness,"CRM, POS, E-commerce",-3,None,No,Full
+282,Nigeria,Education,53,52357,Low,Skills,E-commerce,25,Seed,Yes,Partial
+283,South Africa,Education,395,178702,Medium,"Regulation, Awareness",CRM,45,Bootstrapped,No,Full
+284,Ghana,Retail,169,433261,Medium,"Skills, Awareness","WhatsApp, E-commerce, Google My Business",44,None,No,Full
+285,Kenya,Retail,105,267277,High,"Skills, Internet","CRM, WhatsApp",11,None,No,Partial
+286,Ghana,Retail,323,160834,Low,"Regulation, Cost","CRM, POS",8,None,Yes,Partial
+287,Ghana,Manufacturing,232,13645,Low,Regulation,"CRM, Google My Business, E-commerce",-5,Bootstrapped,Yes,Full
+288,Kenya,Finance,82,148151,Medium,Skills,"POS, Mobile money",39,Seed,No,Partial
+289,South Africa,Logistics,83,353753,Low,"Skills, Regulation","Google My Business, CRM",32,Series A,Yes,Partial
+290,Kenya,Finance,283,34479,Medium,Cost,"CRM, POS",42,Bootstrapped,Yes,Partial
+291,Nigeria,Logistics,367,374246,Low,Regulation,"CRM, POS, Mobile money",8,Series A,Yes,Full
+292,Ghana,Farming,314,468458,Low,"Awareness, Regulation",CRM,1,Bootstrapped,Yes,Full
+293,Ghana,Retail,268,59880,High,Awareness,"POS, Mobile money, Google My Business",43,Seed,Yes,None
+294,Nigeria,Logistics,32,326827,Low,Awareness,"WhatsApp, Mobile money",2,None,No,Full
+295,Nigeria,Retail,253,262162,High,Awareness,"Mobile money, WhatsApp, Google My Business",35,None,No,Full
+296,Rwanda,Farming,92,115087,Medium,"Skills, Regulation","POS, E-commerce, Google My Business",6,Seed,Yes,Full
+297,Nigeria,Farming,62,268290,Low,"Awareness, Skills","WhatsApp, POS, Google My Business",23,None,No,Full
+298,Rwanda,Finance,461,312621,Low,"Cost, Regulation",Google My Business,44,Series A,No,None
+299,Nigeria,Education,388,431380,High,Skills,"WhatsApp, Mobile money",21,Seed,Yes,None
+300,Ghana,Retail,307,291133,Medium,"Internet, Cost",POS,45,Bootstrapped,No,Partial
+301,Kenya,Manufacturing,253,121329,Medium,"Internet, Regulation","CRM, Mobile money",11,Seed,Yes,Full
+302,Ghana,Education,13,44458,Low,"Cost, Internet",Google My Business,7,Seed,Yes,Full
+303,Nigeria,Farming,457,405643,High,Awareness,Google My Business,42,Bootstrapped,No,Partial
+304,Rwanda,Education,70,141858,Medium,Skills,"CRM, E-commerce",40,None,No,Partial
+305,Ghana,Education,488,121608,Medium,"Regulation, Awareness","Mobile money, E-commerce, WhatsApp",24,Bootstrapped,No,Full
+306,Nigeria,Retail,365,194722,High,Awareness,"CRM, E-commerce",25,None,Yes,None
+307,Rwanda,Education,285,200676,High,"Cost, Internet",E-commerce,48,Series A,No,Partial
+308,South Africa,Logistics,185,484874,Medium,Awareness,"CRM, Mobile money",14,Series A,Yes,Partial
+309,Nigeria,Manufacturing,482,174177,Medium,Cost,"Google My Business, Mobile money, E-commerce",48,None,No,Partial
+310,South Africa,Education,217,52427,Low,"Regulation, Skills","Google My Business, WhatsApp, Mobile money",23,Seed,Yes,None
+311,Nigeria,Retail,109,382137,High,Regulation,"POS, E-commerce, CRM",3,Series A,Yes,Full
+312,Nigeria,Finance,241,106431,Low,Internet,"POS, Google My Business, CRM",48,Series A,Yes,None
+313,Rwanda,Farming,428,222383,High,Cost,"E-commerce, Mobile money, WhatsApp",13,Bootstrapped,No,None
+314,Nigeria,Education,202,368201,Medium,Awareness,"Google My Business, CRM",-3,Bootstrapped,Yes,None
+315,Rwanda,Retail,46,468070,Low,"Skills, Cost","Mobile money, Google My Business, E-commerce",12,Seed,Yes,Partial
+316,Ghana,Logistics,202,199781,Low,"Internet, Regulation",Google My Business,18,None,No,None
+317,Rwanda,Logistics,261,48228,Medium,"Internet, Awareness","WhatsApp, E-commerce",38,Series A,Yes,Partial
+318,Ghana,Farming,105,25446,High,Skills,"POS, E-commerce, Google My Business",1,None,Yes,None
+319,Nigeria,Logistics,288,278611,High,"Awareness, Regulation","E-commerce, WhatsApp, CRM",13,None,Yes,None
+320,Ghana,Retail,341,127759,Low,"Internet, Skills",Google My Business,37,None,Yes,Full
+321,Rwanda,Manufacturing,99,329443,High,"Awareness, Internet",CRM,22,Series A,No,Partial
+322,South Africa,Education,191,288747,Medium,"Internet, Cost","Mobile money, POS, CRM",39,Seed,Yes,Partial
+323,Nigeria,Farming,108,14163,Medium,Cost,Google My Business,5,None,No,None
+324,Kenya,Education,120,69592,Low,Cost,Google My Business,46,None,No,Partial
+325,Nigeria,Finance,199,120399,Low,Awareness,Mobile money,16,Seed,No,Partial
+326,South Africa,Education,443,164142,Medium,"Regulation, Skills","CRM, Google My Business",-2,Series A,Yes,Partial
+327,Nigeria,Logistics,407,154708,Low,"Regulation, Cost",Mobile money,-4,Series A,Yes,None
+328,Rwanda,Finance,69,497394,High,"Skills, Awareness","WhatsApp, Mobile money",29,Series A,No,Full
+329,Ghana,Logistics,24,97574,Medium,Cost,"CRM, WhatsApp",25,None,Yes,Full
+330,Kenya,Education,183,313956,Medium,Skills,Mobile money,20,Seed,No,None
+331,Nigeria,Farming,340,117934,High,"Awareness, Internet","E-commerce, WhatsApp, Google My Business",25,None,No,Full
+332,South Africa,Finance,107,73808,High,Internet,POS,20,Bootstrapped,No,Full
+333,Nigeria,Farming,340,250329,Medium,"Cost, Skills",POS,22,Series A,Yes,Full
+334,South Africa,Education,130,107311,High,"Cost, Regulation","CRM, Mobile money",20,Series A,Yes,Partial
+335,Kenya,Education,136,387896,Low,"Cost, Regulation","POS, Mobile money, E-commerce",4,Bootstrapped,No,None
+336,Rwanda,Logistics,477,135985,Medium,"Skills, Internet",E-commerce,2,None,No,None
+337,Kenya,Manufacturing,171,483577,Low,Skills,"WhatsApp, E-commerce",0,Seed,Yes,Full
+338,Kenya,Finance,178,187840,Medium,"Regulation, Internet","CRM, E-commerce",27,Bootstrapped,No,None
+339,Rwanda,Education,201,324877,Medium,Regulation,"Mobile money, WhatsApp",13,Seed,Yes,Partial
+340,Kenya,Education,374,25898,Low,Internet,Mobile money,5,Series A,Yes,Partial
+341,Ghana,Education,307,26089,High,"Skills, Awareness",E-commerce,22,Seed,No,None
+342,Rwanda,Logistics,8,300557,Low,"Awareness, Internet","CRM, WhatsApp, Mobile money",42,Seed,Yes,None
+343,Nigeria,Education,185,391320,High,"Internet, Regulation","POS, Google My Business, CRM",41,Series A,Yes,None
+344,Rwanda,Retail,464,380146,Low,"Skills, Awareness","Google My Business, CRM",38,Bootstrapped,No,Partial
+345,Nigeria,Logistics,490,427766,Medium,"Cost, Internet","WhatsApp, POS",36,Series A,Yes,Full
+346,Kenya,Manufacturing,32,482316,Low,"Internet, Awareness","POS, CRM, E-commerce",46,Bootstrapped,Yes,None
+347,South Africa,Retail,400,233591,Low,Internet,"CRM, Google My Business, Mobile money",7,Series A,No,None
+348,South Africa,Farming,350,371052,High,"Skills, Awareness","POS, CRM",16,Series A,No,None
+349,Nigeria,Retail,419,287374,Low,Cost,POS,42,Series A,Yes,Full
+350,Rwanda,Farming,313,327865,High,"Regulation, Cost","Google My Business, E-commerce, WhatsApp",3,Series A,No,None
+351,Rwanda,Farming,196,322993,High,"Skills, Regulation","WhatsApp, CRM, E-commerce",26,Seed,Yes,None
+352,Ghana,Farming,456,258654,Low,Cost,Mobile money,42,None,Yes,Full
+353,Ghana,Manufacturing,153,468767,Medium,"Awareness, Internet",E-commerce,47,Bootstrapped,No,Partial
+354,Nigeria,Logistics,427,219669,High,"Skills, Awareness","CRM, Google My Business",20,Series A,Yes,Full
+355,Ghana,Farming,474,63339,High,"Internet, Cost",POS,-1,Seed,Yes,Full
+356,South Africa,Education,424,134007,Low,"Skills, Cost","WhatsApp, POS, Google My Business",38,Series A,No,Full
+357,Kenya,Farming,407,40544,High,Internet,Google My Business,4,Series A,Yes,Full
+358,Ghana,Education,108,469825,Low,Regulation,"E-commerce, WhatsApp, Google My Business",9,Bootstrapped,No,Full
+359,Kenya,Education,451,461194,Low,"Regulation, Cost","WhatsApp, E-commerce",17,None,No,Full
+360,Ghana,Retail,67,306491,Medium,Cost,"E-commerce, Mobile money, POS",14,Seed,No,Partial
+361,South Africa,Logistics,406,274071,Medium,"Regulation, Cost",POS,22,Series A,No,Partial
+362,Nigeria,Retail,22,495683,Low,"Skills, Regulation","Mobile money, WhatsApp",30,None,Yes,Full
+363,South Africa,Manufacturing,134,462864,Medium,Skills,"Mobile money, POS, WhatsApp",29,Series A,No,Full
+364,Ghana,Retail,68,427745,Low,"Skills, Awareness","Google My Business, POS, E-commerce",50,Series A,No,None
+365,South Africa,Retail,26,147359,Low,Skills,Google My Business,25,Series A,No,None
+366,Kenya,Logistics,305,290927,Medium,Awareness,"Google My Business, WhatsApp, E-commerce",17,None,Yes,None
+367,South Africa,Education,477,457295,Medium,"Regulation, Cost","WhatsApp, Google My Business",39,None,Yes,Full
+368,South Africa,Logistics,442,146826,Medium,"Regulation, Awareness","Mobile money, WhatsApp, E-commerce",28,Series A,Yes,Partial
+369,Nigeria,Finance,30,18797,Medium,Internet,E-commerce,23,None,No,Full
+370,Nigeria,Logistics,130,197704,Medium,"Skills, Cost","Google My Business, E-commerce",35,Bootstrapped,Yes,Partial
+371,South Africa,Logistics,383,138100,High,Cost,"POS, CRM, E-commerce",31,Bootstrapped,Yes,Full
+372,Ghana,Education,298,416383,Low,Skills,"Google My Business, CRM",46,None,No,Full
+373,Kenya,Education,400,260817,High,"Internet, Awareness",WhatsApp,7,Bootstrapped,No,Partial
+374,Ghana,Manufacturing,401,104225,High,"Skills, Regulation",E-commerce,50,Bootstrapped,No,None
+375,Ghana,Education,243,311200,Medium,"Skills, Internet",E-commerce,3,None,No,Full
+376,Ghana,Retail,398,213241,High,Regulation,CRM,24,None,Yes,None
+377,Nigeria,Manufacturing,332,313309,Medium,Internet,"Mobile money, CRM, WhatsApp",21,Series A,No,Partial
+378,Kenya,Finance,356,367781,High,"Skills, Awareness","WhatsApp, POS, E-commerce",39,Series A,No,Full
+379,South Africa,Retail,174,186821,Low,"Regulation, Awareness",E-commerce,22,Seed,Yes,Partial
+380,Ghana,Finance,394,188189,High,"Awareness, Cost",CRM,34,Bootstrapped,No,Partial
+381,Kenya,Finance,369,191051,High,Regulation,Google My Business,15,Bootstrapped,No,Partial
+382,Ghana,Manufacturing,262,34711,Low,"Cost, Awareness",E-commerce,0,Seed,Yes,None
+383,Nigeria,Logistics,116,329473,Low,Awareness,"WhatsApp, POS",-3,None,No,Full
+384,South Africa,Farming,317,302613,High,"Awareness, Skills","POS, E-commerce, Mobile money",21,None,No,Full
+385,Ghana,Education,178,353172,High,"Cost, Regulation","WhatsApp, POS, Mobile money",0,Seed,Yes,Full
+386,Rwanda,Farming,435,193948,High,"Regulation, Cost","WhatsApp, Google My Business",13,None,Yes,None
+387,Nigeria,Education,191,14657,High,Skills,"E-commerce, Google My Business, CRM",18,Series A,Yes,None
+388,South Africa,Logistics,123,415155,Low,Awareness,Mobile money,25,Seed,No,Full
+389,Kenya,Logistics,276,146614,High,Cost,"POS, E-commerce, Mobile money",19,Series A,No,None
+390,Rwanda,Farming,37,306553,High,"Awareness, Internet",Mobile money,6,None,Yes,None
+391,Rwanda,Retail,244,446262,High,"Cost, Internet","Google My Business, E-commerce",12,Seed,Yes,Full
+392,Nigeria,Retail,449,393192,Medium,Internet,"Mobile money, WhatsApp",-2,Series A,No,None
+393,Nigeria,Logistics,252,184475,Low,Skills,"E-commerce, Mobile money",25,Bootstrapped,Yes,Partial
+394,Kenya,Logistics,169,483188,High,"Skills, Regulation",Google My Business,-1,Seed,No,Full
+395,Kenya,Finance,395,148665,Medium,Awareness,"Mobile money, CRM, POS",43,Series A,No,Full
+396,Rwanda,Farming,129,326643,Medium,Cost,"POS, WhatsApp, CRM",43,Bootstrapped,No,Partial
+397,Ghana,Farming,174,219705,High,Awareness,"Mobile money, POS",38,None,Yes,None
+398,South Africa,Retail,272,296121,High,Regulation,"Google My Business, CRM",0,Series A,No,None
+399,Nigeria,Logistics,44,56043,High,Cost,E-commerce,4,Bootstrapped,Yes,Partial
+400,South Africa,Education,349,20293,Low,Skills,"WhatsApp, CRM",0,Bootstrapped,Yes,None
+401,Rwanda,Logistics,382,64446,Medium,"Regulation, Cost","POS, CRM",46,Series A,No,None
+402,Rwanda,Farming,111,270954,Medium,"Cost, Regulation","CRM, POS",29,None,Yes,Partial
+403,Nigeria,Manufacturing,178,285685,Medium,"Skills, Cost","E-commerce, POS",16,Bootstrapped,No,Full
+404,Kenya,Education,269,287517,Medium,Cost,"WhatsApp, Google My Business, E-commerce",-3,None,Yes,None
+405,South Africa,Logistics,40,423200,High,Internet,Google My Business,18,Bootstrapped,No,Partial
+406,Rwanda,Manufacturing,208,140818,Low,"Awareness, Skills",E-commerce,17,Bootstrapped,Yes,Full
+407,Rwanda,Manufacturing,210,133805,High,Cost,"POS, E-commerce",45,Seed,No,None
+408,Nigeria,Finance,50,300305,High,"Regulation, Internet",WhatsApp,14,Bootstrapped,Yes,None
+409,Rwanda,Farming,340,404750,Medium,Cost,E-commerce,21,None,Yes,Partial
+410,Nigeria,Farming,330,451096,Low,Awareness,"Google My Business, Mobile money, POS",-3,Seed,Yes,Full
+411,Rwanda,Retail,454,293941,Medium,"Internet, Cost","Mobile money, Google My Business",13,Series A,Yes,Partial
+412,Ghana,Logistics,401,353658,High,Internet,"POS, WhatsApp, E-commerce",26,Bootstrapped,Yes,Full
+413,Ghana,Education,115,57612,Medium,"Skills, Internet","POS, E-commerce",40,Series A,No,None
+414,Ghana,Finance,472,319722,Medium,"Cost, Awareness","Mobile money, E-commerce, Google My Business",44,Series A,Yes,Partial
+415,Nigeria,Education,300,224960,Low,"Skills, Regulation","E-commerce, WhatsApp, CRM",24,Bootstrapped,Yes,Full
+416,Nigeria,Farming,483,129714,High,"Cost, Skills","Mobile money, WhatsApp",2,None,No,Partial
+417,South Africa,Logistics,309,70190,High,Cost,"E-commerce, Google My Business",39,None,Yes,Full
+418,Kenya,Finance,26,404277,Low,"Regulation, Internet","POS, WhatsApp, Mobile money",35,None,No,None
+419,Kenya,Logistics,324,112241,Medium,"Cost, Awareness",Mobile money,37,Bootstrapped,No,None
+420,Ghana,Finance,8,164829,High,"Internet, Skills","Mobile money, POS",13,Bootstrapped,Yes,None
+421,South Africa,Education,442,23997,Medium,Skills,CRM,22,Series A,No,Partial
+422,Nigeria,Manufacturing,189,170544,High,Cost,"CRM, Google My Business",3,Seed,No,Partial
+423,Rwanda,Finance,195,419245,Medium,Awareness,"POS, CRM",13,Seed,Yes,Full
+424,South Africa,Retail,114,442388,Low,Cost,"Mobile money, WhatsApp",47,None,Yes,Full
+425,Kenya,Finance,232,422188,Low,Internet,"E-commerce, POS, Google My Business",34,Series A,No,Partial
+426,Kenya,Retail,413,472631,High,"Internet, Awareness","WhatsApp, Google My Business, POS",48,None,Yes,Full
+427,Ghana,Education,213,306074,High,"Skills, Regulation","Mobile money, E-commerce",-5,Bootstrapped,No,None
+428,Rwanda,Retail,491,192858,Low,"Internet, Cost",CRM,37,Bootstrapped,Yes,Full
+429,Ghana,Farming,184,51284,Medium,Internet,"Mobile money, E-commerce, CRM",0,Seed,Yes,Partial
+430,Rwanda,Logistics,19,497955,Medium,"Internet, Regulation","E-commerce, Google My Business, CRM",22,None,No,Partial
+431,Rwanda,Education,374,290105,Low,Skills,"WhatsApp, CRM, Mobile money",49,None,No,Partial
+432,Rwanda,Manufacturing,233,370021,High,"Cost, Internet","Mobile money, POS",27,Series A,No,Full
+433,Nigeria,Education,179,308150,Low,"Skills, Internet","POS, CRM, E-commerce",46,Series A,No,Partial
+434,Rwanda,Finance,172,144328,High,"Awareness, Internet","CRM, Google My Business, E-commerce",5,Bootstrapped,Yes,Full
+435,Rwanda,Farming,172,144716,High,"Internet, Regulation","Google My Business, CRM, POS",49,Seed,Yes,None
+436,Nigeria,Education,225,429774,Low,"Awareness, Internet",E-commerce,44,Seed,No,Full
+437,South Africa,Retail,5,172691,Medium,Cost,"POS, WhatsApp",37,None,Yes,None
+438,Nigeria,Logistics,259,469867,High,Regulation,"E-commerce, Mobile money",45,None,No,None
+439,Kenya,Manufacturing,118,160229,Medium,"Skills, Regulation","POS, WhatsApp",15,Seed,Yes,Full
+440,Ghana,Finance,79,42022,Low,Internet,"Mobile money, E-commerce",4,Series A,Yes,Full
+441,Nigeria,Retail,406,159801,Medium,"Awareness, Cost","Mobile money, WhatsApp",40,Series A,Yes,Full
+442,Nigeria,Farming,312,161365,High,"Skills, Awareness","CRM, POS, WhatsApp",-5,None,No,None
+443,Ghana,Farming,76,456934,High,"Regulation, Skills","Mobile money, WhatsApp",-3,Series A,No,None
+444,South Africa,Farming,443,265823,Low,"Cost, Awareness","Google My Business, Mobile money",46,Bootstrapped,Yes,Partial
+445,Rwanda,Education,347,447026,Medium,Awareness,"POS, E-commerce, Google My Business",22,Seed,No,Full
+446,Nigeria,Logistics,435,453900,Medium,"Awareness, Skills","Mobile money, E-commerce, Google My Business",50,Seed,No,Partial
+447,Ghana,Farming,426,399386,High,"Cost, Skills","Mobile money, WhatsApp",18,Bootstrapped,Yes,None
+448,South Africa,Farming,337,326838,Medium,"Cost, Regulation","CRM, POS",14,Seed,Yes,Partial
+449,South Africa,Farming,407,490572,Medium,Internet,POS,14,None,Yes,Partial
+450,Kenya,Manufacturing,394,462052,Medium,"Regulation, Awareness","POS, CRM, Google My Business",-1,Series A,Yes,Partial
+451,Rwanda,Education,414,287751,High,"Cost, Awareness","CRM, E-commerce",4,Series A,Yes,Full
+452,Ghana,Manufacturing,486,231672,Medium,Cost,E-commerce,5,Seed,Yes,None
+453,Rwanda,Finance,204,313683,High,Regulation,"Mobile money, POS",4,Bootstrapped,Yes,None
+454,Rwanda,Logistics,149,168712,High,Awareness,"POS, Google My Business",16,None,No,Full
+455,Rwanda,Retail,202,192600,High,"Internet, Awareness",E-commerce,28,Seed,Yes,Partial
+456,Nigeria,Logistics,94,173287,High,"Awareness, Internet","POS, Mobile money",17,Series A,Yes,Full
+457,Ghana,Farming,164,208834,High,"Internet, Awareness","Google My Business, CRM",41,None,No,None
+458,Rwanda,Retail,264,23834,Medium,Skills,CRM,18,Bootstrapped,No,Full
+459,Rwanda,Retail,336,215126,Low,"Internet, Awareness",E-commerce,35,Bootstrapped,Yes,Full
+460,Rwanda,Logistics,52,134347,Medium,Cost,"E-commerce, Google My Business",10,Series A,Yes,Full
+461,Nigeria,Farming,360,425282,Low,Awareness,WhatsApp,34,Seed,Yes,Full
+462,Kenya,Retail,144,187883,Low,Internet,"E-commerce, Google My Business",30,Series A,Yes,Partial
+463,Nigeria,Finance,440,64922,Low,"Awareness, Internet","Mobile money, E-commerce",36,Seed,Yes,None
+464,Nigeria,Farming,476,305751,Low,Awareness,"Mobile money, WhatsApp",12,Bootstrapped,No,None
+465,Nigeria,Education,331,118994,Low,"Skills, Regulation",POS,16,Bootstrapped,Yes,Full
+466,Nigeria,Manufacturing,171,162377,High,Awareness,"CRM, WhatsApp, Mobile money",-3,Bootstrapped,No,Full
+467,Ghana,Manufacturing,168,315153,Medium,Awareness,"POS, E-commerce, CRM",24,None,No,Full
+468,South Africa,Retail,305,477145,High,"Internet, Skills",Google My Business,41,Bootstrapped,No,None
+469,Kenya,Retail,123,299101,Low,"Cost, Skills","Google My Business, POS, E-commerce",-1,Seed,Yes,Full
+470,South Africa,Retail,230,392711,Medium,Regulation,WhatsApp,5,Series A,No,None
+471,Kenya,Manufacturing,118,232389,High,"Regulation, Skills","Google My Business, POS, E-commerce",23,Bootstrapped,Yes,Full
+472,Ghana,Education,200,10937,High,Awareness,"POS, Mobile money, Google My Business",20,Seed,Yes,Full
+473,Rwanda,Finance,237,239137,Medium,"Skills, Awareness","WhatsApp, Mobile money",14,None,Yes,None
+474,Rwanda,Education,409,448934,Low,"Cost, Skills","E-commerce, Google My Business",11,None,No,Full
+475,Kenya,Logistics,242,187129,Low,"Internet, Awareness","E-commerce, Google My Business",27,Bootstrapped,Yes,Partial
+476,Ghana,Farming,170,93298,High,"Skills, Regulation","CRM, POS, Mobile money",11,Bootstrapped,No,None
+477,Nigeria,Logistics,191,458666,Medium,"Cost, Skills","WhatsApp, Google My Business",11,Bootstrapped,Yes,Partial
+478,Ghana,Farming,429,136436,High,"Cost, Regulation",POS,35,Series A,No,None
+479,Kenya,Retail,359,182472,Low,"Skills, Internet","POS, Google My Business, CRM",38,Series A,Yes,Partial
+480,Rwanda,Education,233,161835,High,Internet,"WhatsApp, POS",34,None,Yes,Full
+481,Ghana,Education,359,79961,Medium,"Cost, Skills","WhatsApp, CRM",17,Series A,No,None
+482,Rwanda,Manufacturing,350,242252,Medium,"Regulation, Cost","POS, CRM",-5,Series A,No,Full
+483,South Africa,Manufacturing,26,286222,High,"Internet, Skills","WhatsApp, E-commerce",3,Series A,No,Partial
+484,Ghana,Logistics,196,21502,Low,Skills,"POS, Google My Business, WhatsApp",39,Seed,No,None
+485,Nigeria,Education,169,123525,Medium,Awareness,POS,17,Seed,No,Full
+486,Ghana,Farming,175,34979,Medium,"Internet, Awareness","CRM, POS, E-commerce",50,None,Yes,Full
+487,Rwanda,Farming,434,330613,Medium,Regulation,"POS, WhatsApp, Google My Business",-5,Seed,No,None
+488,Rwanda,Education,130,340294,Medium,"Skills, Internet","CRM, WhatsApp",14,Seed,No,Partial
+489,South Africa,Retail,413,383059,Low,Cost,"POS, E-commerce",43,Series A,No,None
+490,Ghana,Finance,492,293270,High,"Regulation, Internet","POS, Google My Business",17,Bootstrapped,Yes,Partial
+491,Ghana,Manufacturing,418,472034,High,Cost,"WhatsApp, Mobile money",0,Series A,Yes,Full
+492,Nigeria,Education,369,123294,Low,"Regulation, Internet","CRM, WhatsApp",8,None,No,Partial
+493,Ghana,Manufacturing,29,242297,Medium,"Internet, Regulation",E-commerce,-3,Seed,Yes,Full
+494,Kenya,Farming,124,397292,High,Internet,"Google My Business, E-commerce, WhatsApp",19,Seed,Yes,Full
+495,Kenya,Farming,42,325801,High,"Regulation, Cost",Google My Business,31,Series A,No,Partial
+496,Kenya,Logistics,313,316007,Low,"Awareness, Internet","CRM, WhatsApp",12,Series A,No,Partial
+497,Rwanda,Logistics,459,357815,Medium,"Internet, Skills","WhatsApp, CRM",16,Bootstrapped,No,Full
+498,South Africa,Logistics,241,360764,High,"Skills, Awareness","Google My Business, WhatsApp, POS",9,Bootstrapped,No,Full
+499,Nigeria,Education,261,325371,Medium,"Skills, Awareness",POS,-1,Bootstrapped,Yes,Full
+500,South Africa,Manufacturing,272,226507,High,Cost,"Mobile money, Google My Business",11,Series A,No,Partial
+501,Kenya,Finance,443,123319,Medium,Internet,"WhatsApp, Google My Business",20,Bootstrapped,No,Full
+502,South Africa,Finance,312,152082,Medium,Awareness,"Mobile money, CRM, Google My Business",47,None,Yes,None
+503,Ghana,Finance,334,33548,High,Cost,"WhatsApp, E-commerce, POS",40,Series A,Yes,Full
+504,South Africa,Logistics,120,35507,Low,Cost,"CRM, Mobile money",-1,None,No,Full
+505,Rwanda,Retail,474,138000,Medium,Skills,WhatsApp,34,Series A,No,None
+506,Nigeria,Farming,89,35334,Medium,Skills,"POS, E-commerce",2,None,No,None
+507,Rwanda,Farming,437,114141,High,Internet,WhatsApp,7,Bootstrapped,Yes,Full
+508,Kenya,Education,357,226472,High,Regulation,WhatsApp,45,None,No,Full
+509,Nigeria,Retail,186,60578,Medium,Awareness,Google My Business,11,Bootstrapped,No,None
+510,Rwanda,Finance,112,297992,Low,"Skills, Awareness","POS, Google My Business, WhatsApp",9,None,Yes,Full
+511,Rwanda,Farming,30,340470,Low,Cost,E-commerce,22,Bootstrapped,No,Partial
+512,Kenya,Finance,122,66093,High,Internet,"CRM, POS, E-commerce",9,Series A,Yes,Full
+513,Nigeria,Farming,434,212155,Medium,Regulation,"E-commerce, Google My Business, POS",47,Seed,No,None
+514,Ghana,Education,263,124075,High,"Awareness, Internet","Google My Business, WhatsApp, Mobile money",9,Seed,Yes,Partial
+515,Kenya,Manufacturing,440,402605,Low,"Awareness, Skills","CRM, Mobile money, WhatsApp",21,Bootstrapped,Yes,None
+516,Kenya,Finance,443,345000,Low,"Cost, Skills",POS,34,None,Yes,Full
+517,South Africa,Education,113,87477,Medium,"Awareness, Skills",Google My Business,31,Seed,No,Full
+518,Rwanda,Logistics,47,15789,Low,"Regulation, Internet","Google My Business, CRM, POS",-5,None,Yes,Partial
+519,Nigeria,Manufacturing,295,229394,Low,"Cost, Skills","E-commerce, CRM",-2,None,No,Full
+520,Rwanda,Manufacturing,295,493893,Low,"Awareness, Skills","E-commerce, POS, Mobile money",31,Series A,Yes,None
+521,Rwanda,Farming,56,81929,Medium,Cost,"Google My Business, Mobile money",16,None,Yes,None
+522,Kenya,Retail,268,438228,Low,"Internet, Regulation","Google My Business, CRM, E-commerce",26,Bootstrapped,No,Partial
+523,Kenya,Finance,379,283002,Medium,Awareness,POS,15,Seed,Yes,Partial
+524,Rwanda,Retail,95,423492,High,"Internet, Awareness","E-commerce, WhatsApp",33,Bootstrapped,No,None
+525,Rwanda,Retail,399,231485,High,Regulation,"Mobile money, Google My Business",41,Seed,No,Full
+526,Kenya,Finance,192,492179,Medium,"Cost, Internet",POS,34,Series A,No,Full
+527,Ghana,Education,398,127086,Low,"Cost, Skills","Mobile money, WhatsApp, POS",26,Seed,No,Partial
+528,Rwanda,Finance,334,119502,Low,Awareness,WhatsApp,46,Bootstrapped,No,Full
+529,Rwanda,Retail,430,219698,Medium,Internet,"Google My Business, Mobile money",12,Seed,Yes,Full
+530,Rwanda,Logistics,331,31050,Low,"Awareness, Skills","POS, Mobile money, CRM",44,Series A,No,Full
+531,Ghana,Education,499,192789,Medium,"Skills, Cost","E-commerce, Google My Business, CRM",35,Bootstrapped,No,Full
+532,Kenya,Retail,297,32752,High,"Awareness, Internet","POS, WhatsApp",33,None,No,Partial
+533,Nigeria,Finance,156,33060,Low,"Cost, Internet",CRM,34,Bootstrapped,No,Partial
+534,Nigeria,Manufacturing,444,237720,High,Awareness,CRM,19,Series A,Yes,Full
+535,Kenya,Retail,320,463893,Medium,"Skills, Cost","Mobile money, POS, Google My Business",17,Seed,Yes,Full
+536,Ghana,Retail,476,10161,Medium,Cost,Mobile money,47,None,No,Full
+537,Rwanda,Retail,146,303906,Medium,"Awareness, Skills",WhatsApp,1,Series A,Yes,None
+538,South Africa,Manufacturing,265,315314,High,Regulation,"Mobile money, CRM",9,Seed,No,None
+539,Rwanda,Farming,128,260734,Low,"Awareness, Regulation","POS, Mobile money, E-commerce",-5,Bootstrapped,No,None
+540,South Africa,Logistics,467,317683,Low,"Awareness, Internet","Google My Business, WhatsApp",4,None,No,Partial
+541,South Africa,Logistics,329,273059,Medium,"Internet, Awareness","Google My Business, WhatsApp",1,Bootstrapped,No,None
+542,Rwanda,Manufacturing,41,317409,Medium,"Regulation, Awareness",CRM,-1,Bootstrapped,Yes,None
+543,Nigeria,Finance,10,453825,High,Cost,"E-commerce, POS",19,None,No,Partial
+544,Ghana,Manufacturing,77,447095,Medium,"Skills, Awareness",E-commerce,22,Series A,No,None
+545,Ghana,Finance,298,255924,Medium,Awareness,"POS, E-commerce, CRM",0,None,Yes,Full
+546,South Africa,Education,93,234423,Low,"Cost, Awareness","POS, E-commerce",16,Bootstrapped,No,Full
+547,Kenya,Education,312,78735,Medium,"Skills, Regulation",Google My Business,12,Seed,No,Full
+548,South Africa,Farming,376,232720,Low,"Regulation, Skills","CRM, Mobile money, POS",40,Series A,No,Full
+549,Rwanda,Logistics,98,288790,High,"Cost, Skills","E-commerce, Mobile money",13,Seed,No,Full
+550,Rwanda,Logistics,406,466623,High,"Skills, Awareness","Mobile money, POS, Google My Business",43,Seed,No,Partial
+551,Nigeria,Retail,113,351063,Medium,Regulation,"POS, E-commerce",34,Seed,Yes,Partial
+552,Ghana,Logistics,136,496624,Low,"Skills, Regulation",E-commerce,0,None,Yes,None
+553,Ghana,Finance,373,143184,Low,Internet,"POS, WhatsApp, E-commerce",5,Series A,Yes,Full
+554,Nigeria,Finance,175,41192,Medium,Cost,"Mobile money, CRM",41,Seed,No,Full
+555,Kenya,Farming,344,257856,High,"Regulation, Skills","POS, Mobile money",4,Series A,No,Partial
+556,Kenya,Logistics,444,278646,High,"Cost, Skills","Google My Business, WhatsApp, POS",-1,None,No,Partial
+557,South Africa,Logistics,358,277491,Low,"Regulation, Skills","E-commerce, POS, WhatsApp",19,Bootstrapped,Yes,Partial
+558,South Africa,Farming,375,62895,High,Cost,"Google My Business, CRM",43,Series A,Yes,None
+559,Kenya,Finance,310,83145,Low,"Awareness, Internet",Google My Business,38,Series A,Yes,Full
+560,Rwanda,Retail,87,18395,Low,Regulation,POS,48,Seed,No,Partial
+561,South Africa,Manufacturing,315,247919,Low,Cost,"E-commerce, Mobile money, WhatsApp",35,Bootstrapped,Yes,None
+562,Nigeria,Retail,189,268477,Low,"Internet, Awareness",Mobile money,21,Seed,Yes,None
+563,South Africa,Education,93,341946,Medium,Internet,"POS, Google My Business",42,Seed,No,None
+564,Ghana,Farming,443,109955,Medium,Awareness,POS,29,None,Yes,Partial
+565,Ghana,Logistics,180,50316,Medium,Internet,"Mobile money, WhatsApp",43,Bootstrapped,Yes,Partial
+566,Rwanda,Manufacturing,336,491454,High,"Internet, Cost","Mobile money, POS",29,Series A,Yes,Partial
+567,Kenya,Retail,409,446112,Medium,"Internet, Regulation",WhatsApp,24,Series A,Yes,None
+568,Kenya,Farming,94,162755,Low,"Cost, Regulation","E-commerce, Mobile money",1,None,No,None
+569,Ghana,Finance,169,131008,Low,Awareness,"E-commerce, CRM",42,Series A,No,Partial
+570,Ghana,Finance,247,390056,Low,"Skills, Awareness","Google My Business, POS",30,Series A,Yes,None
+571,Nigeria,Retail,284,213248,Low,"Regulation, Internet",WhatsApp,49,Series A,Yes,Full
+572,South Africa,Education,205,419895,Low,"Awareness, Cost",CRM,15,None,No,None
+573,Kenya,Education,72,490129,Low,Regulation,POS,-3,Seed,No,None
+574,Rwanda,Logistics,396,364848,Low,"Awareness, Regulation","WhatsApp, Mobile money, Google My Business",45,None,No,Full
+575,Ghana,Finance,146,98779,Medium,Internet,CRM,36,Seed,Yes,Full
+576,Ghana,Finance,206,303799,High,Cost,POS,50,Bootstrapped,No,None
+577,Ghana,Retail,364,43763,Medium,Skills,"Google My Business, CRM, POS",38,Seed,No,Partial
+578,Kenya,Manufacturing,336,206844,Low,"Regulation, Cost","WhatsApp, Mobile money, Google My Business",43,None,No,None
+579,Kenya,Education,207,63672,Low,"Cost, Regulation",POS,21,None,No,None
+580,Ghana,Education,283,352357,High,"Skills, Awareness",Google My Business,10,Seed,No,None
+581,Rwanda,Finance,454,133272,Low,Awareness,"Mobile money, CRM",25,Seed,Yes,None
+582,Nigeria,Finance,340,97010,Low,Awareness,"CRM, E-commerce, WhatsApp",38,Series A,No,Partial
+583,Ghana,Education,150,249195,Low,Internet,"POS, Google My Business, E-commerce",47,Bootstrapped,Yes,Full
+584,Nigeria,Farming,213,54487,High,"Cost, Awareness",Google My Business,47,Seed,Yes,None
+585,Nigeria,Education,369,487179,Medium,Internet,"Google My Business, POS",-2,None,Yes,None
+586,South Africa,Farming,371,361137,High,"Skills, Regulation","Google My Business, Mobile money",43,Bootstrapped,No,None
+587,Ghana,Retail,344,224044,Low,"Regulation, Internet","WhatsApp, CRM, POS",7,Bootstrapped,No,None
+588,Ghana,Logistics,40,464515,Low,"Cost, Regulation","WhatsApp, Google My Business, Mobile money",43,Seed,No,Full
+589,Rwanda,Manufacturing,63,228388,Medium,"Cost, Awareness","WhatsApp, E-commerce",5,None,No,Partial
+590,Rwanda,Education,135,486492,High,Awareness,"E-commerce, POS, Mobile money",32,Series A,Yes,None
+591,Nigeria,Retail,319,120706,Low,Cost,"Mobile money, E-commerce, CRM",14,Bootstrapped,Yes,Full
+592,Kenya,Retail,59,298175,Low,"Internet, Skills",Mobile money,23,Series A,Yes,None
+593,Ghana,Finance,166,465056,High,Awareness,"POS, CRM",22,Bootstrapped,No,None
+594,Ghana,Education,163,420444,Medium,Cost,POS,19,Series A,Yes,Partial
+595,Nigeria,Logistics,418,183846,Low,Internet,WhatsApp,29,None,Yes,Full
+596,Rwanda,Finance,488,246936,High,Awareness,Google My Business,2,Bootstrapped,Yes,Full
+597,Ghana,Retail,345,205993,High,Regulation,"CRM, E-commerce",40,None,No,Partial
+598,Kenya,Education,314,248385,High,"Cost, Regulation","POS, WhatsApp, Mobile money",28,Seed,No,None
+599,Ghana,Education,364,124034,High,"Awareness, Cost",POS,15,Bootstrapped,Yes,Full
+600,Kenya,Retail,171,358120,Low,Regulation,"CRM, E-commerce, Google My Business",9,Bootstrapped,Yes,Partial
+601,Nigeria,Retail,246,44005,High,"Awareness, Cost","POS, Google My Business",28,Seed,No,Partial
+602,Ghana,Retail,22,329172,High,"Cost, Awareness","E-commerce, Google My Business",23,Series A,Yes,None
+603,Kenya,Education,8,332104,Low,Awareness,"Mobile money, WhatsApp, POS",0,None,Yes,None
+604,Rwanda,Education,57,71097,Medium,Cost,"Mobile money, E-commerce, CRM",-5,None,No,Partial
+605,South Africa,Finance,449,68935,High,Awareness,POS,34,Seed,No,Full
+606,South Africa,Retail,468,276688,High,Awareness,"Mobile money, E-commerce, CRM",-1,Series A,Yes,Partial
+607,Kenya,Retail,462,23734,Medium,Internet,"Google My Business, E-commerce, CRM",35,Bootstrapped,Yes,Full
+608,South Africa,Retail,16,194932,Medium,"Internet, Regulation",Mobile money,24,Seed,Yes,Full
+609,Nigeria,Education,150,357951,Medium,Cost,"POS, CRM",48,None,Yes,None
+610,Nigeria,Logistics,366,362926,High,Internet,CRM,35,Series A,No,None
+611,Nigeria,Retail,467,10999,Medium,Awareness,"WhatsApp, E-commerce, Google My Business",18,Seed,Yes,Full
+612,Ghana,Finance,135,343745,High,Internet,"Mobile money, WhatsApp, CRM",3,Series A,No,None
+613,South Africa,Education,373,256433,Low,"Internet, Awareness","Google My Business, POS",27,None,Yes,None
+614,Kenya,Logistics,389,200169,Low,"Internet, Skills","POS, WhatsApp",43,Series A,Yes,Partial
+615,Kenya,Retail,109,122647,High,"Skills, Internet","Mobile money, E-commerce",15,Bootstrapped,Yes,Full
+616,Rwanda,Education,124,72304,Low,Cost,Google My Business,13,Seed,No,Full
+617,Nigeria,Manufacturing,282,126420,Medium,"Internet, Regulation","POS, Google My Business",49,Bootstrapped,No,Full
+618,Nigeria,Logistics,349,246099,Medium,Cost,"POS, Mobile money, CRM",-5,Seed,Yes,Full
+619,Kenya,Education,294,294853,Medium,"Skills, Awareness","E-commerce, Google My Business",4,Bootstrapped,No,Full
+620,Ghana,Finance,440,24201,Medium,"Regulation, Skills","Google My Business, Mobile money, E-commerce",-3,None,No,Partial
+621,Nigeria,Finance,460,105078,High,Awareness,"POS, CRM, WhatsApp",45,Seed,Yes,None
+622,South Africa,Farming,220,409128,Medium,Awareness,"CRM, POS, E-commerce",5,None,Yes,Full
+623,Kenya,Finance,463,315330,Medium,"Awareness, Internet",WhatsApp,3,Series A,Yes,Partial
+624,Nigeria,Logistics,375,220077,High,Regulation,"POS, E-commerce, Google My Business",28,Seed,No,Partial
+625,South Africa,Manufacturing,22,302076,High,"Skills, Internet","WhatsApp, CRM, POS",37,None,Yes,Full
+626,Kenya,Logistics,128,146524,High,Cost,"CRM, WhatsApp",1,Seed,No,Partial
+627,Kenya,Education,114,121193,Medium,Regulation,"CRM, Mobile money",48,Seed,Yes,Partial
+628,Ghana,Finance,74,314623,High,"Cost, Internet",Mobile money,9,None,No,None
+629,Kenya,Farming,51,224725,Medium,"Awareness, Skills","Mobile money, WhatsApp, E-commerce",10,Seed,No,None
+630,South Africa,Farming,166,172956,High,Internet,CRM,45,Seed,No,None
+631,Kenya,Education,335,322034,Low,"Internet, Awareness","Google My Business, WhatsApp, POS",14,Bootstrapped,No,None
+632,Kenya,Manufacturing,480,400257,Medium,"Skills, Regulation",POS,18,Bootstrapped,Yes,Full
+633,Nigeria,Farming,212,267107,Medium,Skills,"Google My Business, WhatsApp",15,None,Yes,None
+634,Nigeria,Retail,394,10486,Low,Internet,"Mobile money, CRM",39,None,Yes,Partial
+635,Rwanda,Education,181,340055,High,"Cost, Internet",Google My Business,23,Bootstrapped,No,None
+636,South Africa,Manufacturing,166,139862,High,"Skills, Awareness",POS,38,Seed,Yes,Partial
+637,South Africa,Retail,490,335350,Low,Internet,"POS, Mobile money, E-commerce",18,Series A,No,None
+638,South Africa,Education,8,151044,Medium,"Regulation, Awareness","Google My Business, E-commerce",43,Series A,Yes,Partial
+639,Ghana,Finance,147,72046,Medium,"Regulation, Skills",POS,28,Series A,Yes,None
+640,Rwanda,Manufacturing,283,49343,High,"Awareness, Skills","WhatsApp, POS, Mobile money",30,Bootstrapped,No,Full
+641,South Africa,Manufacturing,292,485027,Medium,"Regulation, Awareness","E-commerce, POS, Google My Business",49,Series A,No,Partial
+642,Ghana,Education,71,197954,Medium,"Awareness, Cost","E-commerce, WhatsApp, CRM",24,None,No,Partial
+643,Rwanda,Farming,154,482459,Low,"Awareness, Cost",CRM,37,None,No,Full
+644,South Africa,Manufacturing,450,351118,Low,Cost,"Google My Business, POS, WhatsApp",-4,Seed,No,Full
+645,Kenya,Education,290,256926,High,"Internet, Cost","E-commerce, WhatsApp, CRM",47,Series A,No,None
+646,Rwanda,Education,454,387976,Low,Internet,"Google My Business, E-commerce, POS",48,None,No,Full
+647,Ghana,Manufacturing,340,262498,Medium,"Internet, Skills","Google My Business, E-commerce",31,Series A,Yes,Partial
+648,Nigeria,Retail,39,283783,Low,"Skills, Internet",Google My Business,9,Seed,Yes,Full
+649,Kenya,Retail,308,365791,Medium,"Skills, Awareness",Mobile money,23,Seed,Yes,None
+650,Ghana,Retail,77,292786,Low,Regulation,"Google My Business, POS, WhatsApp",33,None,No,Partial
+651,Rwanda,Farming,263,326876,Medium,Awareness,"E-commerce, Google My Business, Mobile money",42,Seed,Yes,None
+652,South Africa,Manufacturing,425,56789,Medium,"Cost, Awareness","E-commerce, Google My Business, WhatsApp",28,Bootstrapped,Yes,None
+653,Kenya,Logistics,10,21299,High,Regulation,"POS, CRM",36,None,Yes,Full
+654,Rwanda,Logistics,231,284193,Medium,Cost,"Google My Business, WhatsApp",44,Bootstrapped,No,Full
+655,Kenya,Logistics,48,411791,High,"Cost, Regulation","E-commerce, CRM",32,Series A,No,Full
+656,Rwanda,Logistics,434,95904,High,"Internet, Awareness","E-commerce, Google My Business",8,None,Yes,Partial
+657,Nigeria,Manufacturing,179,282875,Low,"Internet, Cost",E-commerce,16,Seed,Yes,None
+658,Nigeria,Education,424,464440,Low,"Regulation, Awareness","WhatsApp, Google My Business",48,Bootstrapped,Yes,Full
+659,Nigeria,Farming,165,219940,Low,Internet,"WhatsApp, Mobile money, Google My Business",40,Series A,Yes,Partial
+660,Ghana,Manufacturing,111,102825,High,"Regulation, Cost","POS, Mobile money",22,None,No,Partial
+661,Ghana,Logistics,206,15636,Medium,"Regulation, Awareness","Mobile money, CRM, Google My Business",41,None,Yes,Full
+662,Nigeria,Finance,294,290364,Low,"Skills, Regulation",CRM,17,Bootstrapped,Yes,Partial
+663,Kenya,Farming,361,394869,High,Awareness,"WhatsApp, E-commerce",40,Series A,No,Partial
+664,Nigeria,Farming,359,52457,High,Internet,"WhatsApp, POS, Mobile money",29,Seed,Yes,Full
+665,South Africa,Retail,384,352236,High,"Regulation, Internet",WhatsApp,10,Series A,Yes,Partial
+666,Nigeria,Education,469,261988,High,Regulation,"POS, Mobile money",5,Seed,No,Partial
+667,South Africa,Retail,372,469151,Low,Skills,Google My Business,27,Bootstrapped,No,Full
+668,South Africa,Logistics,199,349268,Medium,"Cost, Regulation",E-commerce,-4,None,Yes,Partial
+669,Rwanda,Education,72,133747,High,Regulation,"Mobile money, E-commerce, WhatsApp",48,Bootstrapped,No,Partial
+670,South Africa,Retail,124,447000,Medium,Skills,POS,23,Seed,No,Partial
+671,Kenya,Farming,155,170170,Low,"Regulation, Awareness",Google My Business,1,Seed,No,Full
+672,Nigeria,Education,489,481774,Low,"Regulation, Internet","POS, Mobile money",-1,Seed,No,None
+673,Kenya,Retail,228,444776,High,"Internet, Regulation","CRM, POS, Mobile money",30,None,No,None
+674,Rwanda,Finance,328,430913,High,"Regulation, Internet","Mobile money, Google My Business",34,Series A,Yes,Partial
+675,Kenya,Finance,492,72048,Low,Regulation,"CRM, E-commerce, Mobile money",30,Series A,No,Partial
+676,Kenya,Logistics,492,128540,High,"Internet, Cost","Mobile money, E-commerce, WhatsApp",38,Seed,No,Partial
+677,Ghana,Finance,32,495903,Low,"Cost, Internet","CRM, POS, Google My Business",39,None,Yes,Partial
+678,Nigeria,Finance,391,152725,Low,Regulation,"Mobile money, WhatsApp",17,Series A,No,Partial
+679,South Africa,Finance,482,72047,High,Regulation,CRM,7,Series A,Yes,Partial
+680,Ghana,Manufacturing,136,361326,Medium,Cost,"E-commerce, WhatsApp, Mobile money",12,Bootstrapped,No,None
+681,Kenya,Retail,405,91489,High,"Cost, Skills","WhatsApp, CRM",11,Bootstrapped,No,Partial
+682,Kenya,Education,59,431747,Medium,"Regulation, Skills",WhatsApp,46,Seed,No,Full
+683,Nigeria,Education,165,16480,Medium,"Cost, Awareness","Google My Business, Mobile money",29,Bootstrapped,Yes,Full
+684,Ghana,Manufacturing,145,232648,Low,"Internet, Awareness","Google My Business, CRM",-2,Seed,Yes,Partial
+685,South Africa,Manufacturing,402,116251,High,"Cost, Regulation","Google My Business, WhatsApp",15,Bootstrapped,No,None
+686,Ghana,Logistics,467,227152,High,Cost,"Mobile money, Google My Business, E-commerce",28,Series A,Yes,Partial
+687,Nigeria,Farming,200,366075,Medium,"Awareness, Cost",WhatsApp,1,Series A,Yes,Full
+688,South Africa,Retail,419,286498,Low,"Internet, Regulation",POS,45,Bootstrapped,Yes,Full
+689,Rwanda,Finance,150,320371,Medium,Regulation,"Mobile money, Google My Business, POS",28,None,No,Partial
+690,South Africa,Logistics,215,63711,Low,Cost,"Google My Business, Mobile money, CRM",46,Series A,No,None
+691,Nigeria,Education,438,374681,Low,"Cost, Awareness",Mobile money,31,None,Yes,Partial
+692,Rwanda,Finance,253,419650,Medium,Regulation,"E-commerce, Mobile money",17,Bootstrapped,No,Partial
+693,Ghana,Retail,97,497778,High,"Internet, Cost","Mobile money, CRM, POS",19,Seed,No,Partial
+694,Ghana,Farming,445,255829,Medium,Skills,E-commerce,31,Seed,No,Full
+695,Nigeria,Finance,470,260711,Low,Skills,"POS, WhatsApp",15,Series A,No,Full
+696,Ghana,Education,34,442262,Low,Skills,Google My Business,35,Bootstrapped,Yes,Partial
+697,Nigeria,Manufacturing,179,366558,Medium,Regulation,"WhatsApp, Google My Business, CRM",6,Seed,No,None
+698,South Africa,Farming,461,352436,High,Awareness,"POS, Mobile money, WhatsApp",33,Seed,No,Full
+699,Rwanda,Logistics,151,110803,Medium,"Awareness, Cost",Google My Business,17,Seed,Yes,None
+700,Nigeria,Manufacturing,93,344476,Medium,"Regulation, Internet",E-commerce,29,Series A,Yes,Partial
+701,Kenya,Farming,252,356780,Medium,"Cost, Skills","E-commerce, CRM",34,Bootstrapped,No,None
+702,Kenya,Farming,376,453645,High,Awareness,"CRM, POS, Google My Business",26,None,Yes,Partial
+703,South Africa,Logistics,459,379916,High,"Skills, Internet","Google My Business, E-commerce, Mobile money",23,None,Yes,None
+704,South Africa,Retail,76,331098,Medium,Awareness,CRM,1,Bootstrapped,No,Partial
+705,Ghana,Manufacturing,428,473320,High,Cost,E-commerce,24,Seed,Yes,Partial
+706,Ghana,Farming,308,207298,High,"Skills, Internet","CRM, POS, Mobile money",25,None,No,Partial
+707,Rwanda,Farming,32,417473,Low,"Skills, Regulation",POS,36,Seed,Yes,None
+708,Ghana,Logistics,121,43743,Low,Internet,"POS, E-commerce",-2,None,Yes,Full
+709,Rwanda,Education,390,302423,Medium,Awareness,"POS, WhatsApp, E-commerce",17,Bootstrapped,Yes,Full
+710,Ghana,Farming,462,45081,Low,Regulation,Google My Business,14,Bootstrapped,No,Full
+711,Kenya,Retail,53,309489,High,"Internet, Skills","WhatsApp, CRM, Google My Business",25,Seed,No,Partial
+712,Rwanda,Logistics,269,492310,High,Skills,"CRM, POS",35,Seed,Yes,Full
+713,Ghana,Finance,468,50560,Medium,"Skills, Awareness","WhatsApp, Google My Business, POS",23,Seed,No,Partial
+714,South Africa,Manufacturing,446,140288,Medium,"Regulation, Internet","Mobile money, Google My Business",7,None,Yes,None
+715,Ghana,Logistics,333,250572,High,Cost,WhatsApp,33,Bootstrapped,Yes,Full
+716,Ghana,Manufacturing,27,473969,High,Internet,"E-commerce, Google My Business",21,Seed,Yes,Partial
+717,Rwanda,Retail,133,102186,Medium,"Awareness, Regulation","E-commerce, Google My Business",42,Bootstrapped,No,Partial
+718,Ghana,Finance,434,314609,Low,"Skills, Internet",E-commerce,25,Seed,No,None
+719,Ghana,Manufacturing,434,204400,Medium,Internet,"WhatsApp, CRM, Mobile money",6,Seed,No,Full
+720,Ghana,Logistics,404,264528,High,"Skills, Regulation","Mobile money, POS, CRM",28,Series A,Yes,Partial
+721,Ghana,Manufacturing,13,295578,Low,Cost,WhatsApp,7,Series A,Yes,Full
+722,Nigeria,Finance,263,129619,Medium,Awareness,"E-commerce, Google My Business",49,None,Yes,None
+723,South Africa,Retail,434,223047,Medium,"Awareness, Regulation",POS,43,Series A,Yes,Partial
+724,Nigeria,Retail,39,437156,Medium,Internet,"Google My Business, CRM",16,Bootstrapped,Yes,Partial
+725,Nigeria,Logistics,440,186872,Medium,Internet,"Google My Business, E-commerce",10,Series A,Yes,Partial
+726,South Africa,Education,370,240448,Medium,Cost,CRM,1,Series A,Yes,Full
+727,Rwanda,Logistics,100,329067,Medium,Skills,"CRM, Mobile money",41,Bootstrapped,Yes,None
+728,Nigeria,Manufacturing,334,411433,Medium,Cost,"WhatsApp, POS, E-commerce",14,Seed,Yes,None
+729,Nigeria,Finance,467,275762,High,"Awareness, Skills",POS,0,Series A,Yes,None
+730,South Africa,Finance,422,71748,Medium,"Awareness, Skills","Google My Business, WhatsApp",31,Series A,No,None
+731,Kenya,Finance,280,339310,Medium,"Regulation, Cost","Google My Business, POS, WhatsApp",11,None,No,None
+732,Ghana,Manufacturing,195,308680,High,Awareness,"Google My Business, Mobile money, WhatsApp",-5,Bootstrapped,Yes,None
+733,South Africa,Manufacturing,453,146316,Low,Awareness,Google My Business,38,Series A,No,None
+734,Nigeria,Retail,9,15061,High,"Awareness, Internet","WhatsApp, Mobile money, CRM",42,Bootstrapped,No,Partial
+735,Ghana,Manufacturing,177,410752,Low,Internet,"Mobile money, POS",3,Series A,Yes,None
+736,Rwanda,Finance,325,348965,High,"Internet, Regulation","WhatsApp, CRM",47,Seed,No,Full
+737,South Africa,Retail,245,433718,Medium,"Awareness, Internet",WhatsApp,29,None,Yes,Full
+738,Ghana,Finance,237,498177,Medium,Skills,E-commerce,47,Seed,Yes,Partial
+739,Kenya,Finance,311,195697,High,"Regulation, Cost",Google My Business,33,None,Yes,Full
+740,Kenya,Manufacturing,262,340499,Medium,"Cost, Regulation","CRM, Mobile money",20,None,Yes,Partial
+741,Nigeria,Education,241,161696,Medium,Skills,"Mobile money, Google My Business, WhatsApp",43,Seed,Yes,None
+742,Kenya,Logistics,354,370369,High,"Internet, Cost","POS, E-commerce, WhatsApp",8,Series A,No,None
+743,Kenya,Retail,461,92597,High,"Awareness, Cost","E-commerce, Mobile money",41,Bootstrapped,Yes,Full
+744,South Africa,Logistics,447,26020,Low,Cost,"Google My Business, POS, CRM",9,Seed,Yes,Full
+745,Rwanda,Manufacturing,446,218468,Medium,Skills,"Google My Business, Mobile money",31,Seed,No,None
+746,Kenya,Logistics,203,97483,Low,Cost,E-commerce,44,None,No,None
+747,Nigeria,Retail,427,181708,Low,Awareness,"Google My Business, E-commerce",34,Series A,Yes,Full
+748,Nigeria,Farming,121,13963,Medium,Awareness,"CRM, E-commerce",41,Series A,No,None
+749,Kenya,Education,411,152373,High,"Internet, Skills",WhatsApp,38,Series A,Yes,Full
+750,Ghana,Manufacturing,241,412199,Medium,"Cost, Internet","Google My Business, POS",-3,None,No,Partial
+751,Nigeria,Finance,425,237681,Low,Skills,POS,0,Series A,No,None
+752,Rwanda,Retail,430,368160,Medium,"Awareness, Regulation",E-commerce,1,None,Yes,None
+753,Rwanda,Retail,41,146411,High,"Cost, Regulation","POS, Google My Business",46,Series A,Yes,Partial
+754,Kenya,Education,23,161564,Low,"Internet, Cost",E-commerce,-1,None,No,Partial
+755,Kenya,Finance,22,103527,Low,"Internet, Awareness",POS,34,None,No,Full
+756,Nigeria,Education,373,314034,High,Cost,"CRM, POS",21,Bootstrapped,No,Partial
+757,Nigeria,Logistics,490,109386,Medium,Internet,E-commerce,19,Series A,Yes,Full
+758,South Africa,Logistics,173,247098,Low,"Awareness, Regulation","CRM, Mobile money",7,Seed,No,Full
+759,Nigeria,Logistics,10,472557,High,Regulation,POS,21,Series A,Yes,Partial
+760,Kenya,Manufacturing,318,93475,Medium,Regulation,"Google My Business, E-commerce, Mobile money",19,Seed,Yes,None
+761,South Africa,Farming,137,235685,Medium,Regulation,E-commerce,25,Seed,Yes,None
+762,Nigeria,Finance,177,42356,Low,Internet,"POS, Mobile money, Google My Business",39,Series A,Yes,Full
+763,Rwanda,Logistics,307,364666,Medium,"Awareness, Regulation",Mobile money,13,Series A,Yes,Partial
+764,Ghana,Manufacturing,385,347692,High,"Awareness, Regulation",E-commerce,35,None,No,Full
+765,Rwanda,Farming,285,302770,High,Skills,"WhatsApp, E-commerce, POS",13,None,No,Partial
+766,South Africa,Logistics,185,391061,High,"Internet, Cost","Mobile money, CRM, POS",39,None,No,Partial
+767,Rwanda,Farming,223,351452,Low,Regulation,"Mobile money, E-commerce, Google My Business",31,None,No,Partial
+768,Nigeria,Logistics,383,442559,Low,Cost,"Mobile money, E-commerce, CRM",34,Bootstrapped,No,None
+769,South Africa,Farming,199,318803,High,Cost,POS,44,Series A,No,None
+770,Rwanda,Farming,131,190418,Low,"Cost, Internet","WhatsApp, Google My Business, CRM",36,None,Yes,Partial
+771,Kenya,Farming,460,98907,High,"Regulation, Skills",POS,37,None,No,None
+772,Kenya,Retail,369,23565,High,Cost,"E-commerce, CRM, Mobile money",1,Series A,No,None
+773,Rwanda,Logistics,342,496478,High,"Skills, Cost","Mobile money, Google My Business, CRM",38,Bootstrapped,Yes,None
+774,Ghana,Retail,284,71129,Low,"Cost, Skills","POS, Google My Business, WhatsApp",29,None,No,Partial
+775,Rwanda,Manufacturing,367,13107,High,"Cost, Skills","WhatsApp, Google My Business",35,Series A,Yes,Partial
+776,Kenya,Retail,276,286659,High,Cost,Mobile money,35,Bootstrapped,Yes,Partial
+777,South Africa,Logistics,153,50613,High,Regulation,"CRM, Google My Business",21,Series A,Yes,Full
+778,Rwanda,Logistics,195,436135,Low,Awareness,CRM,5,Series A,No,None
+779,South Africa,Farming,408,344443,High,"Skills, Awareness",Mobile money,11,Series A,Yes,None
+780,Ghana,Education,327,479011,Low,"Skills, Cost","E-commerce, WhatsApp",25,Bootstrapped,No,Partial
+781,Ghana,Manufacturing,24,337018,Medium,"Skills, Regulation",Mobile money,46,None,Yes,Partial
+782,Kenya,Logistics,366,95574,Low,Skills,"E-commerce, Mobile money",16,Bootstrapped,Yes,Full
+783,Ghana,Education,281,218232,Medium,"Skills, Regulation","CRM, E-commerce, WhatsApp",33,Seed,No,Partial
+784,Ghana,Manufacturing,484,472488,Low,"Internet, Awareness","Google My Business, CRM",-4,Seed,Yes,None
+785,Nigeria,Manufacturing,327,93940,High,"Cost, Skills","Google My Business, POS, CRM",22,None,No,Partial
+786,Nigeria,Finance,448,371657,Medium,"Skills, Cost","CRM, POS, Google My Business",48,Series A,No,Partial
+787,Ghana,Manufacturing,15,358286,Medium,"Awareness, Internet","Mobile money, WhatsApp",2,Seed,Yes,None
+788,Nigeria,Logistics,58,25720,Medium,"Cost, Internet","E-commerce, WhatsApp, Google My Business",-4,Bootstrapped,No,Full
+789,Kenya,Retail,415,267299,Low,Internet,"CRM, WhatsApp",5,Series A,No,Partial
+790,South Africa,Logistics,61,114321,Low,"Skills, Regulation",POS,25,None,Yes,Full
+791,Rwanda,Education,102,475233,Medium,Awareness,"WhatsApp, POS",36,Seed,No,Full
+792,Rwanda,Retail,211,347541,Low,"Cost, Skills","Mobile money, CRM",29,Seed,No,Full
+793,Rwanda,Manufacturing,64,292144,High,Cost,"CRM, POS, Google My Business",21,Series A,Yes,Partial
+794,South Africa,Farming,459,26460,Low,"Skills, Awareness","E-commerce, Google My Business, POS",41,Bootstrapped,Yes,Partial
+795,Kenya,Finance,485,147832,High,Skills,Mobile money,11,Seed,No,None
+796,Rwanda,Farming,94,373023,Low,"Cost, Internet","Google My Business, POS, CRM",0,None,Yes,None
+797,Ghana,Manufacturing,295,421087,High,Internet,CRM,41,Bootstrapped,No,Partial
+798,Rwanda,Farming,314,269753,Medium,Awareness,"Google My Business, POS",36,Bootstrapped,No,None
+799,Rwanda,Logistics,280,258602,High,"Skills, Internet","Mobile money, E-commerce, WhatsApp",-4,Seed,No,Full
+800,Ghana,Retail,125,171480,Low,Cost,"POS, WhatsApp",44,Bootstrapped,No,Full
+801,Nigeria,Farming,200,34501,High,"Awareness, Regulation","Mobile money, WhatsApp",8,Seed,No,Full
+802,Ghana,Manufacturing,115,419840,High,Internet,"Mobile money, WhatsApp, Google My Business",30,Series A,No,None
+803,Ghana,Manufacturing,318,97701,High,"Skills, Awareness",Mobile money,42,Series A,Yes,None
+804,South Africa,Retail,372,205615,High,Skills,"CRM, WhatsApp, POS",16,Bootstrapped,Yes,Partial
+805,Kenya,Manufacturing,257,242080,Low,"Internet, Skills","Mobile money, WhatsApp, CRM",11,Series A,Yes,Partial
+806,South Africa,Farming,475,202100,Low,Cost,E-commerce,39,Seed,Yes,None
+807,Ghana,Farming,25,298717,High,Cost,"E-commerce, WhatsApp, CRM",46,Series A,Yes,Partial
+808,South Africa,Retail,292,367884,Low,Awareness,"Google My Business, CRM, Mobile money",13,Series A,Yes,None
+809,Ghana,Finance,255,279801,High,Cost,CRM,5,Seed,No,None
+810,Kenya,Manufacturing,296,170423,Low,Cost,"POS, WhatsApp, Google My Business",40,Series A,No,Full
+811,Ghana,Manufacturing,392,156542,High,Awareness,"WhatsApp, Mobile money",15,Seed,Yes,None
+812,Rwanda,Retail,490,195471,Medium,"Internet, Skills","CRM, WhatsApp",-1,Seed,No,None
+813,South Africa,Education,475,446163,High,Regulation,"Mobile money, E-commerce, CRM",36,Seed,No,Partial
+814,Nigeria,Finance,101,391849,High,"Internet, Awareness",Google My Business,28,Seed,Yes,Full
+815,Rwanda,Finance,279,490076,Medium,Awareness,"WhatsApp, E-commerce, CRM",20,None,No,Full
+816,Kenya,Finance,97,16659,Low,"Awareness, Internet","CRM, Mobile money, POS",39,Bootstrapped,Yes,Full
+817,South Africa,Farming,248,44356,High,Skills,"CRM, Mobile money",25,Seed,No,None
+818,Ghana,Manufacturing,355,364536,Low,Skills,"Google My Business, WhatsApp",33,Series A,Yes,Partial
+819,Nigeria,Manufacturing,141,240185,Medium,"Cost, Skills",POS,11,Series A,No,Partial
+820,Kenya,Logistics,160,243402,High,Internet,E-commerce,40,Bootstrapped,No,Full
+821,Nigeria,Retail,52,227910,Medium,"Awareness, Internet",Google My Business,-5,Seed,No,None
+822,Ghana,Retail,194,158670,Medium,"Regulation, Awareness","POS, E-commerce, Mobile money",3,None,Yes,None
+823,Kenya,Logistics,421,369096,Low,Internet,"Mobile money, CRM, Google My Business",1,None,No,Full
+824,South Africa,Retail,9,240393,Medium,Awareness,CRM,4,Series A,Yes,Full
+825,Kenya,Logistics,391,164323,Medium,Skills,"POS, E-commerce",47,Seed,Yes,None
+826,Ghana,Farming,346,430530,High,Cost,"E-commerce, POS, Google My Business",32,None,Yes,Partial
+827,Rwanda,Manufacturing,427,341223,Low,"Internet, Cost",Google My Business,41,Seed,No,None
+828,Nigeria,Education,27,322813,High,Awareness,"Mobile money, Google My Business, CRM",-4,None,No,None
+829,Ghana,Retail,214,158483,High,"Cost, Regulation",CRM,4,Series A,Yes,Full
+830,Nigeria,Education,125,301081,Low,Skills,POS,19,Series A,No,Partial
+831,Nigeria,Farming,340,349374,Low,"Cost, Internet","CRM, Google My Business",9,Seed,Yes,Partial
+832,Ghana,Logistics,449,131955,Low,"Regulation, Cost","WhatsApp, CRM, Google My Business",6,Seed,Yes,Partial
+833,Rwanda,Education,407,261293,Medium,"Internet, Regulation",Mobile money,33,Series A,No,Full
+834,Kenya,Education,164,22124,Medium,Regulation,POS,45,Bootstrapped,Yes,None
+835,Nigeria,Retail,430,310044,Medium,"Skills, Regulation","WhatsApp, CRM, Mobile money",29,Series A,No,None
+836,Nigeria,Education,58,491254,Low,"Skills, Regulation",E-commerce,18,Bootstrapped,No,None
+837,Kenya,Manufacturing,445,443956,Medium,Internet,E-commerce,8,Bootstrapped,Yes,Full
+838,Kenya,Manufacturing,218,189763,Low,"Internet, Awareness","WhatsApp, CRM",19,Bootstrapped,Yes,Full
+839,Rwanda,Retail,361,34938,Medium,"Awareness, Skills","POS, WhatsApp, Google My Business",47,None,No,Partial
+840,Rwanda,Manufacturing,444,216684,Medium,"Skills, Cost","E-commerce, Mobile money, WhatsApp",24,Seed,Yes,Partial
+841,Kenya,Finance,259,351935,High,Skills,"Google My Business, CRM, E-commerce",20,Seed,No,None
+842,South Africa,Education,296,406221,Low,Regulation,"POS, Mobile money",27,Seed,Yes,Full
+843,South Africa,Retail,318,442775,Medium,"Skills, Awareness","CRM, WhatsApp, Google My Business",8,Bootstrapped,Yes,Partial
+844,Nigeria,Farming,281,351122,Low,"Cost, Awareness","WhatsApp, Google My Business",3,Series A,No,None
+845,Kenya,Manufacturing,441,307988,Medium,Regulation,"WhatsApp, Mobile money",23,Seed,Yes,None
+846,Kenya,Manufacturing,380,96017,High,Internet,CRM,9,Series A,No,None
+847,Ghana,Finance,225,317629,Medium,Awareness,"WhatsApp, POS, Mobile money",4,Bootstrapped,Yes,None
+848,South Africa,Farming,432,443413,High,"Internet, Skills",Google My Business,45,Series A,Yes,Full
+849,South Africa,Manufacturing,267,431310,Low,"Awareness, Skills",Mobile money,19,None,No,Full
+850,Rwanda,Manufacturing,171,254370,Medium,Internet,"Google My Business, WhatsApp, POS",5,Series A,No,None
+851,Ghana,Logistics,76,196017,High,"Cost, Skills","WhatsApp, CRM, POS",37,None,No,Partial
+852,Kenya,Logistics,223,349841,Medium,"Regulation, Awareness","CRM, Mobile money, WhatsApp",34,Series A,Yes,None
+853,Nigeria,Farming,359,221646,Low,"Skills, Regulation","POS, CRM, WhatsApp",6,None,No,None
+854,Ghana,Retail,66,435078,Medium,Internet,"WhatsApp, POS",46,Seed,Yes,None
+855,Kenya,Farming,291,400023,High,"Regulation, Skills","CRM, WhatsApp",25,None,No,Partial
+856,Ghana,Manufacturing,458,29388,Low,"Awareness, Regulation","Mobile money, CRM",42,None,No,None
+857,South Africa,Farming,52,328013,Medium,Cost,"CRM, Mobile money, WhatsApp",40,Bootstrapped,No,Partial
+858,Ghana,Education,116,92831,High,Regulation,"Google My Business, POS",29,Bootstrapped,Yes,Full
+859,Rwanda,Retail,415,433855,High,Regulation,"Google My Business, Mobile money, E-commerce",32,None,No,Full
+860,Ghana,Education,63,461125,Low,Skills,Mobile money,-4,Bootstrapped,No,None
+861,Kenya,Education,15,115218,Low,Cost,"Google My Business, WhatsApp, CRM",-2,Series A,Yes,Full
+862,Kenya,Farming,445,479209,Low,"Internet, Awareness","E-commerce, CRM, Mobile money",10,Series A,Yes,Partial
+863,Kenya,Retail,415,274469,Low,Internet,"Mobile money, WhatsApp, CRM",38,Seed,No,None
+864,Rwanda,Farming,440,372306,Low,Awareness,WhatsApp,-5,None,No,None
+865,Nigeria,Retail,431,131050,Low,"Regulation, Awareness",CRM,38,None,Yes,Full
+866,Kenya,Education,379,112746,Medium,"Cost, Regulation","Mobile money, CRM, WhatsApp",10,None,No,Full
+867,Kenya,Finance,166,187611,Medium,"Skills, Internet","WhatsApp, E-commerce, CRM",32,None,No,Partial
+868,Nigeria,Education,416,307730,High,Awareness,Mobile money,14,None,Yes,Full
+869,Nigeria,Finance,95,130685,Medium,Skills,"WhatsApp, E-commerce, Mobile money",-2,None,No,Full
+870,Rwanda,Education,41,137205,Low,"Regulation, Awareness",Google My Business,41,None,No,None
+871,South Africa,Farming,481,183617,Low,Skills,"Google My Business, Mobile money, POS",1,Seed,Yes,Full
+872,Ghana,Education,461,151157,High,"Internet, Skills","Mobile money, Google My Business",13,Series A,Yes,Partial
+873,South Africa,Education,314,53781,High,Awareness,"E-commerce, POS",42,Series A,No,Partial
+874,Kenya,Farming,53,94034,High,Skills,"Mobile money, CRM, WhatsApp",37,Seed,Yes,Full
+875,Kenya,Retail,321,84078,Low,"Awareness, Cost",POS,-4,Seed,No,Partial
+876,Ghana,Finance,367,332484,High,"Awareness, Internet","E-commerce, WhatsApp",26,Series A,No,Full
+877,Ghana,Retail,52,390476,Low,Internet,"WhatsApp, Mobile money",29,Seed,Yes,Partial
+878,Ghana,Logistics,287,414618,Medium,"Awareness, Regulation","E-commerce, POS",1,Seed,No,Partial
+879,Nigeria,Retail,60,344535,High,Regulation,"Google My Business, Mobile money",23,None,Yes,Full
+880,Rwanda,Logistics,83,176098,Low,"Skills, Awareness","CRM, WhatsApp",48,Series A,Yes,Partial
+881,Kenya,Logistics,414,237049,High,"Internet, Awareness","WhatsApp, CRM, E-commerce",-4,Series A,Yes,None
+882,Nigeria,Logistics,7,303396,Low,Awareness,Google My Business,48,None,Yes,None
+883,Nigeria,Retail,439,22508,Low,Internet,"WhatsApp, CRM",50,Bootstrapped,Yes,Partial
+884,Rwanda,Education,217,10643,Low,Cost,"POS, Mobile money",9,Seed,No,Partial
+885,Nigeria,Logistics,80,350245,High,"Regulation, Internet",POS,9,Bootstrapped,No,None
+886,Nigeria,Farming,41,361380,Low,"Cost, Skills",CRM,18,Seed,No,None
+887,Nigeria,Logistics,404,73455,High,"Skills, Cost","E-commerce, Mobile money",18,Bootstrapped,Yes,Full
+888,Ghana,Logistics,92,286033,Medium,Internet,"POS, CRM, Mobile money",37,Series A,No,Partial
+889,South Africa,Farming,114,241366,Medium,Cost,WhatsApp,39,Series A,No,Partial
+890,Kenya,Retail,229,295489,Low,"Cost, Skills","WhatsApp, Mobile money",39,Seed,Yes,None
+891,Nigeria,Farming,482,331335,Low,"Awareness, Internet",E-commerce,-3,Seed,Yes,Full
+892,South Africa,Finance,260,150608,Medium,Skills,"Mobile money, WhatsApp, POS",15,Series A,Yes,Partial
+893,Kenya,Manufacturing,63,435741,Medium,"Internet, Awareness","POS, Mobile money",11,Bootstrapped,Yes,None
+894,Rwanda,Education,206,134651,Medium,Skills,"WhatsApp, Google My Business",-4,Seed,Yes,Partial
+895,South Africa,Finance,317,499366,High,"Awareness, Skills",WhatsApp,9,Seed,Yes,Full
+896,Nigeria,Farming,44,201089,Medium,"Cost, Awareness","POS, Mobile money",-1,Seed,No,Full
+897,Ghana,Education,219,161218,High,Cost,"WhatsApp, E-commerce",-1,Series A,Yes,None
+898,South Africa,Logistics,204,241802,Medium,"Cost, Regulation","WhatsApp, CRM, E-commerce",44,Bootstrapped,Yes,None
+899,South Africa,Farming,206,38813,High,Awareness,"Google My Business, E-commerce",21,Series A,No,None
+900,South Africa,Farming,479,141651,High,"Cost, Skills",Google My Business,46,None,No,Full
+901,Nigeria,Manufacturing,14,183838,High,Cost,"WhatsApp, E-commerce, CRM",22,None,Yes,Full
+902,South Africa,Farming,495,369842,Medium,Awareness,"Mobile money, E-commerce, Google My Business",43,Bootstrapped,No,None
+903,Kenya,Manufacturing,102,441925,Low,"Internet, Regulation",Mobile money,-1,None,No,Full
+904,Nigeria,Education,87,318726,High,"Cost, Internet",E-commerce,10,Bootstrapped,No,Full
+905,Ghana,Retail,67,474580,Medium,Cost,"E-commerce, WhatsApp, Google My Business",-4,Series A,No,Full
+906,Rwanda,Retail,107,486148,Medium,Cost,"E-commerce, Mobile money",20,None,No,Full
+907,South Africa,Finance,218,208471,Low,Regulation,"CRM, POS",-1,None,No,None
+908,South Africa,Manufacturing,368,38712,Low,Cost,"Mobile money, Google My Business, WhatsApp",6,Seed,No,None
+909,Rwanda,Manufacturing,255,351657,High,Regulation,"E-commerce, POS",7,Series A,No,None
+910,Rwanda,Manufacturing,197,105703,Low,"Skills, Regulation","POS, Google My Business",18,None,No,Full
+911,South Africa,Finance,265,306756,Medium,"Cost, Awareness",Google My Business,8,None,Yes,Full
+912,Nigeria,Logistics,219,367213,High,"Skills, Internet",CRM,5,Bootstrapped,Yes,None
+913,Ghana,Farming,444,403847,Medium,"Cost, Regulation",Google My Business,29,Bootstrapped,No,Partial
+914,Kenya,Manufacturing,241,366848,Low,Cost,"Mobile money, E-commerce, CRM",13,None,Yes,Full
+915,Kenya,Logistics,369,317195,Low,"Skills, Regulation","CRM, POS, E-commerce",36,Series A,No,Full
+916,Ghana,Finance,44,202178,Low,"Regulation, Awareness","POS, WhatsApp",3,Seed,No,Full
+917,South Africa,Education,143,78840,Low,Cost,WhatsApp,45,None,Yes,Partial
+918,Kenya,Education,106,10840,Low,"Cost, Internet","E-commerce, Google My Business",3,Bootstrapped,No,Partial
+919,South Africa,Logistics,400,254943,Low,Awareness,"WhatsApp, E-commerce, Google My Business",28,None,Yes,Partial
+920,Nigeria,Education,419,196460,Medium,"Regulation, Skills","POS, Google My Business, WhatsApp",35,Bootstrapped,No,Full
+921,Nigeria,Farming,113,255152,Medium,"Skills, Regulation","Mobile money, E-commerce, Google My Business",39,Series A,Yes,Partial
+922,South Africa,Logistics,40,214207,Low,Internet,CRM,-3,Bootstrapped,No,None
+923,Kenya,Finance,380,166311,High,Regulation,POS,21,None,Yes,Partial
+924,Rwanda,Retail,307,417755,Low,Skills,"Google My Business, CRM",15,Series A,No,Partial
+925,Ghana,Manufacturing,389,67820,Low,Skills,"Google My Business, CRM",23,None,No,Partial
+926,Kenya,Finance,271,13582,Low,Regulation,POS,49,Series A,Yes,None
+927,Kenya,Manufacturing,467,227366,Low,"Regulation, Cost","Google My Business, CRM",26,Bootstrapped,Yes,Partial
+928,Kenya,Manufacturing,465,40800,Medium,Regulation,CRM,10,Seed,No,None
+929,Nigeria,Retail,137,361482,Medium,"Awareness, Internet","Mobile money, POS",7,Seed,No,None
+930,Nigeria,Farming,398,404516,High,"Cost, Skills","POS, Google My Business",10,None,Yes,Partial
+931,Kenya,Retail,121,46670,High,Internet,"E-commerce, POS",41,Bootstrapped,No,None
+932,Ghana,Finance,5,275658,High,"Internet, Cost","CRM, Mobile money, WhatsApp",43,Bootstrapped,No,Full
+933,Ghana,Finance,382,315678,Low,Internet,POS,40,Seed,No,None
+934,Rwanda,Logistics,496,24357,Medium,Awareness,Mobile money,50,Seed,No,Partial
+935,South Africa,Farming,6,395143,High,"Internet, Cost","WhatsApp, Mobile money",46,None,No,None
+936,Kenya,Retail,184,298155,High,"Cost, Regulation",WhatsApp,6,Series A,Yes,None
+937,Nigeria,Retail,353,359951,Low,Regulation,Mobile money,17,Bootstrapped,Yes,Full
+938,Ghana,Finance,387,103370,Low,"Internet, Skills","POS, E-commerce, WhatsApp",41,Bootstrapped,Yes,None
+939,Nigeria,Logistics,128,96306,Medium,"Skills, Cost",CRM,-4,None,Yes,Partial
+940,Ghana,Logistics,294,234665,Medium,Regulation,"WhatsApp, POS",6,Series A,Yes,None
+941,Kenya,Logistics,239,231203,Medium,Regulation,WhatsApp,42,Seed,No,Partial
+942,Ghana,Logistics,485,106390,Low,"Awareness, Regulation","CRM, Google My Business",16,Series A,No,Partial
+943,South Africa,Finance,313,317981,Medium,Regulation,"E-commerce, CRM, Google My Business",15,Series A,Yes,Partial
+944,South Africa,Retail,274,20919,High,Regulation,"CRM, POS",47,Series A,No,None
+945,Ghana,Manufacturing,359,127846,High,Skills,"E-commerce, POS, Google My Business",31,Series A,No,Full
+946,Rwanda,Logistics,121,258242,Medium,Awareness,WhatsApp,23,None,Yes,None
+947,Kenya,Finance,222,41614,Low,Skills,POS,49,Series A,No,Partial
+948,Nigeria,Education,314,349566,Medium,Awareness,WhatsApp,26,Bootstrapped,Yes,Full
+949,Kenya,Manufacturing,11,31504,High,Internet,"E-commerce, Mobile money",33,Series A,No,Partial
+950,Kenya,Finance,59,95565,Medium,"Cost, Internet","WhatsApp, POS",14,Bootstrapped,Yes,None
+951,Nigeria,Logistics,28,173172,Low,"Awareness, Internet",CRM,1,Seed,Yes,Partial
+952,Rwanda,Manufacturing,441,194851,Low,"Awareness, Internet",Mobile money,12,Seed,Yes,Full
+953,Nigeria,Farming,316,74277,Low,Skills,Google My Business,12,Bootstrapped,Yes,Full
+954,Rwanda,Logistics,435,344926,Low,"Regulation, Awareness","WhatsApp, CRM",44,Bootstrapped,No,None
+955,South Africa,Logistics,132,428913,Medium,"Skills, Internet","WhatsApp, Google My Business",14,None,Yes,Partial
+956,Ghana,Farming,44,353847,High,"Skills, Cost","E-commerce, Google My Business, CRM",15,Seed,Yes,Full
+957,Kenya,Education,188,395918,Medium,"Regulation, Skills","E-commerce, POS",45,Seed,No,Partial
+958,Rwanda,Logistics,19,264533,Medium,"Regulation, Skills","CRM, Mobile money, WhatsApp",24,Seed,Yes,Partial
+959,Nigeria,Finance,385,385625,High,"Regulation, Internet",POS,0,None,No,Partial
+960,Ghana,Education,275,11467,Medium,Cost,"E-commerce, POS",15,Bootstrapped,No,Full
+961,Nigeria,Retail,123,122423,Medium,Skills,"CRM, E-commerce",34,Bootstrapped,No,Full
+962,South Africa,Manufacturing,345,116696,Medium,Cost,Mobile money,25,Series A,No,Full
+963,Ghana,Retail,75,132284,Low,"Awareness, Skills","POS, WhatsApp",-2,Series A,Yes,Partial
+964,Nigeria,Retail,387,174712,Medium,Cost,Mobile money,-1,Seed,Yes,None
+965,South Africa,Farming,25,152576,Medium,"Cost, Awareness","Mobile money, E-commerce, CRM",23,None,No,Full
+966,Ghana,Farming,396,436697,High,"Cost, Skills","E-commerce, WhatsApp, Google My Business",21,None,No,Partial
+967,Rwanda,Retail,341,370521,High,"Cost, Regulation","CRM, Mobile money",42,None,No,Partial
+968,South Africa,Manufacturing,465,376626,High,Skills,"Mobile money, WhatsApp",22,None,Yes,Full
+969,Rwanda,Logistics,222,216364,Medium,"Cost, Awareness",POS,15,None,No,Full
+970,South Africa,Finance,399,173186,High,"Regulation, Internet","CRM, WhatsApp",12,Seed,No,Partial
+971,Kenya,Logistics,400,278939,High,"Skills, Cost","POS, WhatsApp, Google My Business",38,Series A,No,Full
+972,South Africa,Finance,257,425774,Medium,Regulation,Mobile money,33,Series A,No,Full
+973,Ghana,Logistics,57,193950,Low,"Awareness, Regulation","Mobile money, WhatsApp",11,None,No,Partial
+974,South Africa,Manufacturing,188,251090,Medium,Awareness,"Google My Business, WhatsApp",42,Seed,Yes,None
+975,Rwanda,Farming,60,150239,Low,"Cost, Awareness",Mobile money,22,Bootstrapped,Yes,Partial
+976,Rwanda,Finance,184,132478,High,"Skills, Awareness","WhatsApp, Google My Business",44,None,Yes,Partial
+977,Ghana,Retail,422,494587,Medium,"Regulation, Awareness","CRM, Mobile money",36,Seed,Yes,Full
+978,Nigeria,Retail,159,72586,Medium,"Awareness, Regulation",Google My Business,50,None,No,Full
+979,Rwanda,Education,114,155403,High,Skills,POS,40,Bootstrapped,No,None
+980,Ghana,Finance,311,391308,Medium,"Skills, Cost","POS, WhatsApp, E-commerce",4,Seed,No,Full
+981,Nigeria,Finance,280,151210,Low,Cost,E-commerce,8,None,Yes,Partial
+982,Rwanda,Finance,146,260945,Low,"Internet, Regulation","CRM, POS",35,None,Yes,None
+983,Kenya,Farming,485,71681,High,Regulation,"WhatsApp, Google My Business",20,None,No,Full
+984,Kenya,Education,339,35547,Medium,Awareness,"Google My Business, CRM, WhatsApp",36,Seed,Yes,Full
+985,South Africa,Retail,438,178912,High,"Regulation, Skills","E-commerce, POS, WhatsApp",14,Series A,No,None
+986,Ghana,Education,435,374602,High,Awareness,"E-commerce, WhatsApp, Google My Business",13,Series A,Yes,Full
+987,Ghana,Logistics,472,128085,Low,"Internet, Regulation","Google My Business, POS",-5,Series A,Yes,None
+988,Ghana,Education,155,28957,Medium,"Awareness, Regulation","Google My Business, Mobile money, CRM",-3,Seed,Yes,Partial
+989,Ghana,Manufacturing,497,296657,Low,Internet,"POS, WhatsApp, Mobile money",8,None,Yes,None
+990,South Africa,Logistics,493,304309,High,"Regulation, Awareness",E-commerce,29,Seed,Yes,Full
+991,Kenya,Retail,338,495551,Medium,Skills,"E-commerce, Google My Business, Mobile money",44,Seed,Yes,Partial
+992,Ghana,Education,406,214934,Low,Skills,E-commerce,27,Seed,No,Full
+993,Nigeria,Education,485,187701,Medium,"Regulation, Cost","Mobile money, WhatsApp",19,None,Yes,Partial
+994,Kenya,Farming,17,56876,Medium,Regulation,"Mobile money, Google My Business, POS",9,Seed,No,Full
+995,South Africa,Farming,438,368330,Low,Awareness,POS,13,Seed,Yes,Partial
+996,Kenya,Logistics,109,333638,Medium,"Cost, Skills","POS, Google My Business",21,Seed,No,Full
+997,Rwanda,Education,260,178806,Medium,Internet,"E-commerce, CRM, Google My Business",2,Bootstrapped,Yes,Full
+998,Ghana,Retail,319,70516,Medium,Awareness,"POS, WhatsApp",50,Bootstrapped,No,None
+999,Nigeria,Education,313,226364,High,"Regulation, Internet","Google My Business, CRM",-3,Seed,Yes,Full
+1000,Kenya,Retail,312,282248,Low,"Cost, Regulation",E-commerce,37,Series A,No,Partial
