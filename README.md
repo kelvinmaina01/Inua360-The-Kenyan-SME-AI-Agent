@@ -70,11 +70,11 @@ Inua360 integrates four intelligent agents that work together to support SMEs ac
 
 | Name               | Role       | Contact                          |
 |--------------------|------------|----------------------------------|
-| Kelvin Maina       | Team Lead  | kelvin.reallife8@gmail.com       |
-| Emmanuel Mwangangi | Developer  | mwangangie284@gmail.com          |
-| Fiona Mbithe       | Developer  | fionambithe100@gmail.com         |
-| Abigael Zawadi     | Analyst    | a.mukuruzawadi@gmail.com         |
-| Sandra Kimiringi   | Designer   | kimiringsandra@gmail.com         |
+| Kelvin Maina       |  xxxxxxxxxx| kelvin.reallife8@gmail.com       |
+| Emmanuel Mwangangi | xxxxxxxxxxxx  | mwangangie284@gmail.com          |
+| Fiona Mbithe       |  xxxxxxxxxxx| fionambithe100@gmail.com         |
+| Abigael Zawadi     |   xxxxxxxxxx | a.mukuruzawadi@gmail.com         |
+| Sandra Kimiringi   |  xxxxxxxxxxxx | kimiringsandra@gmail.com       |
 
 ---
 
