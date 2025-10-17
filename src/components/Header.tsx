@@ -2,19 +2,28 @@ import logo from "@/assets/inua360-logo.png";
 
 const Header = () => {
   return (
-    <header className="w-full py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <img src={logo} alt="Inua360 Logo" className="h-16 w-16 sm:h-20 sm:w-20" />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+    <header className="w-full py-10 px-4 sm:px-6 lg:px-8 bg-background border-b border-border/50">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-4">
+        {/* Logo and Brand */}
+        <div className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="Inua360 Logo"
+            className="h-14 w-14 sm:h-16 sm:w-16 object-contain"
+          />
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
             Inua360
           </h1>
         </div>
-        <p className="text-xl sm:text-2xl font-semibold text-primary mb-2">
+
+        {/* Tagline */}
+        <p className="text-lg sm:text-xl font-medium text-primary">
           Smart Business Agent
         </p>
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-          Empowering SMEs with intelligent tools for growth
+
+        {/* Subtext */}
+        <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
+          Empowering Kenyan SMEs with intelligent tools for growth and opportunity.
         </p>
       </div>
     </header>
