@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Bot, Send, Sparkles, Home } from "lucide-react";
+import { Bot, Send, Sparkles, Home, Mic, MicOff } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -21,244 +22,274 @@ const InteractiveAgent = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // ✅ Load profile and show welcome message
   useEffect(() => {
-    // Load profile data from localStorage
-    const stored = localStorage.getItem('sme_profile_data');
+    const stored = localStorage.getItem("sme_profile_data");
     if (stored) {
       const data = JSON.parse(stored);
       setProfileData(data);
-      
-      // Create personalized welcome message
-      const welcomeMessage: Message = {
-        id: "welcome",
-        role: "assistant",
-        content: `Hello ${data.business_name ? data.business_name + ' team' : 'there'}! 👋 
-
-I'm your Inua360 AI assistant, and I'm excited to help you grow your business! 🚀
-
-I've reviewed your profile - a ${data.sector} business in ${data.country} with ${data.employees} employees. That's impressive!
-
-I'm here to support you with:
-• 💡 Business growth strategies
-• 📋 Registration and compliance guidance  
-• 💰 Funding and financing options
-• 📊 Market insights and best practices
-• 🎯 Personalized recommendations
-
-What would you like to explore today? Ask me anything!`,
-        timestamp: new Date()
-      };
-      setMessages([welcomeMessage]);
+      setMessages([
+        {
+          id: "welcome",
+          role: "assistant",
+          content: `Hello ${data.business_name ? data.business_name + " team" : "there"}! 👋 
+I'm your Inua360 AI Business Advisor — ready to help your ${data.sector} business in ${data.country} grow and thrive 🚀.
+What would you like to explore today?`,
+          timestamp: new Date(),
+        },
+      ]);
     } else {
-      // Default welcome message if no profile data
-      const welcomeMessage: Message = {
-        id: "welcome",
-        role: "assistant",
-        content: "Hello! 👋 I'm your Inua360 AI assistant. I'm here to help you grow your business with personalized guidance. What would you like to know?",
-        timestamp: new Date()
-      };
-      setMessages([welcomeMessage]);
+      setMessages([
+        {
+          id: "welcome",
+          role: "assistant",
+          content:
+            "Hello! 👋 I'm your Inua360 AI Business Advisor. Ask me anything about growing your business — from funding to compliance to expansion!",
+          timestamp: new Date(),
+        },
+      ]);
     }
   }, []);
 
+  // Auto-scroll to newest message
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages]);
 
-  // TODO: Replace with actual API call to Django backend + AI/ML models
-  const getAIResponse = async (userMessage: string): Promise<string> => {
-    // Simulated AI response - replace with actual backend integration
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  // ✅ Modified: Real AI backend call
+  const getAIResponse = async (
+    msg: string
+  ): Promise<{ text: string; audio?: string }> => {
+    try {
+      const res = await fetch("http://localhost:8000/api/agent/chat/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg, profile: profileData }),
+      });
 
-    const lowerMessage = userMessage.toLowerCase();
-    
-    if (lowerMessage.includes("register") || lowerMessage.includes("registration")) {
-      return "To register your business in Kenya, you'll need to:\n\n1. Reserve your business name through the BRS portal\n2. Apply for a KRA PIN\n3. Register with the Business Registration Service (BRS)\n4. Obtain a county business permit\n5. Register with NSSF and NHIF for employees\n\nWould you like more details on any of these steps?";
+      if (!res.ok) throw new Error("AI response failed");
+      return await res.json(); // backend returns { text, audio? }
+    } catch (err) {
+      console.error("AI Error:", err);
+      return { text: "⚠️ Sorry, something went wrong while getting advice from Inua360." };
     }
-    
-    if (lowerMessage.includes("funding") || lowerMessage.includes("loan") || lowerMessage.includes("finance")) {
-      return "Kenya offers several funding options for SMEs:\n\n• Youth Enterprise Development Fund (for entrepreneurs 18-35)\n• Women Enterprise Fund\n• Uwezo Fund\n• Bank loans (KCB, Equity, Co-op)\n• M-PESA business loans\n• Angel investors and VCs\n\nWhat's your business size and sector? I can give you more specific recommendations.";
-    }
-    
-    if (lowerMessage.includes("compliance") || lowerMessage.includes("permit") || lowerMessage.includes("license")) {
-      return "Compliance requirements vary by sector and location, but common ones include:\n\n• Business registration certificate\n• KRA PIN certificate\n• County single business permit\n• NEMA environmental compliance (if applicable)\n• Sector-specific licenses\n\nUse our Compliance Checker tool to get a personalized checklist for your business!";
-    }
-    
-    if (lowerMessage.includes("growth") || lowerMessage.includes("scale") || lowerMessage.includes("expand")) {
-      return "Here are proven strategies to grow your SME:\n\n1. Digitalize your operations (online payments, inventory systems)\n2. Build an online presence (website, social media)\n3. Network with other businesses\n4. Invest in employee training\n5. Explore new markets or product lines\n6. Access business development services\n\nWhat specific growth challenge are you facing?";
-    }
-
-    return "That's a great question! While I'm still learning, I can help you with:\n\n• Business registration processes\n• Funding and financing options\n• Compliance and licensing requirements\n• Growth and scaling strategies\n\nCould you rephrase your question or pick one of these topics?";
   };
 
+  // ✅ Send message and show AI reply
   const handleSend = async () => {
     if (!input.trim()) return;
-
-    const userMessage: Message = {
+    const userMsg: Message = {
       id: Date.now().toString(),
       role: "user",
       content: input,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((m) => [...m, userMsg]);
     setInput("");
     setIsLoading(true);
 
-    // TODO: Call actual Django backend + AI/ML model
-    const aiResponse = await getAIResponse(input);
+    const reply = await getAIResponse(input);
 
-    const assistantMessage: Message = {
-      id: (Date.now() + 1).toString(),
-      role: "assistant",
-      content: aiResponse,
-      timestamp: new Date()
-    };
+    setMessages((m) => [
+      ...m,
+      {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: reply.text,
+        timestamp: new Date(),
+      },
+    ]);
 
-    setMessages(prev => [...prev, assistantMessage]);
+    // 🔊 Optional: play ElevenLabs audio if backend provides it
+    if (reply.audio) {
+      const audio = new Audio(`data:audio/mpeg;base64,${reply.audio}`);
+      audio.play();
+    }
+
     setIsLoading(false);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
-  };
+  // ✅ Voice input toggle (speech-to-text)
+  const handleVoiceToggle = () => setIsListening((prev) => !prev);
 
+  // ✅ Use Web Speech API when listening is active
+  useEffect(() => {
+    if (!isListening) return;
+
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Speech recognition not supported in this browser.");
+      setIsListening(false);
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript;
+      setInput(transcript);
+      setIsListening(false);
+      handleSend(); // auto-send after capturing voice
+    };
+
+    recognition.onerror = (err: any) => {
+      console.error("Speech recognition error:", err);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => setIsListening(false);
+    recognition.start();
+
+    return () => recognition.stop();
+  }, [isListening]);
+
+  // ✅ Quick prompt buttons
   const quickActions = [
     "How do I register my business?",
-    "What funding options are available?",
-    "Tell me about compliance requirements",
-    "How can I grow my business?"
+    "What funding options exist?",
+    "Tell me about compliance",
+    "How can I scale my SME?",
   ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <Button onClick={() => navigate('/')} variant="outline" className="gap-2">
-        <Home className="h-4 w-4" />
-        Back to Home
+    <div className="max-w-4xl mx-auto space-y-6 relative">
+      <Button onClick={() => navigate("/")} variant="outline" className="gap-2">
+        <Home className="h-4 w-4" /> Back to Home
       </Button>
 
-      <Card className="shadow-card">
-        <CardHeader className="gradient-hero text-primary-foreground rounded-t-xl">
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="h-8 w-8 animate-pulse" />
-            <div>
-              <CardTitle className="text-2xl flex items-center gap-2">
-                <Bot className="h-6 w-6" />
-                Your AI Business Advisor
-              </CardTitle>
-              <CardDescription className="text-primary-foreground/90 mt-2">
-                Congratulations on completing your business profile! 🎉 Now, let's chat about your growth journey. 
-                Ask me anything about expanding your business, funding opportunities, or strategic advice!
-              </CardDescription>
+      <Card className="shadow-card overflow-hidden backdrop-blur-sm border border-border/50 bg-background/80">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-primary/90 to-primary/70 text-primary-foreground p-6"
+        >
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-8 w-8 animate-pulse text-white" />
+              <div>
+                <CardTitle className="text-2xl flex items-center gap-2">
+                  <Bot className="h-6 w-6" /> Your AI Business Advisor
+                </CardTitle>
+                <CardDescription className="text-primary-foreground/90 mt-1">
+                  Ask me about funding, growth, compliance, or registration!
+                </CardDescription>
+              </div>
             </div>
-          </div>
-          {profileData && (
-            <Badge variant="secondary" className="bg-white/20 text-white w-fit mt-2">
-              {profileData.business_name} • {profileData.sector} in {profileData.country}
-            </Badge>
-          )}
-        </CardHeader>
-        <CardContent className="p-0">
+            {profileData && (
+              <Badge variant="secondary" className="bg-white/20 text-white mt-3">
+                {profileData.business_name} • {profileData.sector}
+              </Badge>
+            )}
+          </CardHeader>
+        </motion.div>
+
+        {/* Chat area */}
+        <CardContent className="p-0 relative">
           <ScrollArea className="h-[500px] p-6" ref={scrollRef}>
-            <div className="space-y-4">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex gap-3 ${
-                    message.role === "user" ? "flex-row-reverse" : "flex-row"
+            <AnimatePresence>
+              {messages.map((msg) => (
+                <motion.div
+                  key={msg.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className={`flex gap-3 mb-4 ${
+                    msg.role === "user" ? "flex-row-reverse" : ""
                   }`}
                 >
-                  <Avatar className={message.role === "user" ? "bg-primary" : "bg-secondary"}>
-                    <AvatarFallback className="text-primary-foreground">
-                      {message.role === "user" ? "U" : <Bot className="h-5 w-5" />}
+                  <Avatar
+                    className={msg.role === "user" ? "bg-primary" : "bg-secondary"}
+                  >
+                    <AvatarFallback>
+                      {msg.role === "user" ? "U" : <Bot className="h-5 w-5" />}
                     </AvatarFallback>
                   </Avatar>
                   <div
-                    className={`flex-1 p-4 rounded-lg ${
-                      message.role === "user"
-                        ? "bg-primary text-primary-foreground ml-12"
-                        : "bg-muted text-foreground mr-12"
+                    className={`max-w-[75%] p-4 rounded-2xl shadow-sm ${
+                      msg.role === "user"
+                        ? "bg-primary text-primary-foreground ml-2"
+                        : "bg-muted/60 text-foreground mr-2"
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                    <span className="text-xs opacity-70 mt-2 block">
-                      {message.timestamp.toLocaleTimeString([], { 
-                        hour: '2-digit', 
-                        minute: '2-digit' 
+                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    <span className="text-xs opacity-70 block mt-1">
+                      {msg.timestamp.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
                       })}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               ))}
-              {isLoading && (
-                <div className="flex gap-3">
-                  <Avatar className="bg-secondary">
-                    <AvatarFallback className="text-primary-foreground">
-                      <Bot className="h-5 w-5" />
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1 p-4 rounded-lg bg-muted text-foreground mr-12">
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 animate-pulse text-primary" />
-                      <span className="text-sm text-muted-foreground">Thinking...</span>
-                    </div>
+            </AnimatePresence>
+
+            {isLoading && (
+              <div className="flex gap-3">
+                <Avatar className="bg-secondary">
+                  <AvatarFallback>
+                    <Bot className="h-5 w-5" />
+                  </AvatarFallback>
+                </Avatar>
+                <div className="bg-muted/60 p-4 rounded-2xl mr-2">
+                  <div className="flex gap-1">
+                    <span className="w-2 h-2 bg-primary rounded-full animate-bounce"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full animate-bounce delay-150"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full animate-bounce delay-300"></span>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </ScrollArea>
 
-          <div className="border-t p-4 space-y-4">
+          {/* Input area */}
+          <div className="border-t p-4 space-y-3 bg-background/70 backdrop-blur-md">
             <div className="flex flex-wrap gap-2">
-              {quickActions.map((action, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setInput(action)}
-                  className="text-xs"
-                >
-                  {action}
+              {quickActions.map((q, i) => (
+                <Button key={i} variant="outline" size="sm" onClick={() => setInput(q)}>
+                  {q}
                 </Button>
               ))}
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
                 placeholder="Ask me anything about your business..."
+                onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 disabled={isLoading}
-                className="flex-1"
               />
-              <Button 
-                onClick={handleSend} 
-                disabled={!input.trim() || isLoading}
-                className="bg-primary hover:bg-primary/90"
-              >
+              <Button onClick={handleSend} disabled={!input.trim() || isLoading}>
                 <Send className="h-4 w-4" />
               </Button>
             </div>
-
-            <div className="text-xs text-muted-foreground text-center">
-              💡 This agent uses AI to provide guidance. For official information, consult with BRF or legal advisors.
-              {/* TODO: Connect to Django backend + Jupyter ML models for intelligent responses */}
-            </div>
           </div>
+
+          {/* ✅ Floating Voice Icon */}
+          <motion.button
+            onClick={handleVoiceToggle}
+            className={`absolute bottom-24 right-6 p-4 rounded-full shadow-lg ${
+              isListening ? "bg-red-500" : "bg-primary"
+            } text-white hover:scale-105 transition-transform`}
+            whileTap={{ scale: 0.9 }}
+          >
+            {isListening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
+          </motion.button>
         </CardContent>
       </Card>
-      
+
       <div className="text-center text-sm text-muted-foreground">
-        <p>✨ Keep exploring! Your journey to business growth has just begun.</p>
-        <p className="mt-2">💡 This agent uses AI to provide guidance. For official information, consult with BRS or legal advisors.</p>
+        ✨ Keep exploring — your business journey starts here.
       </div>
     </div>
   );
