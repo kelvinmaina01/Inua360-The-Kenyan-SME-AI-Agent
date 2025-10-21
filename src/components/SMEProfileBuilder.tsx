@@ -22,28 +22,48 @@ export interface ProfileData {
   business_name: string;
   country: string;
   sector: string;
+  year_established: string;
   employees: string;
+  business_size: string;
   annual_revenue: string;
-  tech_adoption_level: string;
-  main_challenges: string[];
-  digital_tools_used: string[];
   growth_last_yr: string;
   funding_status: string;
+  ownership_type: string;
   female_owned: boolean;
+  location: string;
+  main_challenges: string;
+  digital_tools_used: string;
+  tech_adoption_level: string;
   remote_work_policy: string;
 }
 
 const questions = [
-  { id: "business_name", question: "What's your business name?", type: "text", ml_field: false, placeholder: "e.g., TechVentures Kenya Ltd" },
-  { id: "country", question: "Which country is your business located in?", type: "select", ml_field: true, options: ["Kenya"] },
-  { id: "sector", question: "What sector does your business operate in?", type: "select", ml_field: true, options: ["Agriculture", "Retail", "Manufacturing", "Services", "Technology", "Health", "Food & Beverage"] },
-  { id: "employees", question: "How many employees do you have?", type: "number", ml_field: true, placeholder: "e.g., 25" },
-  { id: "annual_revenue", question: "What's your annual revenue in Ksh?", type: "number", ml_field: true, placeholder: "e.g., 500000" },
-  //{ id: "growth_last_yr", question: "What was your growth percentage last year?", type: "number", ml_field: true, placeholder: "e.g., 35" },
-  { id: "tech_adoption_level", question: "How would you rate your technology adoption?", type: "select", ml_field: true, options: ["Low", "Medium", "High", "Very High"] },
-  { id: "funding_status", question: "What's your current funding status?", type: "select", ml_field: true, options: ["Bootstrapped", "Seed Funded", "Series A", "Series B+", "Not Seeking"] },
-  { id: "female_owned", question: "Is this a female-owned business?", type: "boolean", ml_field: true },
-  { id: "remote_work_policy", question: "What's your remote work policy?", type: "select", ml_field: true, options: ["Fully Remote", "Hybrid", "On-site Only", "Flexible"] },
+  { id: "business_name", question: "What's your business name?", type: "text", placeholder: "e.g., TechVentures Kenya Ltd" },
+  { id: "country", question: "Which country is your business located in?", type: "select", options: ["Kenya"] },
+  { id: "sector", question: "What sector does your business operate in?", type: "select", options: ["Agriculture", "Retail", "Manufacturing", "Services", "Technology", "Health", "Food & Beverage"] },
+  { id: "year_established", question: "What year was your business established?", type: "number", placeholder: "e.g., 2018" },
+  { id: "employees", question: "How many employees do you have?", type: "number", placeholder: "e.g., 25" },
+  { id: "business_size", question: "What is the size of your business?", type: "select", options: ["Micro", "Small", "Medium", "Large"] },
+  { id: "annual_revenue", question: "What's your annual revenue in Ksh?", type: "number", placeholder: "e.g., 500000" },
+  {
+    id: "funding_status",
+    question: "What's your current funding status?",
+    type: "select",
+    options: [
+      "Bootstrapped (Self-funded)",
+      "Seed Funded (Early stage)",
+      "Series A (Growth stage)",
+      "Series B+ (Scaling)",
+      "Not Seeking (Stable)"
+    ]
+  },
+  { id: "ownership_type", question: "What type of ownership structure does your business have?", type: "select", options: ["Sole Proprietor", "Partnership", "Limited Company", "Cooperative"] },
+  { id: "female_owned", question: "Is this a female-owned business?", type: "boolean" },
+  { id: "location", question: "Where is your business located?", type: "text", placeholder: "e.g., Nairobi, Kenya" },
+  { id: "main_challenges", question: "What are your main business challenges? (comma separated)", type: "text", placeholder: "e.g., access to finance, market reach" },
+  { id: "digital_tools_used", question: "Which digital tools does your business use? (comma separated)", type: "text", placeholder: "e.g., WhatsApp, Excel, QuickBooks" },
+  { id: "tech_adoption_level", question: "How would you rate your technology adoption?", type: "select", options: ["Low", "Medium", "High", "Very High"] },
+  { id: "remote_work_policy", question: "What's your remote work policy?", type: "select", options: ["Fully Remote", "Hybrid", "On-site Only", "Flexible"] },
 ];
 
 const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps = {}) => {
@@ -56,14 +76,18 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
     business_name: initialData?.business_name || "",
     country: initialData?.country || "",
     sector: initialData?.sector || "",
+    year_established: initialData?.year_established || "",
     employees: initialData?.employees || "",
+    business_size: initialData?.business_size || "",
     annual_revenue: initialData?.annual_revenue || "",
-    tech_adoption_level: initialData?.tech_adoption_level || "",
-    main_challenges: initialData?.main_challenges || [],
-    digital_tools_used: initialData?.digital_tools_used || [],
     growth_last_yr: initialData?.growth_last_yr || "",
     funding_status: initialData?.funding_status || "",
+    ownership_type: initialData?.ownership_type || "",
     female_owned: initialData?.female_owned || false,
+    location: initialData?.location || "",
+    main_challenges: initialData?.main_challenges || "",
+    digital_tools_used: initialData?.digital_tools_used || "",
+    tech_adoption_level: initialData?.tech_adoption_level || "",
     remote_work_policy: initialData?.remote_work_policy || ""
   });
 
@@ -72,46 +96,49 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
 
   const handleNext = () => {
     const value = formData[currentQuestion.id as keyof ProfileData];
-    if (!value && value !== false) {
+    if (!value || (typeof value === "string" && value.trim() === "")) {
       toast.error("Please answer this question before continuing");
       return;
     }
-    if (currentStep < questions.length - 1) {
-      setCurrentStep((prev) => prev + 1);
-    } else {
-      generateReport();
-    }
+    if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
+    else generateReport();
   };
 
   const handlePrevious = () => {
-    if (currentStep > 0) setCurrentStep((prev) => prev - 1);
+    if (currentStep > 0) setCurrentStep(prev => prev - 1);
   };
 
   const generateReport = async () => {
     setIsGeneratingReport(true);
     try {
       localStorage.setItem("sme_profile_data", JSON.stringify(formData));
-      await new Promise((r) => setTimeout(r, 1500));
+      await new Promise(res => setTimeout(res, 1500));
 
       const mockReport: ReportData = {
         businessName: formData.business_name,
-        profile: formData,
+        profile: {
+          business_name: formData.business_name,
+          sector: formData.sector,
+          country: formData.country,
+          female_owned: formData.female_owned,
+          remote_work_policy: formData.remote_work_policy,
+        },
         financialSnapshot: {
           employees: parseInt(formData.employees) || 0,
           annual_revenue: parseInt(formData.annual_revenue) || 0,
           growth_last_yr: parseFloat(formData.growth_last_yr) || 0,
-          funding_status: formData.funding_status
+          funding_status: formData.funding_status,
         },
         techOperations: {
           tech_adoption_level: formData.tech_adoption_level,
-          digital_tools_used: formData.digital_tools_used,
-          main_challenges: formData.main_challenges
+          digital_tools_used: formData.digital_tools_used.split(",").map(t => t.trim()),
+          main_challenges: formData.main_challenges.split(",").map(c => c.trim()),
         },
         summary: `${formData.business_name} is a ${formData.female_owned ? "woman-owned" : ""} ${formData.sector} business in ${formData.country} with ${formData.employees} employees.`,
         suggestions: [
           `Explore AI-powered analytics given your ${formData.tech_adoption_level} tech adoption.`,
           `Invest in team development for your ${formData.employees} employees.`,
-          `Your ${formData.growth_last_yr}% growth last year shows scaling potential.`
+          `Your ${formData.growth_last_yr || 0}% growth last year shows scaling potential.`,
         ],
         complianceScore: Math.floor(Math.random() * 30) + 65,
         sectorAverage: formData.sector === "Technology" ? 78 : 72,
@@ -126,8 +153,9 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
 
       setCurrentReport(mockReport);
       toast.success("✅ Profile created successfully!");
-    } catch {
-      toast.error("Something went wrong!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong while generating the report!");
     } finally {
       setIsGeneratingReport(false);
     }
@@ -170,9 +198,9 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
             </Badge>
           </div>
           <CardDescription className="text-primary-foreground/80 mt-2">
-           Let’s get to know your business better — step by step.
+            Let’s get to know your business better — step by step.
           </CardDescription>
-          <Progress value={progress} className="h-2 mt-4 bg-white/20" />
+          <Progress value={progress} className="h-3 mt-4 bg-white/30 [&>div]:bg-white" />
         </CardHeader>
 
         <CardContent className="p-8">
@@ -195,25 +223,11 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
               >
                 <h3 className="text-xl font-semibold">{currentQuestion.question}</h3>
 
-                {currentQuestion.type === "text" && (
+                {["text", "number"].includes(currentQuestion.type) && (
                   <Input
+                    type={currentQuestion.type}
                     value={formData[currentQuestion.id as keyof ProfileData] as string}
-                    onChange={(e) =>
-                      setFormData({ ...formData, [currentQuestion.id]: e.target.value })
-                    }
-                    placeholder={currentQuestion.placeholder}
-                    className="text-lg p-6"
-                    autoFocus
-                  />
-                )}
-
-                {currentQuestion.type === "number" && (
-                  <Input
-                    type="number"
-                    value={formData[currentQuestion.id as keyof ProfileData] as string}
-                    onChange={(e) =>
-                      setFormData({ ...formData, [currentQuestion.id]: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, [currentQuestion.id]: e.target.value })}
                     placeholder={currentQuestion.placeholder}
                     className="text-lg p-6"
                     autoFocus
@@ -223,9 +237,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                 {currentQuestion.type === "select" && (
                   <Select
                     value={formData[currentQuestion.id as keyof ProfileData] as string}
-                    onValueChange={(value) =>
-                      setFormData({ ...formData, [currentQuestion.id]: value })
-                    }
+                    onValueChange={(value) => setFormData({ ...formData, [currentQuestion.id]: value })}
                   >
                     <SelectTrigger className="text-lg p-6">
                       <SelectValue placeholder="Select an option" />
@@ -244,9 +256,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                   <div className="flex items-center gap-4 p-6 border rounded-lg">
                     <Switch
                       checked={formData[currentQuestion.id as keyof ProfileData] as boolean}
-                      onCheckedChange={(checked) =>
-                        setFormData({ ...formData, [currentQuestion.id]: checked })
-                      }
+                      onCheckedChange={(checked) => setFormData({ ...formData, [currentQuestion.id]: checked })}
                     />
                     <Label className="text-lg cursor-pointer">
                       {formData[currentQuestion.id as keyof ProfileData] ? "Yes" : "No"}
