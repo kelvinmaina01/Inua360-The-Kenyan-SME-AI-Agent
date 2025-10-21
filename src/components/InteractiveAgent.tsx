@@ -1,7 +1,20 @@
 import { useState, useRef, useEffect } from "react";
-import { Bot, Send, Sparkles, Home, Mic, MicOff } from "lucide-react";
+import {
+  Bot,
+  Send,
+  BrainCircuit,
+  Home,
+  Mic,
+  MicOff,
+} from "lucide-react"; // ✅ Replaced Sparkles with BrainCircuit (modern AI icon)
 import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { ScrollArea } from "./ui/scroll-area";
@@ -56,10 +69,11 @@ What would you like to explore today?`,
 
   // Auto-scroll to newest message
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (scrollRef.current)
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages]);
 
-  // ✅ Modified: Real AI backend call
+  // ✅ Real AI backend call
   const getAIResponse = async (
     msg: string
   ): Promise<{ text: string; audio?: string }> => {
@@ -71,10 +85,12 @@ What would you like to explore today?`,
       });
 
       if (!res.ok) throw new Error("AI response failed");
-      return await res.json(); // backend returns { text, audio? }
+      return await res.json();
     } catch (err) {
       console.error("AI Error:", err);
-      return { text: "⚠️ Sorry, something went wrong while getting advice from Inua360." };
+      return {
+        text: "⚠️ Sorry, something went wrong while getting advice from Inua360.",
+      };
     }
   };
 
@@ -103,7 +119,6 @@ What would you like to explore today?`,
       },
     ]);
 
-    // 🔊 Optional: play ElevenLabs audio if backend provides it
     if (reply.audio) {
       const audio = new Audio(`data:audio/mpeg;base64,${reply.audio}`);
       audio.play();
@@ -112,15 +127,16 @@ What would you like to explore today?`,
     setIsLoading(false);
   };
 
-  // ✅ Voice input toggle (speech-to-text)
+  // ✅ Voice input toggle
   const handleVoiceToggle = () => setIsListening((prev) => !prev);
 
-  // ✅ Use Web Speech API when listening is active
+  // ✅ Speech recognition
   useEffect(() => {
     if (!isListening) return;
 
     const SpeechRecognition =
-      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       alert("Speech recognition not supported in this browser.");
@@ -137,7 +153,7 @@ What would you like to explore today?`,
       const transcript = event.results[0][0].transcript;
       setInput(transcript);
       setIsListening(false);
-      handleSend(); // auto-send after capturing voice
+      handleSend();
     };
 
     recognition.onerror = (err: any) => {
@@ -151,7 +167,6 @@ What would you like to explore today?`,
     return () => recognition.stop();
   }, [isListening]);
 
-  // ✅ Quick prompt buttons
   const quickActions = [
     "How do I register my business?",
     "What funding options exist?",
@@ -174,13 +189,15 @@ What would you like to explore today?`,
         >
           <CardHeader>
             <div className="flex items-center gap-3">
-              <Sparkles className="h-8 w-8 animate-pulse text-white" />
+              {/* ✅ Updated icon for a professional AI look */}
+              <BrainCircuit className="h-8 w-8 text-white drop-shadow-md" />
               <div>
-                <CardTitle className="text-2xl flex items-center gap-2">
-                  <Bot className="h-6 w-6" /> Your AI Business Advisor
+                {/* ✅ Updated title & subtitle */}
+                <CardTitle className="text-2xl flex items-center gap-2 font-semibold">
+                  Inua360 AI Business Advisor
                 </CardTitle>
                 <CardDescription className="text-primary-foreground/90 mt-1">
-                  Ask me about funding, growth, compliance, or registration!
+                  Your intelligent partner for funding, compliance, and business growth.
                 </CardDescription>
               </div>
             </div>
@@ -208,7 +225,9 @@ What would you like to explore today?`,
                   }`}
                 >
                   <Avatar
-                    className={msg.role === "user" ? "bg-primary" : "bg-secondary"}
+                    className={
+                      msg.role === "user" ? "bg-primary" : "bg-secondary"
+                    }
                   >
                     <AvatarFallback>
                       {msg.role === "user" ? "U" : <Bot className="h-5 w-5" />}
@@ -255,7 +274,12 @@ What would you like to explore today?`,
           <div className="border-t p-4 space-y-3 bg-background/70 backdrop-blur-md">
             <div className="flex flex-wrap gap-2">
               {quickActions.map((q, i) => (
-                <Button key={i} variant="outline" size="sm" onClick={() => setInput(q)}>
+                <Button
+                  key={i}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setInput(q)}
+                >
                   {q}
                 </Button>
               ))}
@@ -283,7 +307,11 @@ What would you like to explore today?`,
             } text-white hover:scale-105 transition-transform`}
             whileTap={{ scale: 0.9 }}
           >
-            {isListening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
+            {isListening ? (
+              <MicOff className="h-5 w-5" />
+            ) : (
+              <Mic className="h-5 w-5" />
+            )}
           </motion.button>
         </CardContent>
       </Card>
