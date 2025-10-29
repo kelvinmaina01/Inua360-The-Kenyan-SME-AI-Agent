@@ -324,3 +324,6 @@ What would you like to explore today?`,
 };
 
 export default InteractiveAgent;
+ <button>
+  back to home 
+ </button>

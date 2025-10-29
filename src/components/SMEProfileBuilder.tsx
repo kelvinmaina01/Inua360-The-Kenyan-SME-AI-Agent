@@ -44,7 +44,7 @@ const questions = [
   { id: "year_established", question: "What year was your business established?", type: "number", placeholder: "e.g., 2018" },
   { id: "employees", question: "How many employees do you have?", type: "number", placeholder: "e.g., 25" },
   { id: "business_size", question: "What is the size of your business?", type: "select", options: ["Micro", "Small", "Medium", "Large"] },
-  { id: "annual_revenue", question: "What's your annual revenue in Ksh?", type: "number", placeholder: "e.g., 500000" },
+  { id: "annual_revenue", question: "What's your average  annual revenue in Ksh?", type: "number", placeholder: "e.g., 500000" },
   {
     id: "funding_status",
     question: "What's your current funding status?",

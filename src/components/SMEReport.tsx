@@ -165,7 +165,7 @@ ${report.summary}`;
 
     if (method === "email") {
       const subject = encodeURIComponent(
-        `${report.businessName} - Inua360 Business Report`
+        `${report.businessName} - Inua360 Business Report` 
       );
       const body = encodeURIComponent(reportText);
       window.open(`mailto:?subject=${subject}&body=${body}`);
@@ -206,7 +206,7 @@ ${report.summary}`;
 
           <Button onClick={handleDownloadPDF} className="gradient-hero">
             <Download className="h-4 w-4 mr-2" />
-            Download PDF
+            Download Report as PDF
           </Button>
         </div>
       </div>
@@ -441,6 +441,8 @@ ${report.summary}`;
           className="gradient-hero px-6 py-3 text-lg"
           onClick={() => {
             toast.success("Navigating to Compliance Checker...");
+            
+
             // Example if using Next.js:
             // router.push("/compliance-checker");
           }}
@@ -453,3 +455,4 @@ ${report.summary}`;
 };
 
 export default SMEReport;
+ 
