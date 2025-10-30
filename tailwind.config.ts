@@ -1,9 +1,16 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
-  prefix: "",
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -14,7 +21,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -22,13 +29,15 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
+        // 🎨 Updated brand theme color
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#FB630B", // New theme color
+          foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#fbb07c",
+          foreground: "#1f1f1f",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -68,20 +77,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -90,5 +91,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  // ✅ Make sure both plugins are loaded
+  plugins: [animate, typography],
+};
+
+export default config;
