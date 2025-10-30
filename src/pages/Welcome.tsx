@@ -73,7 +73,7 @@ const Welcome = () => {
               className="hidden md:block text-center"
             >
               <img
-                src="/images/ai-growth-illustration.svg"
+                src="https://stock.adobe.com/ke/images/businesswoman-with-an-idea/1679637121"
                 alt="AI business growth"
                 className="w-full max-w-md mx-auto"
               />
