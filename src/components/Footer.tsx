@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="w-full mt-20 border-t border-border/50 bg-background">
+    <footer className="w-full mt-10 border-t border-border/50 bg-background relative z-50">
       {/* Kenyan flag stripe */}
       <div className="w-full h-1 flex">
         <div className="flex-1 bg-black" />
