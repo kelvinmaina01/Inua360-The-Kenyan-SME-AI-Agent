@@ -12,6 +12,9 @@ import { Progress } from "./ui/progress";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import SMEReport, { ReportData } from "./SMEReport";
+import axiosInstance from "./axios";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL
 
 interface SMEProfileBuilderProps {
   onComplete?: () => void;
@@ -146,6 +149,15 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
     try {
       localStorage.setItem("sme_profile_data", JSON.stringify(formData));
       await new Promise(res => setTimeout(res, 1500));
+
+      try {
+        // Send profile data to Django API
+        const response = await axiosInstance.post("/api/profiles/", formData);
+        console.log("Profile saved:", response.data);
+      } catch (error) {
+        console.error("Error saving profile:", error);
+        toast.error("Failed to save SME profile to backend.");
+      }
 
       const mockReport: ReportData = {
         businessName: formData.business_name,
