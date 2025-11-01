@@ -95,11 +95,44 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   const progress = ((currentStep + 1) / questions.length) * 100;
 
   const handleNext = () => {
-    const value = formData[currentQuestion.id as keyof ProfileData];
+    const fieldId = currentQuestion.id as keyof ProfileData;
+    let value = formData[fieldId];
     if (!value || (typeof value === "string" && value.trim() === "")) {
       toast.error("Please answer this question before continuing");
       return;
     }
+
+    //Validate the year input for year_established
+    if (fieldId === "year_established") {
+      const year = parseInt(value as string, 10);
+      const currentYear = new Date().getFullYear();
+
+      if (isNaN(year)) {
+        toast.error("Please enter a valid year (e.g., 2018)");
+        return;
+      }
+
+      if (year < 1900 || year > currentYear) {
+        toast.error(`Year must be between 1900 and ${currentYear}`);
+        return;
+      }
+    }
+
+    if (fieldId === "employees") {
+      const num = parseInt(value as string, 10);
+      if (isNaN(num) || num < 0 || !Number.isInteger(num)) {
+        toast.error("Please enter a valid number of employees (e.g., 25)");
+        return;
+      }
+    }
+
+    if (fieldId === "business_name" || fieldId === "location") {
+      if ((value as string).trim().length < 2) {
+        toast.error(`Please enter a valid ${fieldId === "business_name" ? "business name" : "location"}`);
+        return;
+      }
+    }
+
     if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
     else generateReport();
   };
@@ -231,6 +264,17 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                     placeholder={currentQuestion.placeholder}
                     className="text-lg p-6"
                     autoFocus
+                    min={currentQuestion.id === "year_established" ? "1900" : undefined}
+                    max={currentQuestion.id === "year_established" ? new Date().getFullYear().toString() : undefined}
+                    onInput={(e) => {
+                      // Optional: restrict to 4 digits for year
+                      if (currentQuestion.id === "year_established") {
+                        const target = e.target as HTMLInputElement;
+                        if (target.value.length > 4) {
+                          target.value = target.value.slice(0, 4);
+                        }
+                      }
+                    }}
                   />
                 )}
 
