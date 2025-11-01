@@ -100,7 +100,13 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   const handleNext = () => {
     const fieldId = currentQuestion.id as keyof ProfileData;
     let value = formData[fieldId];
-    if (!value || (typeof value === "string" && value.trim() === "")) {
+    // if (!value || (typeof value === "string" && value.trim() === "")) {
+    //   toast.error("Please answer this question before continuing");
+    //   return;
+    // }
+    const isUnanswered = value === undefined || value === null || (typeof value === "string" && value.trim() === "");
+
+    if (isUnanswered) {
       toast.error("Please answer this question before continuing");
       return;
     }
@@ -308,7 +314,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                   </Select>
                 )}
 
-                {currentQuestion.type === "boolean" && (
+                {/* {currentQuestion.type === "boolean" && (
                   <div className="flex items-center gap-4 p-6 border rounded-lg">
                     <Switch
                       checked={formData[currentQuestion.id as keyof ProfileData] as boolean}
@@ -318,7 +324,39 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                       {formData[currentQuestion.id as keyof ProfileData] ? "Yes" : "No"}
                     </Label>
                   </div>
+                )} */}
+
+                {currentQuestion.type === "boolean" && (
+                  <div className="flex flex-col gap-4 p-6 border rounded-lg">
+                    <Label className="text-lg font-medium">Is this a female-owned business?</Label>
+                    <div className="flex items-center gap-6">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="female_owned"
+                          value="true"
+                          checked={formData.female_owned === true}
+                          onChange={() => setFormData({ ...formData, female_owned: true })}
+                          className="h-5 w-5 accent-primary"
+                        />
+                        <span>Yes</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="female_owned"
+                          value="false"
+                          checked={formData.female_owned === false}
+                          onChange={() => setFormData({ ...formData, female_owned: false })}
+                          className="h-5 w-5 accent-primary"
+                        />
+                        <span>No</span>
+                      </label>
+                    </div>
+                  </div>
                 )}
+
 
                 <div className="flex items-center justify-between pt-6">
                   <Button onClick={handlePrevious} variant="outline" disabled={currentStep === 0}>
