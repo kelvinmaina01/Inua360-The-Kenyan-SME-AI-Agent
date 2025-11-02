@@ -12,7 +12,7 @@ import { Progress } from "./ui/progress";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import SMEReport, { ReportData } from "./SMEReport";
-import axiosInstance from "./axios";
+import axiosInstance from "./utils/axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL
 
