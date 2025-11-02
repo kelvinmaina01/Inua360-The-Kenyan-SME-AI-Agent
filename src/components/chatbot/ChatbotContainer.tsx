@@ -51,7 +51,7 @@ export const ChatbotContainer: React.FC<ChatbotContainerProps> = ({ isOpen, onCl
               <MdFullscreen title='Fullscreen' className='my-auto hover:scale-105 cursor-pointer' size={30} />
             )}
           </button>
-          <h3 className="text-lg font-semibold">Cultura-ai Chatbot</h3>
+          <h3 className="text-lg font-semibold">Inua360 Chatbot</h3>
         </div>
         <button
           className="text-white hover:text-gray-200 focus:outline-none"
