@@ -25,44 +25,40 @@ export const ChatbotContainer: React.FC<ChatbotContainerProps> = ({ isOpen, onCl
     setShowSuggestions,
     isListening,
     onToggleVoice,
+    isSpeaking,
   } = useChatbotLogic();
 
   if (!isOpen) return null;
 
   return (
     <div
-      id="chatbotContainer"
-      className={`chatbot-container max-sm:p-0 max-sm:border max-sm:border-blue-600 fixed rounded-lg ${
+      className={`chatbot-container fixed rounded-lg shadow-2xl z-50 flex flex-col ${
         fullScreen
-          ? 'h-[90%] bottom-0 right-0 w-full mx-auto'
-          : 'bottom-5 right-5 md:w-1/3 md:h-1/2 w-[90%]'
-      } h-2/3 bg-white rounded-tl-xl shadow-2xl flex flex-col z-40`}
+          ? 'h-[90%] w-full bottom-0 right-0'
+          : 'bottom-5 right-5 md:w-1/3 md:h-1/2 w-[90%] h-2/3'
+      } bg-white`}
     >
-      <div className="bg-blue-600 text-white p-4 rounded-tl-xl flex justify-between items-center">
-        <div className="flex gap-2">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-[#FB630B] to-[#fc9355] text-white p-4 rounded-tl-xl flex justify-between items-center">
+        <div className="flex gap-2 items-center">
           <button
-            className="text-white hover:text-gray-200 focus:outline-none"
             onClick={() => setFullScreen(!fullScreen)}
             aria-label={fullScreen ? 'Exit fullscreen' : 'Enter fullscreen'}
           >
-            {fullScreen ? (
-              <MdOutlineFullscreenExit title='Exit Fullscreen' className='my-auto hover:scale-105 cursor-pointer' size={30} />
-            ) : (
-              <MdFullscreen title='Fullscreen' className='my-auto hover:scale-105 cursor-pointer' size={30} />
-            )}
+            {fullScreen ? <MdOutlineFullscreenExit size={28} /> : <MdFullscreen size={28} />}
           </button>
-          <h3 className="text-lg font-semibold">Inua360 Chatbot</h3>
+          <h3 className="text-lg font-semibold">Inua360 AI Chatbot</h3>
         </div>
-        <button
-          className="text-white hover:text-gray-200 focus:outline-none"
-          onClick={onClose}
-          aria-label="Close chatbot"
-        >
-          <RxCross2 title='Close Chatbot' className='my-auto hover:scale-105 cursor-pointer' size={30} />
+        <button onClick={onClose} aria-label="Close chatbot">
+          <RxCross2 size={28} />
         </button>
       </div>
 
-      <div ref={chatHistoryRef} id="chatHistory" className="chat-history flex-grow p-4 overflow-y-auto space-y-4">
+      {/* Chat history */}
+      <div
+        ref={chatHistoryRef}
+        className="chat-history flex-grow p-4 overflow-y-auto space-y-4 bg-slate-50"
+      >
         <ChatHistory
           messages={messages}
           showSuggestions={showSuggestions}
@@ -71,9 +67,11 @@ export const ChatbotContainer: React.FC<ChatbotContainerProps> = ({ isOpen, onCl
           setInputValue={setInputValue}
           setShowSuggestions={setShowSuggestions}
           handleSendMessage={handleSendMessage}
+          isSpeaking={isSpeaking}
         />
       </div>
 
+      {/* Input */}
       <ChatInput
         inputValue={inputValue}
         setInputValue={setInputValue}

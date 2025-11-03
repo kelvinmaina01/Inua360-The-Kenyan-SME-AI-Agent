@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI } from '@google/genai';
 
 declare global {
   interface Window {
@@ -7,7 +6,6 @@ declare global {
     webkitSpeechRecognition: any;
   }
 }
-
 
 interface Message {
   sender: 'user' | 'bot';
@@ -18,8 +16,6 @@ const CHATBOT_HISTORY_KEY = 'cultura_chatbot_history';
 const CHATBOT_STATE_KEY = 'cultura_chatbot_state';
 
 export const useChatbotLogic = () => {
-  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GOOGLE_GENAI_API_KEY });
-
   const [messages, setMessages] = useState<Message[]>([
     { sender: 'bot', text: 'Hello! I’m your AI assistant. How can I help you today?' },
   ]);
@@ -31,7 +27,9 @@ export const useChatbotLogic = () => {
   const chatHistoryRef = useRef<HTMLDivElement>(null);
 
   const [isListening, setIsListening] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const recognitionRef = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const quickQstns = [
     { question: 'How do I register my business in Kenya?' },
@@ -43,7 +41,7 @@ export const useChatbotLogic = () => {
     { question: 'What are common financial mistakes by startups?' },
   ];
 
-   // Initialize speech recognition once
+  // Speech recognition setup
   useEffect(() => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
@@ -56,8 +54,6 @@ export const useChatbotLogic = () => {
         const transcript = event.results[0][0].transcript;
         setInputValue(transcript);
         setIsListening(false);
-        // Optionally auto-send after a short delay
-        // setTimeout(() => handleSendMessage(), 300);
       };
 
       recognition.onerror = (event: any) => {
@@ -65,27 +61,16 @@ export const useChatbotLogic = () => {
         setIsListening(false);
       };
 
-      recognition.onend = () => {
-        setIsListening(false);
-      };
-
+      recognition.onend = () => setIsListening(false);
       recognitionRef.current = recognition;
     }
 
-    return () => {
-      if (recognitionRef.current) {
-        recognitionRef.current.stop();
-      }
-    };
+    return () => recognitionRef.current?.stop();
   }, []);
 
   const toggleVoiceInput = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      alert('Voice input is not supported in your browser.');
-      return;
-    }
-
+    if (!SpeechRecognition) return alert('Voice input not supported.');
     if (isListening) {
       recognitionRef.current?.stop();
       setIsListening(false);
@@ -95,15 +80,14 @@ export const useChatbotLogic = () => {
     }
   };
 
-  // Load from sessionStorage on mount
+  // Load chat history
   useEffect(() => {
     const savedMessages = sessionStorage.getItem(CHATBOT_HISTORY_KEY);
-    const savedChatbotOpen = sessionStorage.getItem(CHATBOT_STATE_KEY);
+    const savedState = sessionStorage.getItem(CHATBOT_STATE_KEY);
     if (savedMessages) setMessages(JSON.parse(savedMessages));
-    if (savedChatbotOpen === 'true') setChatbotOpen(true);
+    if (savedState === 'true') setChatbotOpen(true);
   }, []);
 
-  // Save messages & state
   useEffect(() => {
     sessionStorage.setItem(CHATBOT_HISTORY_KEY, JSON.stringify(messages));
   }, [messages]);
@@ -112,7 +96,7 @@ export const useChatbotLogic = () => {
     sessionStorage.setItem(CHATBOT_STATE_KEY, chatbotOpen.toString());
   }, [chatbotOpen]);
 
-  // Generate random suggestions
+  // Random suggestions
   useEffect(() => {
     if (chatbotOpen && randomQuestions.length === 0) {
       const shuffled = [...quickQstns].sort(() => 0.5 - Math.random());
@@ -133,32 +117,45 @@ export const useChatbotLogic = () => {
     if (!inputValue.trim()) return;
 
     const userMsg: Message = { sender: 'user', text: inputValue.trim() };
-    setMessages((prev) => [...prev, userMsg]);
+    setMessages(prev => [...prev, userMsg]);
     setInputValue('');
     setShowSuggestions(false);
     setLoadingMessage(true);
 
-    setMessages((prev) => [...prev, { sender: 'bot', text: 'Thinking...' }]);
+    const placeholderId = `tmp-${Date.now()}`;
+    setMessages(prev => [...prev, { sender: 'bot', text: 'Thinking...' }]);
     scrollToBottom();
 
     try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: [
-          "You are an AI assistant for small and medium enterprises (SMEs). Provide helpful, concise, professional advice on compliance, finance, or business operations. Answer in 1–2 sentences. Avoid markdown.",
-          userMsg.text,
-        ],
+      // Call your backend for AI response (replace with your actual API)
+      const response = await fetch('YOUR_BACKEND_AI_ENDPOINT', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg.text }),
       });
+      const data = await response.json();
+      const botText = data.text ?? 'Sorry, I could not generate a response.';
 
-      const botText = response.text ?? 'Sorry, I couldn’t generate a response.';
-      setMessages((prev) => {
+      // Update message
+      setMessages(prev => {
         const updated = [...prev];
         updated[updated.length - 1] = { sender: 'bot', text: botText };
         return updated;
       });
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setMessages((prev) => [
+
+      // 11Labs TTS playback
+      if (data.audio) {
+        if (!audioRef.current) audioRef.current = new Audio();
+        audioRef.current.src = `data:audio/mpeg;base64,${data.audio}`;
+        audioRef.current.onplay = () => setIsSpeaking(true);
+        audioRef.current.onended = () => setIsSpeaking(false);
+        audioRef.current.onerror = () => setIsSpeaking(false);
+        await audioRef.current.play().catch(err => console.warn(err));
+      }
+
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [
         ...prev,
         { sender: 'bot', text: 'Oops, failed to reach the server.' },
       ]);
@@ -187,5 +184,6 @@ export const useChatbotLogic = () => {
     handleKeyPress,
     isListening,
     onToggleVoice: toggleVoiceInput,
+    isSpeaking,
   };
 };

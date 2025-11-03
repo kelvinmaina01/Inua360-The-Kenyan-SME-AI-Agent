@@ -12,9 +12,6 @@ import { Progress } from "./ui/progress";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import SMEReport, { ReportData } from "./SMEReport";
-import axiosInstance from "./utils/axios";
-
-const API_BASE_URL = import.meta.env.VITE_API_URL
 
 interface SMEProfileBuilderProps {
   onComplete?: () => void;
@@ -98,50 +95,11 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   const progress = ((currentStep + 1) / questions.length) * 100;
 
   const handleNext = () => {
-    const fieldId = currentQuestion.id as keyof ProfileData;
-    let value = formData[fieldId];
-    // if (!value || (typeof value === "string" && value.trim() === "")) {
-    //   toast.error("Please answer this question before continuing");
-    //   return;
-    // }
-    const isUnanswered = value === undefined || value === null || (typeof value === "string" && value.trim() === "");
-
-    if (isUnanswered) {
+    const value = formData[currentQuestion.id as keyof ProfileData];
+    if (!value || (typeof value === "string" && value.trim() === "")) {
       toast.error("Please answer this question before continuing");
       return;
     }
-
-    //Validate the year input for year_established
-    if (fieldId === "year_established") {
-      const year = parseInt(value as string, 10);
-      const currentYear = new Date().getFullYear();
-
-      if (isNaN(year)) {
-        toast.error("Please enter a valid year (e.g., 2018)");
-        return;
-      }
-
-      if (year < 1900 || year > currentYear) {
-        toast.error(`Year must be between 1900 and ${currentYear}`);
-        return;
-      }
-    }
-
-    if (fieldId === "employees") {
-      const num = parseInt(value as string, 10);
-      if (isNaN(num) || num < 0 || !Number.isInteger(num)) {
-        toast.error("Please enter a valid number of employees (e.g., 25)");
-        return;
-      }
-    }
-
-    if (fieldId === "business_name" || fieldId === "location") {
-      if ((value as string).trim().length < 2) {
-        toast.error(`Please enter a valid ${fieldId === "business_name" ? "business name" : "location"}`);
-        return;
-      }
-    }
-
     if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
     else generateReport();
   };
@@ -155,15 +113,6 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
     try {
       localStorage.setItem("sme_profile_data", JSON.stringify(formData));
       await new Promise(res => setTimeout(res, 1500));
-
-      try {
-        // Send profile data to Django API
-        const response = await axiosInstance.post("/api/profiles/", formData);
-        console.log("Profile saved:", response.data);
-      } catch (error) {
-        console.error("Error saving profile:", error);
-        toast.error("Failed to save SME profile to backend.");
-      }
 
       const mockReport: ReportData = {
         businessName: formData.business_name,
@@ -282,17 +231,6 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                     placeholder={currentQuestion.placeholder}
                     className="text-lg p-6"
                     autoFocus
-                    min={currentQuestion.id === "year_established" ? "1900" : undefined}
-                    max={currentQuestion.id === "year_established" ? new Date().getFullYear().toString() : undefined}
-                    onInput={(e) => {
-                      // Optional: restrict to 4 digits for year
-                      if (currentQuestion.id === "year_established") {
-                        const target = e.target as HTMLInputElement;
-                        if (target.value.length > 4) {
-                          target.value = target.value.slice(0, 4);
-                        }
-                      }
-                    }}
                   />
                 )}
 
@@ -314,7 +252,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                   </Select>
                 )}
 
-                {/* {currentQuestion.type === "boolean" && (
+                {currentQuestion.type === "boolean" && (
                   <div className="flex items-center gap-4 p-6 border rounded-lg">
                     <Switch
                       checked={formData[currentQuestion.id as keyof ProfileData] as boolean}
@@ -324,39 +262,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
                       {formData[currentQuestion.id as keyof ProfileData] ? "Yes" : "No"}
                     </Label>
                   </div>
-                )} */}
-
-                {currentQuestion.type === "boolean" && (
-                  <div className="flex flex-col gap-4 p-6 border rounded-lg">
-                    <Label className="text-lg font-medium">Is this a female-owned business?</Label>
-                    <div className="flex items-center gap-6">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="female_owned"
-                          value="true"
-                          checked={formData.female_owned === true}
-                          onChange={() => setFormData({ ...formData, female_owned: true })}
-                          className="h-5 w-5 accent-primary"
-                        />
-                        <span>Yes</span>
-                      </label>
-
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="radio"
-                          name="female_owned"
-                          value="false"
-                          checked={formData.female_owned === false}
-                          onChange={() => setFormData({ ...formData, female_owned: false })}
-                          className="h-5 w-5 accent-primary"
-                        />
-                        <span>No</span>
-                      </label>
-                    </div>
-                  </div>
                 )}
-
 
                 <div className="flex items-center justify-between pt-6">
                   <Button onClick={handlePrevious} variant="outline" disabled={currentStep === 0}>
@@ -377,3 +283,5 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
 };
 
 export default SMEProfileBuilder;
+
+ 

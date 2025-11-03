@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa6";
+import { Mic, MicOff, Send } from 'lucide-react';
 
 interface ChatInputProps {
   inputValue: string;
@@ -19,42 +19,41 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   onToggleVoice,
 }) => {
   return (
-    <div className="p-4 border-t border-gray-200 flex items-center gap-2">
+    <div className="border-t p-4 bg-white/70 backdrop-blur-sm">
+      <div className="flex items-center gap-3">
+        {/* Input */}
+        <input
+          type="text"
+          placeholder="Ask your AI assistant..."
+          className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FB630B]"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
+
+        {/* Mic button */}
         <button
-            type="button"
-            onClick={onToggleVoice}
-            className={`p-2 rounded-full ${
+          type="button"
+          onClick={onToggleVoice}
+          className={`p-3 rounded-full shadow-md transition-colors ${
             isListening
-                ? 'bg-red-100 text-red-600'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            } transition-colors`}
-            aria-label={isListening ? "Stop listening" : "Start voice input"}
-            title={isListening ? "Stop listening" : "Speak to send message"}
+              ? 'bg-red-500 text-white'
+              : 'bg-[#FB630B] text-white hover:bg-[#fc9355]'
+          }`}
+          title={isListening ? 'Stop listening' : 'Speak'}
         >
-            {isListening ? (
-            <FaMicrophoneSlash size={20} />
-            ) : (
-            <FaMicrophone size={20} />
-            )}
+          {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
         </button>
-      <input
-        type="text"
-        id="chatInput"
-        placeholder="Type your message..."
-        className="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mr-3"
-        value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-        onKeyPress={handleKeyPress}
-      />
-      <button
-        id="sendMessage"
-        className="px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
-        onClick={handleSendMessage}
-      >
-        Send
-      </button>
+
+        {/* Send button */}
+        <button
+          onClick={handleSendMessage}
+          className="p-3 rounded-lg bg-[#FB630B] hover:bg-[#fc9355] text-white flex items-center justify-center"
+          title="Send message"
+        >
+          <Send className="h-4 w-4" />
+        </button>
+      </div>
     </div>
   );
 };

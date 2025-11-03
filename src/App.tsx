@@ -9,16 +9,12 @@ import ComplianceAgent from "./pages/ComplianceAgent";
 import FinancialAgent from "./pages/FinancialAgent";
 import InteractiveAgentPage from "./pages/InteractiveAgentPage";
 import NotFound from "./pages/NotFound";
+import { FloatingChatBubble } from "@/components/chatbot/FloatingChatBubble"; // <-- NEW
 import { useState } from 'react';
-import { ChatbotContainer } from "@/components/chatbot/ChatbotContainer";
-import { TbMessageChatbotFilled } from "react-icons/tb";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-
-  const [chatbotOpen, setChatbotOpen] = useState(false);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -32,15 +28,12 @@ const App = () => {
               <Route path="/compliance-agent" element={<ComplianceAgent />} />
               <Route path="/financial-agent" element={<FinancialAgent />} />
               <Route path="/interactive-agent" element={<InteractiveAgentPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-            {!chatbotOpen && (
-              <button onClick={() => setChatbotOpen(true)} className="fixed right-4 bottom-4 md:right-6 md:bottom-6 z-50 opacity-80 hover:opacity-100" aria-label="Open AI assistant">
-                <TbMessageChatbotFilled size={48} className="text-blue-600 hover:scale-110 transition-transform" />
-              </button>
-            )}
-            <ChatbotContainer isOpen={chatbotOpen} onClose={() => setChatbotOpen(false)} />
+
+            {/* Floating AI Chat Bubble */}
+            <FloatingChatBubble />
+
           </div>
         </BrowserRouter>
       </TooltipProvider>
