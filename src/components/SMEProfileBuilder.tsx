@@ -12,6 +12,8 @@ import { Progress } from "./ui/progress";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import SMEReport, { ReportData } from "./SMEReport";
+import axiosInstance from "./utils/axios";
+
 
 interface SMEProfileBuilderProps {
   onComplete?: () => void;
@@ -26,7 +28,7 @@ export interface ProfileData {
   employees: string;
   business_size: string;
   annual_revenue: string;
-  growth_last_yr: string;
+  growth_last_year: string;
   funding_status: string;
   ownership_type: string;
   female_owned: boolean;
@@ -49,21 +51,22 @@ const questions = [
     id: "funding_status",
     question: "What's your current funding status?",
     type: "select",
-    options: [
-      "Bootstrapped (Self-funded)",
-      "Seed Funded (Early stage)",
-      "Series A (Growth stage)",
-      "Series B+ (Scaling)",
-      "Not Seeking (Stable)"
-    ]
+    options: ["Bootstrapped", "Seed Funded", "Series A", "Series B+"],
+    // options: [
+    //   "Bootstrapped (Self-funded)",
+    //   "Seed Funded (Early stage)",
+    //   "Series A (Growth stage)",
+    //   "Series B+ (Scaling)",
+    //   "Not Seeking (Stable)"
+    // ]
   },
   { id: "ownership_type", question: "What type of ownership structure does your business have?", type: "select", options: ["Sole Proprietor", "Partnership", "Limited Company", "Cooperative"] },
   { id: "female_owned", question: "Is this a female-owned business?", type: "boolean" },
   { id: "location", question: "Where is your business located?", type: "text", placeholder: "e.g., Nairobi, Kenya" },
   { id: "main_challenges", question: "What are your main business challenges? (comma separated)", type: "text", placeholder: "e.g., access to finance, market reach" },
   { id: "digital_tools_used", question: "Which digital tools does your business use? (comma separated)", type: "text", placeholder: "e.g., WhatsApp, Excel, QuickBooks" },
-  { id: "tech_adoption_level", question: "How would you rate your technology adoption?", type: "select", options: ["Low", "Medium", "High", "Very High"] },
-  { id: "remote_work_policy", question: "What's your remote work policy?", type: "select", options: ["Fully Remote", "Hybrid", "On-site Only", "Flexible"] },
+  { id: "tech_adoption_level", question: "How would you rate your technology adoption?", type: "select", options: ["None", "Low", "Medium", "High"] },
+  { id: "remote_work_policy", question: "What's your remote work policy?", type: "select", options: ["None", "Partial", "Full"] },
 ];
 
 const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps = {}) => {
@@ -80,7 +83,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
     employees: initialData?.employees || "",
     business_size: initialData?.business_size || "",
     annual_revenue: initialData?.annual_revenue || "",
-    growth_last_yr: initialData?.growth_last_yr || "",
+    growth_last_year: initialData?.growth_last_year || "",
     funding_status: initialData?.funding_status || "",
     ownership_type: initialData?.ownership_type || "",
     female_owned: initialData?.female_owned || false,
@@ -108,9 +111,35 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
     if (currentStep > 0) setCurrentStep(prev => prev - 1);
   };
 
+  const submitProfile = async () => {
+    try {
+      // ✅ Convert numeric fields and send null if empty
+      const sanitizedData = {
+        ...formData,
+        employees: formData.employees ? parseInt(formData.employees) : null,
+        annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
+        growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
+        year_established: formData.year_established ? parseInt(formData.year_established) : null,
+      };
+      // Make POST request to your backend endpoint
+      const response = await axiosInstance.post("/api/profiles/", sanitizedData);
+
+      // Optionally handle success response
+      toast.success("Profile data submitted successfully!");
+      console.log("Profile response:", response.data);
+
+      return response.data;
+    } catch (error) {
+      console.error("Error submitting profile:", error);
+      toast.error("Failed to submit profile data!");
+      throw error; // rethrow to handle it in generateReport if needed
+    }
+  }
+
   const generateReport = async () => {
     setIsGeneratingReport(true);
     try {
+      await submitProfile();
       localStorage.setItem("sme_profile_data", JSON.stringify(formData));
       await new Promise(res => setTimeout(res, 1500));
 
@@ -126,7 +155,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
         financialSnapshot: {
           employees: parseInt(formData.employees) || 0,
           annual_revenue: parseInt(formData.annual_revenue) || 0,
-          growth_last_yr: parseFloat(formData.growth_last_yr) || 0,
+          growth_last_year: parseFloat(formData.growth_last_year) || 0,
           funding_status: formData.funding_status,
         },
         techOperations: {
@@ -138,7 +167,7 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
         suggestions: [
           `Explore AI-powered analytics given your ${formData.tech_adoption_level} tech adoption.`,
           `Invest in team development for your ${formData.employees} employees.`,
-          `Your ${formData.growth_last_yr || 0}% growth last year shows scaling potential.`,
+          `Your ${formData.growth_last_year || 0}% growth last year shows scaling potential.`,
         ],
         complianceScore: Math.floor(Math.random() * 30) + 65,
         sectorAverage: formData.sector === "Technology" ? 78 : 72,

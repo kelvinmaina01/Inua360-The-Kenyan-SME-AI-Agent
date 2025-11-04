@@ -55,7 +55,7 @@ export interface ReportData {
   financialSnapshot: {
     employees: number;
     annual_revenue: number;
-    growth_last_yr: number;
+    growth_last_year: number;
     funding_status: string;
   };
   techOperations: {
@@ -152,7 +152,7 @@ const SMEReport = ({ report }: SMEReportProps) => {
 💰 FINANCIAL SNAPSHOT
 • Employees: ${report.financialSnapshot.employees}
 • Revenue: $${report.financialSnapshot.annual_revenue.toLocaleString()}
-• Growth: ${report.financialSnapshot.growth_last_yr}%
+• Growth: ${report.financialSnapshot.growth_last_year}%
 • Funding: ${report.financialSnapshot.funding_status}
 
 ⚡ TECH & OPERATIONS
@@ -281,7 +281,7 @@ ${report.summary}`;
             <div>
               <p className="text-sm text-muted-foreground">Growth Last Year</p>
               <p className="text-2xl font-bold text-secondary">
-                {report.financialSnapshot.growth_last_yr}%
+                {report.financialSnapshot.growth_last_year}%
               </p>
             </div>
             <div>
