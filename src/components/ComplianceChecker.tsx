@@ -1,4 +1,3 @@
-// src/pages/ComplianceWizard.tsx
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -21,40 +20,9 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import html2pdf from "html2pdf.js";
+import axiosInstance from "./utils/axios";
 
-/**
- * ComplianceWizard.tsx
- *
- * Single-page wizard that walks the SME through 6 compliance documents:
- * 1. Business Registration Certificate
- * 2. KRA PIN Certificate
- * 3. County Business Permit
- * 4. NSSF Registration
- * 5. NHIF Registration
- * 6. Tax Compliance Certificate
- *
- * Flow:
- * - Manual Next / Back navigation
- * - Upload -> Uploading -> Validating -> Result
- * - User can Skip a step (will mark as "skipped")
- * - After all steps, show Final Summary (with aggregated AI recommendations)
- *
- * Backend expectations:
- * - POST ${API_BASE}/api/documents/         (multipart/form-data: file, document_type, optional profile)
- * - POST ${API_BASE}/api/documents/{id}/validate/   (trigger validation; may be synchronous)
- * - GET  ${API_BASE}/api/documents/{id}/  (optional: fetch stored doc + validation result)
- *
- * Environment:
- * - VITE_API_BASE environment variable (e.g., VITE_API_BASE=http://localhost:8080/compliance-agent)
- *
- * Notes:
- * - This file intentionally does not send raw files to any LLM; backend must do extraction & call the LLM.
- * - The frontend expects validation result JSON: { valid: boolean, reason?: string, recommendations?: string[], confidence?: number }
- */
 
-/* ---------------------------
-   Types
-   --------------------------- */
 type DocState = "not_started" | "uploading" | "validating" | "validated" | "needs_review" | "skipped";
 
 interface ValidationResult {
@@ -76,16 +44,6 @@ interface Step {
   validation?: ValidationResult | null;
 }
 
-/* ---------------------------
-   Config
-   --------------------------- */
-  // const API_BASE = (import.meta.env.VITE_API_BASE as string) || "http://127.0.0.1:8000";
-
-const API_BASE = (import.meta.env.VITE_API_BASE as string) || "http://localhost:8080/compliance-agent";
-
-/* ---------------------------
-   Animations
-   --------------------------- */
 const containerVariants = {
   enter: { opacity: 0, y: 10 },
   center: { opacity: 1, y: 0 },
@@ -194,51 +152,44 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
       const profile = localStorage.getItem("sme_profile_data");
       if (profile) fd.append("profile", profile);
 
-      const uploadResp = await fetch(`${API_BASE}/api/documents/`, {
-        method: "POST",
-        body: fd,
+      // 2.) Upload the file to backend
+      const uploadRes = await axiosInstance.post("/api/documents/", fd, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
-      if (!uploadResp.ok) {
-        const text = await uploadResp.text().catch(() => "");
-        throw new Error(text || "Upload failed");
+      const uploadData = uploadRes.data;
+      const serverDocId = uploadData.id ?? uploadData.document_id ?? null;
+      if (!serverDocId) {
+        throw new Error("No document ID returned from server.");
       }
 
-      const uploadJson = await uploadResp.json();
-      const serverDocId = uploadJson.id ?? uploadJson.pk ?? uploadJson.document_id ?? null;
-
-      // Move to validating
       updateStep(stepId, { state: "validating", serverDocId });
+      toast.loading("Validating with AI...");
 
-      // 2) Trigger validation
-      // Backend may do validation synchronously and respond with result,
-      // or it may queue and we need to poll. We'll attempt synchronous call first,
-      // and if backend returns a 202 or no JSON, we fall back to polling GET /api/documents/{id}/
-      const validateResp = await fetch(`${API_BASE}/api/documents/${serverDocId}/validate/`, {
-        method: "POST",
-      });
+       // ✅ 3. Trigger validation API
+      try {
+        const validateRes = await axiosInstance.post(`/api/documents/${serverDocId}/validate/`);
+        const val = validateRes.data?.validation ?? validateRes.data;
 
-      if (!validateResp.ok) {
-        // If synchronous validation isn't available, backend might still have queued job.
-        // We'll attempt to poll GET endpoint for result (simple fallback).
-        updateStep(stepId, { state: "validating" });
+        if (val && typeof val.valid !== "undefined") {
+          applyValidationResult(stepId, serverDocId, val);
+          toast.dismiss();
+          return;
+        }
+
+        // If no result immediately, start polling
         await pollForValidationResult(serverDocId, stepId);
-        toast.dismiss();
-        return;
+      } catch (err) {
+        console.warn("Validation not ready, polling...");
+        await pollForValidationResult(serverDocId, stepId);
       }
 
-      // If validation returned a JSON result, handle it
-      const valJson = await validateResp.json().catch(() => null);
-      if (valJson && typeof valJson.valid !== "undefined") {
-        applyValidationResult(stepId, serverDocId, valJson as ValidationResult);
-        return;
-      }
-
-      // If not, poll for result
-      await pollForValidationResult(serverDocId, stepId);
     } catch (err: any) {
-      console.error("Upload/validate error:", err);
-      toast.error("Upload or validation failed. Please try again.");
+      console.error("Upload or validation failed:", err)
+      toast.dismiss();
+
+      const msg = err.response?.data?.error || err.response?.data?.detail || err.message || "Upload or validation failed.";
+      toast.error(msg);
       updateStep(stepId, { state: "not_started", uploadedFileName: undefined, uploadedAt: undefined });
     } finally {
       toast.dismiss();
@@ -250,9 +201,9 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
     const start = Date.now();
     while (Date.now() - start < timeoutMs) {
       try {
-        const res = await fetch(`${API_BASE}/api/documents/${serverDocId}/`);
-        if (res.ok) {
-          const json = await res.json();
+        const res = await axiosInstance.get(`/api/documents/${serverDocId}/`);
+        if (res.status === 200) {
+          const json = await res.data;
           const val = json.validation_result ?? json.validation ?? json;
           if (val && typeof val.valid !== "undefined") {
             applyValidationResult(stepId, serverDocId, val as ValidationResult);
