@@ -137,64 +137,62 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
      --------------------------- */
 
   // Upload the file to backend and call validate endpoint.
-  // The backend should extract text, mask sensitive parts, call LLM, and return JSON.
-  async function uploadAndValidateFile(stepId: string, file: File) {
-    // Update UI to uploading
-    updateStep(stepId, { state: "uploading", uploadedFileName: file.name, uploadedAt: Date.now() });
+async function uploadAndValidateFile(stepId: string, file: File) {
+  // Update UI to uploading
+  updateStep(stepId, { state: "uploading", uploadedFileName: file.name, uploadedAt: Date.now() });
 
-    try {
-      // 1) Upload file
-      const fd = new FormData();
-      fd.append("file", file);
-      fd.append("document_type", stepId);
+  try {
+    // 1) Upload file
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("document_type", stepId);
 
-      // optional: include profile info from localStorage if available
-      const profile = localStorage.getItem("sme_profile_data");
-      if (profile) fd.append("profile", profile);
+    // optional: include profile info from localStorage if available
+    const profile = localStorage.getItem("sme_profile_data");
+    if (profile) fd.append("profile", profile);
 
-      // 2.) Upload the file to backend
-      const uploadRes = await axiosInstance.post("/api/documents/", fd, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+    // 2.) Upload the file to backend
+    const uploadRes = await axiosInstance.post("/api/documents/", fd); // ✅ removed manual Content-Type
 
-      const uploadData = uploadRes.data;
-      const serverDocId = uploadData.id ?? uploadData.document_id ?? null;
-      if (!serverDocId) {
-        throw new Error("No document ID returned from server.");
-      }
-
-      updateStep(stepId, { state: "validating", serverDocId });
-      toast.loading("Validating with AI...");
-
-       // ✅ 3. Trigger validation API
-      try {
-        const validateRes = await axiosInstance.post(`/api/documents/${serverDocId}/validate/`);
-        const val = validateRes.data?.validation ?? validateRes.data;
-
-        if (val && typeof val.valid !== "undefined") {
-          applyValidationResult(stepId, serverDocId, val);
-          toast.dismiss();
-          return;
-        }
-
-        // If no result immediately, start polling
-        await pollForValidationResult(serverDocId, stepId);
-      } catch (err) {
-        console.warn("Validation not ready, polling...");
-        await pollForValidationResult(serverDocId, stepId);
-      }
-
-    } catch (err: any) {
-      console.error("Upload or validation failed:", err)
-      toast.dismiss();
-
-      const msg = err.response?.data?.error || err.response?.data?.detail || err.message || "Upload or validation failed.";
-      toast.error(msg);
-      updateStep(stepId, { state: "not_started", uploadedFileName: undefined, uploadedAt: undefined });
-    } finally {
-      toast.dismiss();
+    const uploadData = uploadRes.data;
+    const serverDocId = uploadData.id ?? uploadData.document_id ?? null;
+    if (!serverDocId) {
+      throw new Error("No document ID returned from server.");
     }
+
+    updateStep(stepId, { state: "validating", serverDocId });
+    toast.loading("Validating with AI...");
+
+    // ✅ 3. Trigger validation API
+    try {
+      const validateRes = await axiosInstance.post(`/api/documents/${serverDocId}/validate/`);
+      const val = validateRes.data?.validation ?? validateRes.data;
+
+      if (val && typeof val.valid !== "undefined") {
+        applyValidationResult(stepId, serverDocId, val);
+        toast.dismiss();
+        return;
+      }
+
+      // If no result immediately, start polling
+      await pollForValidationResult(serverDocId, stepId);
+    } catch (err) {
+      console.warn("Validation not ready, polling...");
+      await pollForValidationResult(serverDocId, stepId);
+    }
+
+  } catch (err: any) {
+    console.error("Upload or validation failed:", err)
+    toast.dismiss();
+
+    const msg = err.response?.data?.error || err.response?.data?.detail || err.message || "Upload or validation failed.";
+    toast.error(msg);
+    updateStep(stepId, { state: "not_started", uploadedFileName: undefined, uploadedAt: undefined });
+  } finally {
+    toast.dismiss();
   }
+}
+
 
   // Poll GET /api/documents/{id}/ until validation result exists or timeout
   async function pollForValidationResult(serverDocId: string | number, stepId: string, timeoutMs = 30000, intervalMs = 2000) {
