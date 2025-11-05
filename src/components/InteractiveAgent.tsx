@@ -136,18 +136,25 @@ const InteractiveAgent: React.FC = () => {
   // Post chat to backend
   const postChat = async (message: string) => {
     const payload = { message, profile: profileData ?? undefined };
-    const res = await fetch(`${API_BASE}/api/agent/chat/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+   const res = await fetch(`${API_BASE}/api/ai/analyze/`, {  // removed trailing slash
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload),
+});
 
     if (!res.ok) {
       const text = await res.text().catch(() => "");
       throw new Error(text || "AI request failed");
     }
-    return (await res.json()) as { text: string; audio?: string; meta?: any };
-  };
+     const data = await res.json();
+  console.log("AI response raw:", data); // <-- logs full backend response
+  return data; // <-- must still return the data so handleSend works
+};
+
+// };
+//     return (await res.json()) as { text: string; audio?: string; meta?: any };
+//   };
+  
 
   // Send handler (text or quick prompt)
   const handleSend = async (fromQuickPrompt?: string) => {

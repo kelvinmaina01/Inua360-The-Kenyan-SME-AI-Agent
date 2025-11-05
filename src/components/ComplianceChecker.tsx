@@ -146,12 +146,13 @@ async function uploadAndValidateFile(stepId: string, file: File) {
     const fd = new FormData();
     fd.append("file", file);
     fd.append("document_type", stepId);
+// use profile ID not full JSON object
+const profileId = localStorage.getItem("sme_profile_id");
+if (profileId) {
+  fd.append("profile", profileId);
+}
 
-    // optional: include profile info from localStorage if available
-    const profile = localStorage.getItem("sme_profile_data");
-    if (profile) fd.append("profile", profile);
 
-    // 2.) Upload the file to backend
     const uploadRes = await axiosInstance.post("/api/documents/", fd); // ✅ removed manual Content-Type
 
     const uploadData = uploadRes.data;
@@ -183,6 +184,7 @@ async function uploadAndValidateFile(stepId: string, file: File) {
 
   } catch (err: any) {
     console.error("Upload or validation failed:", err)
+
     toast.dismiss();
 
     const msg = err.response?.data?.error || err.response?.data?.detail || err.message || "Upload or validation failed.";

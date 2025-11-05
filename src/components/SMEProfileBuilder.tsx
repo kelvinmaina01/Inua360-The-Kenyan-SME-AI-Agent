@@ -95,46 +95,53 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   });
 
   const currentQuestion = questions[currentStep];
-  const progress = ((currentStep + 1) / questions.length) * 100;
+const progress = ((currentStep + 1) / questions.length) * 100;
 
-  const handleNext = () => {
-    const value = formData[currentQuestion.id as keyof ProfileData];
+const handleNext = () => {
+  const value = formData[currentQuestion.id as keyof ProfileData];
+
+  // allow boolean always (true + false both valid)
+  if (currentQuestion.type !== "boolean") {
     if (!value || (typeof value === "string" && value.trim() === "")) {
       toast.error("Please answer this question before continuing");
       return;
     }
-    if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
-    else generateReport();
-  };
-
-  const handlePrevious = () => {
-    if (currentStep > 0) setCurrentStep(prev => prev - 1);
-  };
-
-  const submitProfile = async () => {
-    try {
-      // ✅ Convert numeric fields and send null if empty
-      const sanitizedData = {
-        ...formData,
-        employees: formData.employees ? parseInt(formData.employees) : null,
-        annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
-        growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
-        year_established: formData.year_established ? parseInt(formData.year_established) : null,
-      };
-      // Make POST request to your backend endpoint
-      const response = await axiosInstance.post("/api/profiles/", sanitizedData);
-
-      // Optionally handle success response
-      toast.success("Profile data submitted successfully!");
-      console.log("Profile response:", response.data);
-
-      return response.data;
-    } catch (error) {
-      console.error("Error submitting profile:", error);
-      toast.error("Failed to submit profile data!");
-      throw error; // rethrow to handle it in generateReport if needed
-    }
   }
+
+  if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
+  else generateReport();
+};
+
+const handlePrevious = () => {
+  if (currentStep > 0) setCurrentStep(prev => prev - 1);
+};
+
+const submitProfile = async () => {
+  try {
+    // ✅ Convert numeric fields and send null if empty
+    const sanitizedData = {
+      ...formData,
+      employees: formData.employees ? parseInt(formData.employees) : null,
+      annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
+      growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
+      year_established: formData.year_established ? parseInt(formData.year_established) : null,
+    };
+
+    const response = await axiosInstance.post("/api/profiles/", sanitizedData);
+
+     localStorage.setItem("sme_profile_id", response.data.id);
+
+    toast.success("Profile data submitted successfully!");
+    console.log("Profile response:", response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error("Error submitting profile:", error);
+    toast.error("Failed to submit profile data!");
+    throw error;
+  }
+};
+
 
   const generateReport = async () => {
     setIsGeneratingReport(true);

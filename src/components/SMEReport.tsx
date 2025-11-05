@@ -42,6 +42,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 export interface ReportData {
   businessName: string;
@@ -76,6 +77,9 @@ interface SMEReportProps {
 }
 
 const SMEReport = ({ report }: SMEReportProps) => {
+  const navigate = useNavigate();
+
+  
   // ✅ Handle PDF download
   const handleDownloadPDF = () => {
     const element = document.getElementById("sme-report-content");
@@ -434,22 +438,7 @@ ${report.summary}`;
         </Card>
       </div>
 
-      {/* ✅ Continue to Compliance Checker Button */}
-      <div className="flex justify-center pt-6">
-     
-        <Button
-          className="gradient-hero px-6 py-3 text-lg"
-          onClick={() => {
-            toast.success("Navigating to Compliance Checker...");
-            
-
-            // Example if using Next.js:
-            // router.push("/compliance-checker");
-          }}
-        >
-          Continue to Compliance Checker
-        </Button>
-      </div>
+      
     </div>
   );
 };
