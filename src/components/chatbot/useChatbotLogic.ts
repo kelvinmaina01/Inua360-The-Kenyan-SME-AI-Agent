@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { GoogleGenAI } from '@google/genai';
 
 declare global {
   interface Window {
@@ -12,10 +13,12 @@ interface Message {
   text: string;
 }
 
-const CHATBOT_HISTORY_KEY = 'cultura_chatbot_history';
-const CHATBOT_STATE_KEY = 'cultura_chatbot_state';
+const CHATBOT_HISTORY_KEY = 'elevate_chatbot_history';
+const CHATBOT_STATE_KEY = 'elevate_chatbot_state';
 
 export const useChatbotLogic = () => {
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GOOGLE_GENAI_API_KEY });
+
   const [messages, setMessages] = useState<Message[]>([
     { sender: 'bot', text: 'Hello! I’m your AI assistant. How can I help you today?' },
   ]);
@@ -128,13 +131,14 @@ export const useChatbotLogic = () => {
 
     try {
       // Call your backend for AI response (replace with your actual API)
-      const response = await fetch('YOUR_BACKEND_AI_ENDPOINT', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMsg.text }),
-      });
-      const data = await response.json();
-      const botText = data.text ?? 'Sorry, I could not generate a response.';
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: [
+          "You are an AI assistant for small and medium enterprises (SMEs). Provide helpful, concise, professional advice on compliance, finance, or business operations. Answer in 1–2 sentences. Avoid markdown.",
+          userMsg.text,
+        ],
+      })
+      const botText = response.text ?? 'Sorry, I could not generate a response.';
 
       // Update message
       setMessages(prev => {
@@ -143,15 +147,15 @@ export const useChatbotLogic = () => {
         return updated;
       });
 
-      // 11Labs TTS playback
-      if (data.audio) {
-        if (!audioRef.current) audioRef.current = new Audio();
-        audioRef.current.src = `data:audio/mpeg;base64,${data.audio}`;
-        audioRef.current.onplay = () => setIsSpeaking(true);
-        audioRef.current.onended = () => setIsSpeaking(false);
-        audioRef.current.onerror = () => setIsSpeaking(false);
-        await audioRef.current.play().catch(err => console.warn(err));
-      }
+      // // 11Labs TTS playback
+      // if (data.audio) {
+      //   if (!audioRef.current) audioRef.current = new Audio();
+      //   audioRef.current.src = `data:audio/mpeg;base64,${data.audio}`;
+      //   audioRef.current.onplay = () => setIsSpeaking(true);
+      //   audioRef.current.onended = () => setIsSpeaking(false);
+      //   audioRef.current.onerror = () => setIsSpeaking(false);
+      //   await audioRef.current.play().catch(err => console.warn(err));
+      // }
 
     } catch (err) {
       console.error(err);
