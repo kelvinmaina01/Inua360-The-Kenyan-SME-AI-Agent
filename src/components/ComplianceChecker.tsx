@@ -10,10 +10,6 @@ import { ArrowRight, ChevronLeft, Lightbulb, Download } from "lucide-react";
 import html2pdf from "html2pdf.js";
 import FileUploadStep from "@/components/FileUploadStep";
 
-
-
-
-
 interface Step {
   id: string;
   title: string;
@@ -36,7 +32,6 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
   const [currentIndex, setCurrentIndex] = useState(0);
   const [aggregatedRecommendations, setAggregatedRecommendations] = useState<string[]>([]);
 
-  // Initialize steps
   useEffect(() => {
     const stepList: Step[] = [
       { id: "business_registration", title: "Business Registration Certificate", description: "Official certificate from Business Registration Service (BRS).", required: true, state: "not_started" },
@@ -75,15 +70,19 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
   const allDone = steps.every((s) => ["validated", "skipped", "needs_review"].includes(s.state || ""));
 
   return (
-    <div className="max-w-4xl mx-auto py-8 space-y-6">
+    <div className="max-w-4xl w-full mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-6">
       {/* Header + Progress */}
-      <div className="flex items-center justify-between mb-4">
-        <Button variant="outline" onClick={() => navigate("/")}>
-          <ChevronLeft className="h-4 w-4" /> Back to Home
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <Button variant="outline" size="sm" onClick={() => navigate("/")}>
+          <ChevronLeft className="h-4 w-4" /> <span>Back to Home</span>
         </Button>
-        <div className="flex items-center gap-3">
-          <div className="text-sm text-muted-foreground">Step {currentIndex + 1} of {steps.length}</div>
-          <div className="w-48"><Progress value={progressPercent} className="h-3" /></div>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
+          <div className="text-sm text-muted-foreground whitespace-nowrap">
+            Step {currentIndex + 1} of {steps.length}
+          </div>
+          <div className="w-full sm:w-48">
+            <Progress value={progressPercent} className="h-2 sm:h-3" />
+          </div>
         </div>
       </div>
 
@@ -96,6 +95,7 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
             initial="enter"
             animate="center"
             exit="exit"
+            className="w-full"
           >
             <FileUploadStep
               stepId={currentStep.id}
@@ -108,12 +108,23 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
               }}
             />
 
-            <div className="flex justify-between mt-4">
-              <Button variant="ghost" onClick={goBack} disabled={currentIndex === 0}>
-                <ChevronLeft className="h-4 w-4" /> Back
+            <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={goBack}
+                disabled={currentIndex === 0}
+                className="w-full sm:w-auto"
+              >
+                <ChevronLeft className="h-4 w-4 mr-2" /> Back
               </Button>
-              <Button onClick={goNext} disabled={currentIndex === steps.length - 1}>
-                Next <ArrowRight className="h-4 w-4" />
+              <Button
+                size="sm"
+                onClick={goNext}
+                disabled={currentIndex === steps.length - 1}
+                className="w-full sm:w-auto"
+              >
+                Next <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>
           </motion.div>
@@ -124,46 +135,57 @@ const ComplianceWizard: React.FC<{ onComplete?: () => void }> = ({ onComplete })
       {(currentIndex === steps.length - 1 || allDone) && (
         <Card id="wizard-summary" className="shadow-lg mt-6">
           <CardHeader className="bg-muted/20">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div className="flex items-center gap-3">
                 <Lightbulb className="h-6 w-6 text-amber-600" />
-                <CardTitle>Summary & AI Recommendations</CardTitle>
+                <CardTitle className="text-lg">Summary & AI Recommendations</CardTitle>
               </div>
-              <div className="text-sm text-muted-foreground">
-                {steps.filter(s => s.state === "validated").length} validated • {steps.filter(s => s.state === "skipped").length} skipped
+              <div className="text-sm text-muted-foreground text-right">
+                {steps.filter(s => s.state === "validated").length} validated •{" "}
+                {steps.filter(s => s.state === "skipped").length} skipped
               </div>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
-            {steps.map((s) => (
-              <div key={s.id} className="flex justify-between border-b py-2">
-                <div>
-                  <div className="font-medium">{s.title}</div>
-                  <div className="text-xs text-muted-foreground">{s.description}</div>
+            <div className="divide-y">
+              {steps.map((s) => (
+                <div key={s.id} className="py-3 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium truncate">{s.title}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{s.description}</div>
+                  </div>
+                  <div className="text-sm whitespace-nowrap mt-1 sm:mt-0">
+                    {s.state === "validated" && <span className="text-green-600">Validated</span>}
+                    {s.state === "needs_review" && <span className="text-yellow-600">Needs review</span>}
+                    {s.state === "skipped" && <span className="text-muted-foreground">Skipped</span>}
+                    {s.state === "not_started" && <span className="text-muted-foreground">Not started</span>}
+                  </div>
                 </div>
-                <div className="text-sm">
-                  {s.state === "validated" && <span className="text-green-600">Validated</span>}
-                  {s.state === "needs_review" && <span className="text-yellow-600">Needs review</span>}
-                  {s.state === "skipped" && <span className="text-muted-foreground">Skipped</span>}
-                  {s.state === "not_started" && <span className="text-muted-foreground">Not started</span>}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             <div className="pt-4">
-              <h4 className="font-semibold">AI Recommendations</h4>
+              <h4 className="font-semibold text-base">AI Recommendations</h4>
               {aggregatedRecommendations.length === 0 ? (
-                <p className="text-sm text-muted-foreground">No recommendations yet — upload and validate documents to receive personalized suggestions.</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  No recommendations yet — upload and validate documents to receive personalized suggestions.
+                </p>
               ) : (
-                <ul className="list-disc list-inside mt-2">
-                  {aggregatedRecommendations.map((r, idx) => <li key={idx} className="text-sm text-muted-foreground">{r}</li>)}
+                <ul className="list-disc list-inside mt-2 space-y-1">
+                  {aggregatedRecommendations.map((r, idx) => (
+                    <li key={idx} className="text-sm text-muted-foreground">{r}</li>
+                  ))}
                 </ul>
               )}
             </div>
 
-            <div className="flex justify-end gap-2 mt-4">
-              <Button variant="outline" onClick={downloadSummary}><Download className="h-4 w-4 mr-2" /> Download Report</Button>
-              <Button onClick={() => onComplete?.()}>Finish & Exit <ArrowRight className="h-4 w-4 ml-2" /></Button>
+            <div className="flex flex-col sm:flex-row justify-end gap-2 mt-6">
+              <Button variant="outline" size="sm" onClick={downloadSummary} className="w-full sm:w-auto">
+                <Download className="h-4 w-4 mr-2" /> Download Report
+              </Button>
+              <Button size="sm" onClick={() => onComplete?.()} className="w-full sm:w-auto">
+                Finish & Exit <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
             </div>
           </CardContent>
         </Card>
