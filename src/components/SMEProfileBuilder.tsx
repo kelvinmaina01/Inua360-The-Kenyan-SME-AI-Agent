@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { Switch } from "./ui/switch";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Progress } from "./ui/progress";
@@ -13,7 +12,6 @@ import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import SMEReport, { ReportData } from "./SMEReport";
 import axiosInstance from "./utils/axios";
-
 
 interface SMEProfileBuilderProps {
   onComplete?: () => void;
@@ -39,32 +37,71 @@ export interface ProfileData {
   remote_work_policy: string;
 }
 
+const currentYear = new Date().getFullYear();
+
+const commonDigitalTools = [
+  "WhatsApp",
+  "Excel",
+  "QuickBooks",
+  "Zoho",
+  "Google Workspace",
+  "Shopify",
+  "Facebook",
+  "Instagram",
+  "Telegram",
+  "Xero",
+];
+
+const commonChallenges = [
+  "Access to finance",
+  "Market reach",
+  "Skilled labor shortage",
+  "Regulatory compliance",
+  "Technology adoption",
+  "Supply chain issues",
+  "Competition",
+  "Customer retention",
+];
+
 const questions = [
   { id: "business_name", question: "What's your business name?", type: "text", placeholder: "e.g., TechVentures Kenya Ltd" },
   { id: "country", question: "Which country is your business located in?", type: "select", options: ["Kenya"] },
   { id: "sector", question: "What sector does your business operate in?", type: "select", options: ["Agriculture", "Retail", "Manufacturing", "Services", "Technology", "Health", "Food & Beverage"] },
-  { id: "year_established", question: "What year was your business established?", type: "number", placeholder: "e.g., 2018" },
+  { 
+    id: "year_established", 
+    question: "What year was your business established?", 
+    type: "number", 
+    placeholder: "e.g., 2018",
+  },
   { id: "employees", question: "How many employees do you have?", type: "number", placeholder: "e.g., 25" },
-  { id: "business_size", question: "What is the size of your business?", type: "select", options: ["Micro", "Small", "Medium", "Large"] },
+  { 
+    id: "business_size", 
+    question: "What is the size of your business?", 
+    type: "select", 
+    options: [
+      "Micro (1-9 employees)", 
+      "Small (10-49 employees)", 
+      "Medium (50-199 employees)", 
+      "Large (200+ employees)"
+    ] 
+  },
   { id: "annual_revenue", question: "What's your average  annual revenue in Ksh?", type: "number", placeholder: "e.g., 500000" },
   {
     id: "funding_status",
     question: "What's your current funding status?",
     type: "select",
-    options: ["Bootstrapped", "Seed Funded", "Series A", "Series B+"],
-    // options: [
-    //   "Bootstrapped (Self-funded)",
-    //   "Seed Funded (Early stage)",
-    //   "Series A (Growth stage)",
-    //   "Series B+ (Scaling)",
-    //   "Not Seeking (Stable)"
-    // ]
+    options: [
+      "Bootstrapped (Self-funded)",
+      "Seed Funded (Early stage)",
+      "Series A (Growth stage)",
+      "Series B+ (Scaling)"
+    ]
   },
   { id: "ownership_type", question: "What type of ownership structure does your business have?", type: "select", options: ["Sole Proprietor", "Partnership", "Limited Company", "Cooperative"] },
   { id: "female_owned", question: "Is this a female-owned business?", type: "boolean" },
   { id: "location", question: "Where is your business located?", type: "text", placeholder: "e.g., Nairobi, Kenya" },
-  { id: "main_challenges", question: "What are your main business challenges? (comma separated)", type: "text", placeholder: "e.g., access to finance, market reach" },
-  { id: "digital_tools_used", question: "Which digital tools does your business use? (comma separated)", type: "text", placeholder: "e.g., WhatsApp, Excel, QuickBooks" },
+  { id: "main_challenges", question: "What are your main business challenges?", type: "multiselect", options: commonChallenges },
+  { id: "digital_tools_used", question: "Which digital tools does your business use?", type: "multiselect", options: commonDigitalTools },
   { id: "tech_adoption_level", question: "How would you rate your technology adoption?", type: "select", options: ["None", "Low", "Medium", "High"] },
   { id: "remote_work_policy", question: "What's your remote work policy?", type: "select", options: ["None", "Partial", "Full"] },
 ];
@@ -95,53 +132,57 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   });
 
   const currentQuestion = questions[currentStep];
-const progress = ((currentStep + 1) / questions.length) * 100;
+  const progress = ((currentStep + 1) / questions.length) * 100;
 
-const handleNext = () => {
-  const value = formData[currentQuestion.id as keyof ProfileData];
+  const handleNext = () => {
+    const value = formData[currentQuestion.id as keyof ProfileData];
 
-  // allow boolean always (true + false both valid)
-  if (currentQuestion.type !== "boolean") {
-    if (!value || (typeof value === "string" && value.trim() === "")) {
-      toast.error("Please answer this question before continuing");
-      return;
+    if (currentQuestion.type !== "boolean") {
+      if (!value || (typeof value === "string" && value.trim() === "")) {
+        toast.error("Please answer this question before continuing");
+        return;
+      }
     }
-  }
 
-  if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
-  else generateReport();
-};
+    // Year validation
+    if (currentQuestion.id === "year_established") {
+      const year = parseInt(formData.year_established);
+      if (isNaN(year) || year < 1900 || year > currentYear) {
+        toast.error(`Please enter a valid year between 1900 and ${currentYear}`);
+        return;
+      }
+    }
 
-const handlePrevious = () => {
-  if (currentStep > 0) setCurrentStep(prev => prev - 1);
-};
+    if (currentStep < questions.length - 1) setCurrentStep(prev => prev + 1);
+    else generateReport();
+  };
 
-const submitProfile = async () => {
-  try {
-    // ✅ Convert numeric fields and send null if empty
-    const sanitizedData = {
-      ...formData,
-      employees: formData.employees ? parseInt(formData.employees) : null,
-      annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
-      growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
-      year_established: formData.year_established ? parseInt(formData.year_established) : null,
-    };
+  const handlePrevious = () => {
+    if (currentStep > 0) setCurrentStep(prev => prev - 1);
+  };
 
-    const response = await axiosInstance.post("/api/profiles/", sanitizedData);
+  const submitProfile = async () => {
+    try {
+      const sanitizedData = {
+        ...formData,
+        employees: formData.employees ? parseInt(formData.employees) : null,
+        annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
+        growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
+        year_established: formData.year_established ? parseInt(formData.year_established) : null,
+      };
 
-     localStorage.setItem("sme_profile_id", response.data.id);
+      const response = await axiosInstance.post("/api/profiles/", sanitizedData);
 
-    toast.success("Profile data submitted successfully!");
-    console.log("Profile response:", response.data);
+      localStorage.setItem("sme_profile_id", response.data.id);
 
-    return response.data;
-  } catch (error) {
-    console.error("Error submitting profile:", error);
-    toast.error("Failed to submit profile data!");
-    throw error;
-  }
-};
-
+      toast.success("Profile data submitted successfully!");
+      return response.data;
+    } catch (error) {
+      console.error("Error submitting profile:", error);
+      toast.error("Failed to submit profile data!");
+      throw error;
+    }
+  };
 
   const generateReport = async () => {
     setIsGeneratingReport(true);
@@ -288,15 +329,81 @@ const submitProfile = async () => {
                   </Select>
                 )}
 
-                {currentQuestion.type === "boolean" && (
-                  <div className="flex items-center gap-4 p-6 border rounded-lg">
-                    <Switch
-                      checked={formData[currentQuestion.id as keyof ProfileData] as boolean}
-                      onCheckedChange={(checked) => setFormData({ ...formData, [currentQuestion.id]: checked })}
-                    />
-                    <Label className="text-lg cursor-pointer">
-                      {formData[currentQuestion.id as keyof ProfileData] ? "Yes" : "No"}
-                    </Label>
+                {/* Female-owned checkbox version */}
+                {currentQuestion.id === "female_owned" && (
+                  <div className="flex flex-col gap-2 p-6 border rounded-lg">
+                    {["Yes", "No"].map((option) => (
+                      <label key={option} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={
+                            option === "Yes"
+                              ? formData.female_owned === true
+                              : formData.female_owned === false
+                          }
+                          onChange={(e) => {
+                            if (option === "Yes") setFormData({ ...formData, female_owned: e.target.checked });
+                            if (option === "No") setFormData({ ...formData, female_owned: !e.target.checked });
+                          }}
+                        />
+                        {option}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
+                {/* Main challenges multi-select */}
+                {currentQuestion.id === "main_challenges" && (
+                  <div className="space-y-2 p-6 border rounded-lg">
+                    {commonChallenges.map((challenge) => (
+                      <label key={challenge} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={(formData.main_challenges || "")
+                            .split(",")
+                            .map((c) => c.trim())
+                            .includes(challenge)}
+                          onChange={(e) => {
+                            const selected = (formData.main_challenges || "")
+                              .split(",")
+                              .map((c) => c.trim())
+                              .filter((c) => c);
+                            if (e.target.checked) {
+                              selected.push(challenge);
+                            } else {
+                              const index = selected.indexOf(challenge);
+                              if (index > -1) selected.splice(index, 1);
+                            }
+                            setFormData({ ...formData, main_challenges: selected.join(",") });
+                          }}
+                        />
+                        {challenge}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
+                {/* Digital tools multi-select */}
+                {currentQuestion.type === "multiselect" && currentQuestion.id === "digital_tools_used" && (
+                  <div className="space-y-2 p-6 border rounded-lg">
+                    {commonDigitalTools.map((tool) => (
+                      <label key={tool} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={(formData.digital_tools_used || "").split(",").includes(tool)}
+                          onChange={(e) => {
+                            const selected = (formData.digital_tools_used || "").split(",").filter((t) => t);
+                            if (e.target.checked) selected.push(tool);
+                            else {
+                              const index = selected.indexOf(tool);
+                              if (index > -1) selected.splice(index, 1);
+                            }
+                            setFormData({ ...formData, digital_tools_used: selected.join(",") });
+                          }}
+                        />
+                        {tool}
+                      </label>
+                    ))}
                   </div>
                 )}
 
@@ -319,5 +426,3 @@ const submitProfile = async () => {
 };
 
 export default SMEProfileBuilder;
-
- 
