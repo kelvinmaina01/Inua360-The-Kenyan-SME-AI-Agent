@@ -10,4 +10,8 @@ const axiosInstance = axios.create({
     },
 });
 
+// VERY IMPORTANT — disable forced JSON, allow FormData (must be before export)
+axiosInstance.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+axiosInstance.defaults.transformRequest = (data, headers) => data;
+
 export default axiosInstance;
