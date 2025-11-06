@@ -35,7 +35,7 @@ ElevateAI is an AI-powered platform designed to uplift Small and Medium Enterpri
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-org>/ElevateAI.git
+git clone https://github.com/kelvinmaina01/Inua360-The-Kenyan-SME-AI-Agent.git
 cd ElevateAI
 
 # View available branches
