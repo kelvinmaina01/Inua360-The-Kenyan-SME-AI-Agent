@@ -63,6 +63,14 @@ const commonChallenges = [
   "Customer retention",
 ];
 
+const fundingStatusMap: Record<string, string> = {
+  "Bootstrapped (Self-funded)": "Bootstrapped",
+  "Seed Funded (Early stage)": "Seed Funded",
+  "Series A (Growth stage)": "Series A",
+  "Series B+ (Scaling)": "Series B+",
+};
+
+
 const questions = [
   { id: "business_name", question: "What's your business name?", type: "text", placeholder: "e.g., TechVentures Kenya Ltd" },
   { id: "country", question: "Which country is your business located in?", type: "select", options: ["Kenya"] },
@@ -164,21 +172,37 @@ const SMEProfileBuilder = ({ onComplete, initialData }: SMEProfileBuilderProps =
   const submitProfile = async () => {
     try {
       const sanitizedData = {
-        ...formData,
+        business_name: formData.business_name,
+        country: formData.country,
+        sector: formData.sector,
+        year_established: formData.year_established ? parseInt(formData.year_established) : null,
         employees: formData.employees ? parseInt(formData.employees) : null,
+        business_size: formData.business_size || null,
         annual_revenue: formData.annual_revenue ? parseFloat(formData.annual_revenue) : null,
         growth_last_year: formData.growth_last_year ? parseFloat(formData.growth_last_year) : null,
-        year_established: formData.year_established ? parseInt(formData.year_established) : null,
+        funding_status: fundingStatusMap[formData.funding_status] || null,
+        ownership_type: formData.ownership_type || null,
+        female_owned: formData.female_owned,
+        location: formData.location || null,
+        main_challenges: formData.main_challenges || null,
+        digital_tools_used: formData.digital_tools_used || null,
+        tech_adoption_level: formData.tech_adoption_level || null,
+        remote_work_policy: formData.remote_work_policy || null,
       };
+      console.log("Submitting profile:", sanitizedData);
 
-      const response = await axiosInstance.post("/api/profiles/", sanitizedData);
+      const response = await axiosInstance.post("/api/profiles/", JSON.stringify(sanitizedData), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       localStorage.setItem("sme_profile_id", response.data.id);
 
       toast.success("Profile data submitted successfully!");
       return response.data;
     } catch (error) {
-      console.error("Error submitting profile:", error);
+      console.error("Error submitting profile:", error.response?.data || error.message);
       toast.error("Failed to submit profile data!");
       throw error;
     }
