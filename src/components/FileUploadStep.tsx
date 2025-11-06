@@ -71,9 +71,12 @@ const FileUploadStep: React.FC<Props> = ({ stepId, title, description, required,
       fd.append("profile", String(Number(profileId))); // final correct line
 
       const res = await axiosInstance.post("/api/documents/", fd);
-      const serverDocId = res.data.id ?? res.data.document_id ?? null;
+      const serverDocId = res.data.id || res.data.document_id || res.data.doc_id || res.data.document?.id || null;
 
-      if (!serverDocId) throw new Error("No document ID returned from server.");
+      if (!serverDocId){
+        console.error("Unexpected response:", res.data);
+        throw new Error("No document ID returned from server.");
+      } 
 
       setStatus("validating");
       await handleValidate(serverDocId);
