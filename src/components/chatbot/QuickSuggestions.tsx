@@ -17,7 +17,7 @@ export const QuickSuggestions: React.FC<QuickSuggestionsProps> = ({
 }) => {
   return (
     <div className="space-y-3">
-      <p className="text-gray-700 font-semibold">Here are some suggestions you can ask me:</p>
+      {/* <p className="text-gray-700 font-semibold">Here are some suggestions you can ask me:</p>
       <div className={`flex text-xs p-1 gap-2 ${chatbotOpenFullScreen ? 'flex' : 'flex-col'} space-y-2 md:space-y-0 md:space-x-2`}>
         {randomQuestions.map((q, index) => (
           <button
@@ -32,7 +32,7 @@ export const QuickSuggestions: React.FC<QuickSuggestionsProps> = ({
             {q.question}
           </button>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -32,7 +32,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
         />
 
         {/* Mic button */}
-        <button
+        {/* <button
           type="button"
           onClick={onToggleVoice}
           className={`p-3 rounded-full shadow-md transition-colors ${
@@ -43,7 +43,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           title={isListening ? 'Stop listening' : 'Speak'}
         >
           {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
-        </button>
+        </button> */}
 
         {/* Send button */}
         <button
